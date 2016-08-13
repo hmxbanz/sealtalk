@@ -5,11 +5,9 @@
 
 package cn.rongcloud.im.server.network.async;
 
-
 import cn.rongcloud.im.server.network.http.HttpException;
 
 public interface OnDataListener {
-
     /**
      * 异步耗时方法
      * @String parameter 请求传参,可不填
@@ -24,7 +22,6 @@ public interface OnDataListener {
      * @param result 返回结果
      */
     public void onSuccess(int requestCode, Object result);
-
     /**
      * 失败方法（可直接更新UI）
      * @param requestCode 请求码

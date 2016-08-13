@@ -12,7 +12,6 @@ import android.net.NetworkInfo;
 import cn.rongcloud.im.server.network.http.HttpException;
 import io.rong.eventbus.EventBus;
 
-
 /**
  * [A brief description]
  *

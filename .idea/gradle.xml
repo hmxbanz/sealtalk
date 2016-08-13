@@ -9,16 +9,16 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/Rong_Cloud_Android_IMKit_SDK_v2_6_8_dev_with_CallKit" />
-            <option value="$PROJECT_DIR$/Rong_Cloud_Android_IMKit_SDK_v2_6_9_stable_with_CallKit" />
+            <option value="$PROJECT_DIR$/IMKit_SDK_v2_6_8_dev_with_CallKit" />
+            <option value="$PROJECT_DIR$/IMKit_SDK_v2_6_9_stable_with_CallKit" />
             <option value="$PROJECT_DIR$/seal" />
           </set>
         </option>
         <option name="myModules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/Rong_Cloud_Android_IMKit_SDK_v2_6_8_dev_with_CallKit" />
-            <option value="$PROJECT_DIR$/Rong_Cloud_Android_IMKit_SDK_v2_6_9_stable_with_CallKit" />
+            <option value="$PROJECT_DIR$/IMKit_SDK_v2_6_8_dev_with_CallKit" />
+            <option value="$PROJECT_DIR$/IMKit_SDK_v2_6_9_stable_with_CallKit" />
             <option value="$PROJECT_DIR$/seal" />
           </set>
         </option>

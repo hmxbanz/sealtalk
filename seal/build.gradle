@@ -59,6 +59,6 @@ dependencies {
     // org.apache.http.legacy.jar 为适配 Android tagetId 22 以上 jar
     compile files('libs/org.apache.http.legacy.jar')
     compile files('libs/jsoup-1.8.3.jar')
-    compile project(':Rong_Cloud_Android_IMKit_SDK_v2_6_9_stable_with_CallKit')
+    compile project(':IMKit_SDK_v2_6_9_stable_with_CallKit')
 }
 apply plugin: 'com.google.gms.google-services'

@@ -43,27 +43,17 @@ import io.rong.message.ContactNotificationMessage;
 public class MainActivity extends BaseActivity implements ViewPager.OnPageChangeListener, View.OnClickListener, DragPointView.OnDragListencer {
 
     private FragmentPagerAdapter mFragmentPagerAdapter; //将 tab  页面持久在内存中
-
     private ViewPager mViewPager;
-
     private Fragment mConversationList;
-
     private List<Fragment> mFragment = new ArrayList<>();
-
     private RelativeLayout chatRLayout, contactRLayout, foundRLayout, mineRLayout;
-
     private ImageView moreImage, mImageChats, mImageContact, mImageFind, mImageMe, mMineRed;
-
     private TextView mTextChats, mTextContact, mTextFind, mTextMe;
-
     private DragPointView mUnreadNumView;
-
     /**
      * 会话列表的fragment
      */
     private Fragment mConversationListFragment = null;
-
-
     private boolean isDebug;
 
 
@@ -147,7 +137,6 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
         });
     }
 
-
     private void initMianViewPager() {
         mConversationList = initConversationList();
         mViewPager = (ViewPager) findViewById(R.id.main_viewpager);
@@ -176,7 +165,6 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
         mViewPager.setOnPageChangeListener(this);
         initData();
     }
-
 
     private Fragment initConversationList() {
         if (mConversationListFragment == null) {
@@ -259,7 +247,6 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
     }
 
 
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -282,7 +269,6 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
                 break;
         }
     }
-
 
     protected void initData() {
 
@@ -416,7 +402,6 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
         }
         return super.onKeyDown(keyCode, event);
     }
-
 
     private void hintKbTwo() {
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);

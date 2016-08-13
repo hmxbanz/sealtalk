@@ -21,7 +21,6 @@ import cn.rongcloud.im.ui.activity.SelectFriendsActivity;
 public class MorePopWindow extends PopupWindow {
     private View conentView;
 
-
     @SuppressLint("InflateParams")
     public MorePopWindow(final Activity context) {
         LayoutInflater inflater = (LayoutInflater) context

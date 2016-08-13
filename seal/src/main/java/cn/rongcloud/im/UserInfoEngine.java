@@ -20,9 +20,14 @@ import io.rong.imlib.model.UserInfo;
 public class UserInfoEngine implements OnDataListener {
 
 
+    private static Context context;
     private static UserInfoEngine instance;
+    private static final int REQUSERINFO = 4234;
     private UserInfoListener mListener;
 
+    private UserInfoEngine(Context context) {
+        this.context = context;
+    }
     public static UserInfoEngine getInstance(Context context) {
         if (instance == null) {
             instance = new UserInfoEngine(context);
@@ -30,31 +35,18 @@ public class UserInfoEngine implements OnDataListener {
         return instance;
     }
 
-    private UserInfoEngine(Context context) {
-        this.context = context;
-    }
-
-    private static Context context;
-
     private String userid;
-
     public String getUserid() {
         return userid;
     }
-
     public void setUserid(String userid) {
         this.userid = userid;
     }
 
-    private static final int REQUSERINFO = 4234;
-
-
     private UserInfo userInfo;
-
     public UserInfo getUserInfo() {
         return userInfo;
     }
-
     public void setUserInfo(UserInfo userInfo) {
         this.userInfo = userInfo;
     }
@@ -77,7 +69,6 @@ public class UserInfoEngine implements OnDataListener {
     public Object doInBackground(int requsetCode, String id) throws HttpException {
         return new SealAction(context).getUserInfoById(id);
     }
-
     @Override
     public void onSuccess(int requestCode, Object result) {
         if (result != null) {
@@ -90,7 +81,6 @@ public class UserInfoEngine implements OnDataListener {
             }
         }
     }
-
     @Override
     public void onFailure(int requestCode, int state, Object result) {
         if (mListener != null) {

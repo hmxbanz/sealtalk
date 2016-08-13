@@ -49,22 +49,17 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     private static final int LOGIN = 5;
     private static final int GETTOKEN = 6;
     private static final int SYNCUSERINFO = 9;
+    private static final int SYNCFRIEND = 14;
     private static final int SYNCGROUP = 17;
     private static final int AUTOLOGIN = 19;
+
     private ImageView mImgBackgroud;
-
     private ClearWriteEditText mPhoneEdit, mPasswordEdit;
-
     private Button mConfirm;
-
     private TextView mRegist, forgetPassword;
-
     private String phoneString, passwordString, loginToken, connectResultId;
-
     private SharedPreferences sp;
-
     private SharedPreferences.Editor editor;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -252,7 +247,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                                     NLog.e("connect", "onTokenIncorrect");
                                     reGetToken();
                                 }
-
                                 @Override
                                 public void onSuccess(String s) {
                                     connectResultId = s;
@@ -262,7 +256,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
                                     request(SYNCUSERINFO, true);
                                 }
-
                                 @Override
                                 public void onError(RongIMClient.ErrorCode errorCode) {
                                     NLog.e("connect", "onError errorcode:" + errorCode.getValue());
@@ -415,10 +408,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         }
     }
 
-    private void reGetToken() {
-        request(GETTOKEN);
-    }
-
     @Override
     public void onFailure(int requestCode, int state, Object result) {
         if (state == AsyncTaskManager.HTTP_NULL_CODE || state == AsyncTaskManager.HTTP_ERROR_CODE) {
@@ -444,7 +433,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 break;
         }
     }
-
-    private static final int SYNCFRIEND = 14;
+    private void reGetToken() {
+        request(GETTOKEN);
+    }
 
 }
