@@ -309,8 +309,8 @@ public class SharedReceiverActivity extends BaseActivity {
 
 
     @Override
-    public Object doInBackground(int requsetCode, String id) throws HttpException {
-        switch (requsetCode) {
+    public Object doInBackground(int requestCode, String id) throws HttpException {
+        switch (requestCode) {
             case GROUPALL:
                 return action.getGroups();
             case FRIENDALL:

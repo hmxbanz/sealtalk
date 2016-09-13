@@ -37,7 +37,6 @@ public class AsyncResult {
         super();
     }
 
-
     public AsyncResult(int requestCode, boolean isCheckNetwork, OnDataListener listener) {
         this.requestCode = requestCode;
         this.isCheckNetwork = isCheckNetwork;
@@ -47,27 +46,15 @@ public class AsyncResult {
     public int getRequestCode() {
         return requestCode;
     }
-
-    public void setRequestCode(int requestCode) {
-        this.requestCode = requestCode;
-    }
-
     public boolean isCheckNetwork() {
         return isCheckNetwork;
     }
-
-    public void setCheckNetwork(boolean isCheckNetwork) {
-        this.isCheckNetwork = isCheckNetwork;
-    }
-
     public int getState() {
         return state;
     }
-
-    public void setState(int state) {
-        this.state = state;
+    public OnDataListener getListener() {
+        return listener;
     }
-
     public Object getResult() {
         return result;
     }
@@ -75,13 +62,16 @@ public class AsyncResult {
     public void setResult(Object result) {
         this.result = result;
     }
-
-    public OnDataListener getListener() {
-        return listener;
+    public void setRequestCode(int requestCode) {
+        this.requestCode = requestCode;
     }
-
+    public void setState(int state) {
+        this.state = state;
+    }
+    public void setCheckNetwork(boolean isCheckNetwork) {
+        this.isCheckNetwork = isCheckNetwork;
+    }
     public void setListener(OnDataListener listener) {
         this.listener = listener;
     }
-
 }

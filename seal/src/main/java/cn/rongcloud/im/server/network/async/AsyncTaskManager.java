@@ -8,8 +8,10 @@ package cn.rongcloud.im.server.network.async;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.util.Log;
 
 import cn.rongcloud.im.server.network.http.HttpException;
+import cn.rongcloud.im.server.utils.NLog;
 import io.rong.eventbus.EventBus;
 
 /**
@@ -65,6 +67,7 @@ public class AsyncTaskManager {
      * @param listener 回调监听
      */
     public void request(int requestCode, OnDataListener listener) {
+        NLog.e("hmx:","第一步");
         request(requestCode, true, listener);
     }
 
@@ -90,11 +93,11 @@ public class AsyncTaskManager {
      * @param listener 回调监听
      */
     public void request(final int requestCode, final boolean isCheckNetwork, final OnDataListener listener) {
+        NLog.e("hmx:","第二步");
         if (requestCode > 0) {
             EventBus.getDefault().post(new AsyncRequest(requestCode, isCheckNetwork, listener));
-        } else {
-
         }
+        else { }
     }
 
     /**
@@ -102,6 +105,7 @@ public class AsyncTaskManager {
      * @param bean
      */
     public void onEventAsync(AsyncRequest bean) {
+        NLog.e("hmx:","第三步");
         AsyncResult result = new AsyncResult(bean.getRequestCode(), bean.isCheckNetwork(), bean.getListener());
         try {
             if (!isNetworkConnected(mContext, bean.isCheckNetwork())) {
@@ -128,11 +132,11 @@ public class AsyncTaskManager {
      * @param bean
      */
     public void onEventMainThread(AsyncResult bean) {
+        NLog.e("hmx:","第四步");
         switch (bean.getState()) {
             case REQUEST_SUCCESS_CODE:
                 bean.getListener().onSuccess(bean.getRequestCode(), bean.getResult());
                 break;
-
             case REQUEST_ERROR_CODE:
             case HTTP_ERROR_CODE:
             case HTTP_NULL_CODE:

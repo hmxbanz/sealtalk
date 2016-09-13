@@ -38,7 +38,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/friendship_content1"
+            android:id="@+id/browserDownload_txt"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:background="@drawable/bg_white_aaaaaa"
@@ -61,7 +61,7 @@
                 android:background="#d7d7d7" />
 
             <TextView
-                android:id="@+id/friendship_content2"
+                android:id="@+id/localDownload_txt"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@drawable/bg_white_aaaaaa"

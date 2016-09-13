@@ -82,7 +82,7 @@ public class DiscoverFragment extends Fragment implements View.OnClickListener, 
     }
 
     @Override
-    public Object doInBackground(int requsetCode, String parameter) throws HttpException {
+    public Object doInBackground(int requestCode, String parameter) throws HttpException {
         return new SealAction(getActivity()).getDefaultConversation();
     }
 
@@ -246,8 +246,8 @@ public class DiscoverFragment extends Fragment implements View.OnClickListener, 
 //
 //
 //    @Override
-//    public Object doInBackground(int requsetCode, String id) throws HttpException {
-//        switch (requsetCode) {
+//    public Object doInBackground(int requestCode, String id) throws HttpException {
+//        switch (requestCode) {
 //            case GETDEFCONVERSATION:
 //                return new SealAction(getActivity()).getDefaultConversation();
 //            case JOINGROUP:

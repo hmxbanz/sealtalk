@@ -6,33 +6,27 @@ package cn.rongcloud.im.server.response;
  */
 public class VersionResponse {
 
-
     /**
      * version : 1.0.5
      * build : 201607181821
      * url : https://dn-rongcloud.qbox.me/app.plist
      */
-
     private IosEntity ios;
     /**
      * version : 1.0.5
      * url : http://downloads.rongcloud.cn/SealTalk_by_RongCloud_Android_v1_0_5.apk
      */
-
     private AndroidEntity android;
 
     public void setIos(IosEntity ios) {
         this.ios = ios;
     }
-
-    public void setAndroid(AndroidEntity android) {
-        this.android = android;
-    }
-
     public IosEntity getIos() {
         return ios;
     }
-
+    public void setAndroid(AndroidEntity android) {
+        this.android = android;
+    }
     public AndroidEntity getAndroid() {
         return android;
     }
@@ -66,7 +60,6 @@ public class VersionResponse {
             return url;
         }
     }
-
     public static class AndroidEntity {
         private String version;
         private String url;

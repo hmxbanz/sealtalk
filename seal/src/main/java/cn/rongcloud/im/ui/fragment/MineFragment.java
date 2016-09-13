@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,19 +51,12 @@ public class MineFragment extends Fragment implements View.OnClickListener {
     }
 
     private View mView;
-
     private SharedPreferences sp;
-
     private SelectableRoundedImageView imageView;
-
     private TextView mName;
-
     private LinearLayout mUserProfile, mMineStting, mMineService, mMineAbout;
-
     private ImageView mNewVersionView;
-
     private boolean isHasNewVersion;
-
     private String url;
 
     @Nullable
@@ -88,12 +82,13 @@ public class MineFragment extends Fragment implements View.OnClickListener {
     private void compareVersion() {
         AsyncTaskManager.getInstance(getActivity()).request(COMPAREVERSION, new OnDataListener() {
             @Override
-            public Object doInBackground(int requsetCode, String parameter) throws HttpException {
+            public Object doInBackground(int requestCode, String parameter) throws HttpException {
+                Log.e("from requestCode",Integer.toString(requestCode));
                 return new SealAction(getActivity()).getSealTalkVersion(SealConst.GETVERSION);
             }
-
             @Override
             public void onSuccess(int requestCode, Object result) {
+                Log.e("from requestCode",Integer.toString(requestCode));
                 if (result != null) {
                     VersionResponse response = (VersionResponse) result;
                     if (response != null) {
@@ -109,6 +104,7 @@ public class MineFragment extends Fragment implements View.OnClickListener {
                         for (int i = 0; i < s2.length; i++) {
                             sb2.append(s2[i]);
                         }
+                        Log.e("hmxbanz",sb.toString()+"="+sb2.toString());
                         if (Integer.parseInt(sb.toString()) > Integer.parseInt(sb2.toString())) {
                             mNewVersionView.setVisibility(View.VISIBLE);
                             url = response.getAndroid().getUrl();
@@ -118,7 +114,6 @@ public class MineFragment extends Fragment implements View.OnClickListener {
                     }
                 }
             }
-
             @Override
             public void onFailure(int requestCode, int state, Object result) {
 

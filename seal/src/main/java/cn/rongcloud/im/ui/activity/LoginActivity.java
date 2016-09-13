@@ -69,7 +69,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         actionBar.hide();
         sp = getSharedPreferences("config", MODE_PRIVATE);
         editor = sp.edit();
-
         initView();
     }
 
@@ -210,6 +209,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
     @Override
     public Object doInBackground(int requestCode, String id) throws HttpException {
+        NLog.e("hmx:","第五步");
         switch (requestCode) {
             case LOGIN:
                 return action.login("86", phoneString, passwordString);
@@ -229,6 +229,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
     @Override
     public void onSuccess(int requestCode, Object result) {
+        NLog.e("hmx:","第六步");
         if (result != null) {
             switch (requestCode) {
                 case LOGIN:
@@ -279,7 +280,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                             editor.putString("loginphone", phoneString);
                             editor.putString("loginpassword", passwordString);
                             editor.apply();
-
                             RongIM.connect(loginToken, new RongIMClient.ConnectCallback() {
                                 @Override
                                 public void onTokenIncorrect() {

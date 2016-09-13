@@ -73,7 +73,7 @@ public class UpdateNameActivity extends BaseActivity {
     }
 
     @Override
-    public Object doInBackground(int requsetCode, String id) throws HttpException {
+    public Object doInBackground(int requestCode, String id) throws HttpException {
         return action.setName(newName);
     }
 

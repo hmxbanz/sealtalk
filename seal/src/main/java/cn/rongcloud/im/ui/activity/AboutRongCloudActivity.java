@@ -90,9 +90,9 @@ public class AboutRongCloudActivity extends BaseActionBarActivity {
                     dlg.show();
                     Window window = dlg.getWindow();
                     window.setContentView(R.layout.dialog_download);
-                    TextView text = (TextView) window.findViewById(R.id.friendship_content1);
-                    TextView photo = (TextView) window.findViewById(R.id.friendship_content2);
-                    text.setOnClickListener(new View.OnClickListener() {
+                    TextView browserDownload_TextView = (TextView) window.findViewById(R.id.browserDownload_txt);
+                    TextView localDownload_TextView = (TextView) window.findViewById(R.id.localDownload_txt);
+                    browserDownload_TextView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             Intent intent = new Intent();
@@ -103,7 +103,7 @@ public class AboutRongCloudActivity extends BaseActionBarActivity {
                             dlg.cancel();
                         }
                     });
-                    photo.setOnClickListener(new View.OnClickListener() {
+                    localDownload_TextView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             NToast.shortToast(mContext, getString(R.string.downloading_apk));
@@ -137,17 +137,14 @@ public class AboutRongCloudActivity extends BaseActionBarActivity {
                                 editor.putBoolean("isDebug", true);
                                 editor.apply();
                                 BroadcastManager.getInstance(mContext).sendBroadcast(SealConst.EXIT);
-
                             }
 
                             @Override
                             public void exectEditEvent(String editText) {
-
                             }
 
                             @Override
                             public void updatePassword(String oldPassword, String newPassword) {
-
                             }
                         });
                     }
@@ -167,12 +164,10 @@ public class AboutRongCloudActivity extends BaseActionBarActivity {
                             editor.putBoolean("isDebug", false);
                             editor.apply();
                             BroadcastManager.getInstance(mContext).sendBroadcast(SealConst.EXIT);
-
                         }
 
                         @Override
                         public void exectEditEvent(String editText) {
-
                         }
 
                         @Override

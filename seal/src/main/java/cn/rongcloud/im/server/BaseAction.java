@@ -61,7 +61,6 @@ public class BaseAction {
         return JsonMananger.beanToJson(obj);
     }
 
-
     /**
      * 获取完整URL方法
      * @param url
@@ -70,6 +69,7 @@ public class BaseAction {
     protected String getURL(String url) {
         return getURL(url, new String[] {});
     }
+
     /**
      * 获取完整URL方法
      * @param url

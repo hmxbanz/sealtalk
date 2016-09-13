@@ -107,7 +107,6 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
             }
         });
     }
-
     private void initViews() {
         chatRLayout = (RelativeLayout) findViewById(R.id.seal_chat);
         contactRLayout = (RelativeLayout) findViewById(R.id.seal_contact_list);
@@ -136,10 +135,9 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
             }
         });
     }
-
     private void initMianViewPager() {
-        mConversationList = initConversationList();
         mViewPager = (ViewPager) findViewById(R.id.main_viewpager);
+        mConversationList = initConversationList();
 
         mUnreadNumView = (DragPointView) findViewById(R.id.seal_num);
         mUnreadNumView.setOnClickListener(this);
@@ -165,7 +163,6 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
         mViewPager.setOnPageChangeListener(this);
         initData();
     }
-
     private Fragment initConversationList() {
         if (mConversationListFragment == null) {
             ConversationListFragment listFragment = ConversationListFragment.getInstance();
@@ -197,56 +194,34 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
             return mConversationListFragment;
         }
     }
-
+    //OnPageChangeListener实现
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
     }
-
     @Override
     public void onPageSelected(int position) {
         changeTextViewColor();
         changeSelectedTabState(position);
     }
-
-    private void changeTextViewColor() {
-        mImageChats.setBackgroundDrawable(getResources().getDrawable(R.drawable.tab_chat));
-        mImageContact.setBackgroundDrawable(getResources().getDrawable(R.drawable.tab_contacts));
-        mImageFind.setBackgroundDrawable(getResources().getDrawable(R.drawable.tab_found));
-        mImageMe.setBackgroundDrawable(getResources().getDrawable(R.drawable.tab_me));
-        mTextChats.setTextColor(Color.parseColor("#abadbb"));
-        mTextContact.setTextColor(Color.parseColor("#abadbb"));
-        mTextFind.setTextColor(Color.parseColor("#abadbb"));
-        mTextMe.setTextColor(Color.parseColor("#abadbb"));
-    }
-
-    private void changeSelectedTabState(int position) {
-        switch (position) {
-            case 0:
-                mTextChats.setTextColor(Color.parseColor("#0099ff"));
-                mImageChats.setBackgroundDrawable(getResources().getDrawable(R.drawable.tab_chat_hover));
-                break;
-            case 1:
-                mTextContact.setTextColor(Color.parseColor("#0099ff"));
-                mImageContact.setBackgroundDrawable(getResources().getDrawable(R.drawable.tab_contacts_hover));
-                break;
-            case 2:
-                mTextFind.setTextColor(Color.parseColor("#0099ff"));
-                mImageFind.setBackgroundDrawable(getResources().getDrawable(R.drawable.tab_found_hover));
-                break;
-            case 3:
-                mTextMe.setTextColor(Color.parseColor("#0099ff"));
-                mImageMe.setBackgroundDrawable(getResources().getDrawable(R.drawable.tab_me_hover));
-                break;
-        }
-    }
-
     @Override
     public void onPageScrollStateChanged(int state) {
 
     }
-
-
+    //OnPageChangeListener实现
+    //DragListencer实现
+    @Override
+    public void onDragOut() {
+        mUnreadNumView.setVisibility(View.GONE);
+        NToast.shortToast(mContext, getString(R.string.clear_success));
+        List<Conversation> conversations = RongIM.getInstance().getConversationList();
+        if (conversations != null && conversations.size() > 0) {
+            for (Conversation c : conversations) {
+                RongIM.getInstance().clearMessagesUnreadStatus(c.getConversationType(), c.getTargetId(), null);
+            }
+        }
+    }
+    //DragListencer实现
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -269,7 +244,51 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
                 break;
         }
     }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        BroadcastManager.getInstance(mContext).destroy(SealConst.EXIT);
+        BroadcastManager.getInstance(mContext).destroy(MineFragment.SHOWRED);
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            moveTaskToBack(false);
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 
+    private void changeTextViewColor() {
+        mImageChats.setBackgroundDrawable(getResources().getDrawable(R.drawable.tab_chat));
+        mImageContact.setBackgroundDrawable(getResources().getDrawable(R.drawable.tab_contacts));
+        mImageFind.setBackgroundDrawable(getResources().getDrawable(R.drawable.tab_found));
+        mImageMe.setBackgroundDrawable(getResources().getDrawable(R.drawable.tab_me));
+        mTextChats.setTextColor(Color.parseColor("#abadbb"));
+        mTextContact.setTextColor(Color.parseColor("#abadbb"));
+        mTextFind.setTextColor(Color.parseColor("#abadbb"));
+        mTextMe.setTextColor(Color.parseColor("#abadbb"));
+    }
+    private void changeSelectedTabState(int position) {
+        switch (position) {
+            case 0:
+                mTextChats.setTextColor(Color.parseColor("#0099ff"));
+                mImageChats.setBackgroundDrawable(getResources().getDrawable(R.drawable.tab_chat_hover));
+                break;
+            case 1:
+                mTextContact.setTextColor(Color.parseColor("#0099ff"));
+                mImageContact.setBackgroundDrawable(getResources().getDrawable(R.drawable.tab_contacts_hover));
+                break;
+            case 2:
+                mTextFind.setTextColor(Color.parseColor("#0099ff"));
+                mImageFind.setBackgroundDrawable(getResources().getDrawable(R.drawable.tab_found_hover));
+                break;
+            case 3:
+                mTextMe.setTextColor(Color.parseColor("#0099ff"));
+                mImageMe.setBackgroundDrawable(getResources().getDrawable(R.drawable.tab_me_hover));
+                break;
+        }
+    }
     protected void initData() {
 
         final Conversation.ConversationType[] conversationTypes = {
@@ -308,20 +327,17 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
             }
         });
     }
-
     private void getConversationPush() {
         if (getIntent() != null && getIntent().hasExtra("PUSH_CONVERSATIONTYPE") && getIntent().hasExtra("PUSH_TARGETID")) {
 
             final String conversationType = getIntent().getStringExtra("PUSH_CONVERSATIONTYPE");
             final String targetId = getIntent().getStringExtra("PUSH_TARGETID");
 
-
             RongIM.getInstance().getConversation(Conversation.ConversationType.valueOf(conversationType), targetId, new RongIMClient.ResultCallback<Conversation>() {
                 @Override
                 public void onSuccess(Conversation conversation) {
 
                     if (conversation != null) {
-
                         if (conversation.getLatestMessage() instanceof ContactNotificationMessage) { //好友消息的push
                             startActivity(new Intent(MainActivity.this, NewFriendListActivity.class));
                         } else {
@@ -394,39 +410,11 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
         }
     };
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            moveTaskToBack(false);
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
-    }
-
     private void hintKbTwo() {
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         if (imm.isActive() && getCurrentFocus() != null) {
             if (getCurrentFocus().getWindowToken() != null) {
                 imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-            }
-        }
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        BroadcastManager.getInstance(mContext).destroy(SealConst.EXIT);
-        BroadcastManager.getInstance(mContext).destroy(MineFragment.SHOWRED);
-    }
-
-    @Override
-    public void onDragOut() {
-        mUnreadNumView.setVisibility(View.GONE);
-        NToast.shortToast(mContext, getString(R.string.clear_success));
-        List<Conversation> conversations = RongIM.getInstance().getConversationList();
-        if (conversations != null && conversations.size() > 0) {
-            for (Conversation c : conversations) {
-                RongIM.getInstance().clearMessagesUnreadStatus(c.getConversationType(), c.getTargetId(), null);
             }
         }
     }

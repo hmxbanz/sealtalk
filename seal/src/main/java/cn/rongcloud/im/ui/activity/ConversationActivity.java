@@ -1007,14 +1007,14 @@ public class ConversationActivity extends BaseActivity implements RongIMClient.R
     }
 
     @Override
-    public Object doInBackground(int requsetCode, String id) throws HttpException {
-        switch (requsetCode) {
+    public Object doInBackground(int requestCode, String id) throws HttpException {
+        switch (requestCode) {
             case GETUSERINFO:
                 return action.getUserInfoById(locationid);
             case GETGROUPMEMBER:
                 return action.getGroupMember(mTargetId);
         }
-        return super.doInBackground(requsetCode, id);
+        return super.doInBackground(requestCode, id);
     }
 
     @Override

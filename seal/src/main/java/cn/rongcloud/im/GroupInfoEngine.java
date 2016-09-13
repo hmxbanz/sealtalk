@@ -20,7 +20,6 @@ public class GroupInfoEngine implements OnDataListener {
     private static final int REQUESTGROUPINFO = 19;
     private static GroupInfoEngine instance;
     private GroupInfoListeners mListener;
-
     private String groupId;
     private Group group;
 

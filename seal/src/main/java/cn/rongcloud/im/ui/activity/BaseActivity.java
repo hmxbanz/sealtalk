@@ -34,41 +34,49 @@ public abstract class BaseActivity extends ActionBarActivity implements OnDataLi
         action = new SealAction(mContext);
 
     }
-
+    @Override
     protected void onResume() {
         super.onResume();
 //        MobclickAgent.onResume(this);
     }
-
+    @Override
     protected void onPause() {
         super.onPause();
 //        MobclickAgent.onPause(this);
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
 
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 
     /**
      * 发送请求（需要检查网络）
      *
-     * @param requsetCode 请求码
+     * @param requestCode 请求码
      */
-    public void request(int requsetCode) {
+    public void request(int requestCode) {
         if (mAsyncTaskManager != null) {
-            mAsyncTaskManager.request(requsetCode, this);
+            mAsyncTaskManager.request(requestCode, this);
         }
     }
-
     /**
      * 发送请求
      *
-     * @param requsetCode    请求码
+     * @param requestCode    请求码
      * @param isCheckNetwork 是否需检查网络，true检查，false不检查
      */
-    public void request(int requsetCode, boolean isCheckNetwork) {
+    public void request(int requestCode, boolean isCheckNetwork) {
         if (mAsyncTaskManager != null) {
-            mAsyncTaskManager.request(requsetCode, isCheckNetwork, this);
+            mAsyncTaskManager.request(requestCode, isCheckNetwork, this);
         }
     }
-
     /**
      * 取消所有请求
      */
@@ -79,15 +87,13 @@ public abstract class BaseActivity extends ActionBarActivity implements OnDataLi
     }
 
     @Override
-    public Object doInBackground(int requsetCode, String id) throws HttpException {
+    public Object doInBackground(int requestCode, String id) throws HttpException {
         return null;
     }
-
     @Override
     public void onSuccess(int requestCode, Object result) {
 
     }
-
     @Override
     public void onFailure(int requestCode, int state, Object result) {
         switch (state) {
@@ -113,16 +119,5 @@ public abstract class BaseActivity extends ActionBarActivity implements OnDataLi
 //        super.onActivityResult(requestCode, resultCode, data);
 //    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                finish();
-                break;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
 }

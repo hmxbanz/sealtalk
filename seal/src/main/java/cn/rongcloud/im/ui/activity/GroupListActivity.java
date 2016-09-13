@@ -64,7 +64,7 @@ public class GroupListActivity extends BaseActivity {
     private void initNetUpdateUI() {
         AsyncTaskManager.getInstance(mContext).request(REFRESHGROUPUI, new OnDataListener() {
             @Override
-            public Object doInBackground(int requsetCode, String id) throws HttpException {
+            public Object doInBackground(int requestCode, String id) throws HttpException {
                 return new SealAction(mContext).getGroups();
             }
 

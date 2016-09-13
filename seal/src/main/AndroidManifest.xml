@@ -152,10 +152,7 @@
             android:screenOrientation="portrait"/>
 
         <activity android:name=".ui.activity.TotalGroupMemberActivity"
-            android:screenOrientation="portrait"
-            />
-
-
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".ui.activity.PublicServiceActivity"
@@ -171,29 +168,23 @@
             />
 
         <activity android:name=".ui.activity.NewTextMessageActivity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait"/>
         <!--选择联系人 多人聊天-->
         <activity android:name=".ui.activity.SelectFriendsActivity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait"/>
         <activity android:name=".ui.activity.CreateGroupActivity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait"/>
         <activity android:name=".ui.activity.NewGroupDetailActivity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait"/>
 
         <activity android:name=".ui.activity.DiscussionDetailActivity"
             android:screenOrientation="portrait"/>
 
         <activity android:name=".ui.activity.ForgetPasswordActivity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait"/>
         <activity android:name=".ui.activity.AMAPLocationActivity"
             android:screenOrientation="portrait"/>
-        <activity
-            android:name=".ui.activity.GroupNoticeActivity"
+        <activity android:name=".ui.activity.GroupNoticeActivity"
             android:screenOrientation="portrait">
         </activity>
 

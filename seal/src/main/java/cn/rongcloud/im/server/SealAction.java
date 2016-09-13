@@ -145,7 +145,7 @@ public class SealAction extends BaseAction {
         return response;
     }
 
-    /*
+    /**
     * 200: 验证成功
     1000: 验证码错误
     2000: 验证码过期
@@ -304,7 +304,6 @@ public class SealAction extends BaseAction {
         return response;
     }
 
-
     /**
      * 当前登录用户通过旧密码设置新密码  前置条件需要登录才能访问
      *
@@ -331,7 +330,6 @@ public class SealAction extends BaseAction {
         }
         return response;
     }
-
 
     /**
      * 通过手机验证码重置密码
@@ -377,7 +375,6 @@ public class SealAction extends BaseAction {
         return response;
     }
 
-
     /**
      * 通过国家码和手机号查询用户信息
      *
@@ -395,7 +392,6 @@ public class SealAction extends BaseAction {
         }
         return response;
     }
-
 
     /**
      * 发送好友邀请
@@ -423,7 +419,6 @@ public class SealAction extends BaseAction {
         return response;
     }
 
-
     /**
      * 获取发生过用户关系的列表
      *
@@ -439,7 +434,6 @@ public class SealAction extends BaseAction {
         }
         return response;
     }
-
 
     /**
      * 同意对方好友邀请
@@ -850,7 +844,6 @@ public class SealAction extends BaseAction {
         return q;
     }
 
-
     /**
      * 当前用户加入某群组
      *
@@ -875,7 +868,6 @@ public class SealAction extends BaseAction {
         }
         return response;
     }
-
 
     /**
      * 获取默认群组 和 聊天室
@@ -917,7 +909,6 @@ public class SealAction extends BaseAction {
         }
         return response;
     }
-
 
     public VersionResponse getSealTalkVersion(String url) throws HttpException {
         String result = httpManager.get(mContext, url.trim());

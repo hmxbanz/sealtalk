@@ -410,12 +410,12 @@ public class DiscussionDetailActivity extends BaseActivity implements CompoundBu
     }
 
     @Override
-    public Object doInBackground(int requsetCode, String id) throws HttpException {
-        switch (requsetCode) {
+    public Object doInBackground(int requestCode, String id) throws HttpException {
+        switch (requestCode) {
             case FINDUSERINFO:
                 return action.getUserInfos(ids);
         }
-        return super.doInBackground(requsetCode, id);
+        return super.doInBackground(requestCode, id);
     }
 
     @Override

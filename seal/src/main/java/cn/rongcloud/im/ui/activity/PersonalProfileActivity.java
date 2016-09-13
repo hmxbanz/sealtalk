@@ -208,7 +208,7 @@ public class PersonalProfileActivity extends BaseActivity implements View.OnClic
     }
 
     @Override
-    public Object doInBackground(int requsetCode, String id) throws HttpException {
+    public Object doInBackground(int requestCode, String id) throws HttpException {
         return action.sendFriendInvitation(userInfo.getUserId(), addMessage);
     }
 
