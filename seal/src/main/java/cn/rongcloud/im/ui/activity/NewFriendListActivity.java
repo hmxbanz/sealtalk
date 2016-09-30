@@ -45,11 +45,6 @@ public class NewFriendListActivity extends BaseActivity implements NewFriendList
     private String friendId;
     private TextView isData;
 
-    private SharedPreferences sp;
-
-    private SharedPreferences.Editor editor;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -103,8 +103,6 @@ public class ConversationActivity extends BaseActivity implements RongIMClient.R
     private RealTimeLocationConstant.RealTimeLocationStatus currentLocationStatus;
     private LoadingDialog mDialog;
 
-    private SharedPreferences sp;
-
     private final String TextTypingTitle = "对方正在输入...";
     private final String VoiceTypingTitle = "对方正在讲话...";
 

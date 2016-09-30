@@ -1,10 +1,13 @@
 package cn.rongcloud.im.ui.activity;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.media.AudioManager;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
+
+import java.util.concurrent.Callable;
 
 import cn.rongcloud.im.R;
 import cn.rongcloud.im.server.SealAction;
@@ -18,6 +21,8 @@ public abstract class BaseActivity extends ActionBarActivity implements OnDataLi
     protected Context mContext;
     private AsyncTaskManager mAsyncTaskManager;
     protected SealAction action;
+    protected SharedPreferences sp;
+    protected SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,11 +118,6 @@ public abstract class BaseActivity extends ActionBarActivity implements OnDataLi
                 break;
         }
     }
-//
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//    }
 
 
 }

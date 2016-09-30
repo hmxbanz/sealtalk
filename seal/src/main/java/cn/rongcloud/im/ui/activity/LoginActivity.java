@@ -1,7 +1,6 @@
 package cn.rongcloud.im.ui.activity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -35,7 +34,6 @@ import cn.rongcloud.im.server.utils.NToast;
 import cn.rongcloud.im.server.utils.RongGenerate;
 import cn.rongcloud.im.server.widget.ClearWriteEditText;
 import cn.rongcloud.im.server.widget.LoadDialog;
-import io.rong.common.RLog;
 import io.rong.imkit.RongIM;
 import io.rong.imlib.RongIMClient;
 import io.rong.imlib.model.UserInfo;
@@ -47,19 +45,20 @@ import io.rong.imlib.model.UserInfo;
 public class LoginActivity extends BaseActivity implements View.OnClickListener {
 
     private static final int LOGIN = 5;
-    private static final int GETTOKEN = 6;
-    private static final int SYNCUSERINFO = 9;
-    private static final int SYNCFRIEND = 14;
-    private static final int SYNCGROUP = 17;
-    private static final int AUTOLOGIN = 19;
+    private static final int GET_TOKEN = 6;
+    private static final int SYNC_USERINFO = 9;
+    private static final int SYNC_FRIEND = 14;
+    private static final int SYNC_GROUP = 17;
+    private static final int AUTO_LOGIN = 19;
+
+    private static final int REGISTER_REQUEST_CODE=1;
+    private static final int FORGET_PASS_REQUEST_CODE =2;
 
     private ImageView mImgBackgroud;
     private ClearWriteEditText mPhoneEdit, mPasswordEdit;
     private Button mConfirm;
     private TextView mRegist, forgetPassword;
     private String phoneString, passwordString, loginToken, connectResultId;
-    private SharedPreferences sp;
-    private SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,7 +121,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             mPasswordEdit.setText(oldPassword);
         }
 
-
         if (!sp.getBoolean("exit", false) && !TextUtils.isEmpty(oldPhone) && !TextUtils.isEmpty(oldPassword)) {
             editor.putBoolean("exit", false);
             editor.apply();
@@ -132,7 +130,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 @Override
                 public void run() {
                     LoadDialog.show(mContext);
-                    request(AUTOLOGIN);
+                    request(AUTO_LOGIN);
                 }
             }, 100);
         }
@@ -173,10 +171,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 request(LOGIN);
                 break;
             case R.id.de_login_register:
-                startActivityForResult(new Intent(this, RegisterActivity.class), 1);
+                startActivityForResult(new Intent(this, RegisterActivity.class), REGISTER_REQUEST_CODE);
                 break;
             case R.id.de_login_forgot:
-                startActivityForResult(new Intent(this, ForgetPasswordActivity.class), 2);
+                startActivityForResult(new Intent(this, ForgetPasswordActivity.class), FORGET_PASS_REQUEST_CODE);
                 break;
         }
     }
@@ -188,7 +186,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             String password = data.getStringExtra("password");
             mPhoneEdit.setText(phone);
             mPasswordEdit.setText(password);
-        } else if (data != null && requestCode == 1) {
+        } else if (requestCode == 1 && data != null) {
             String phone = data.getStringExtra("phone");
             String password = data.getStringExtra("password");
             String id = data.getStringExtra("id");
@@ -213,15 +211,15 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         switch (requestCode) {
             case LOGIN:
                 return action.login("86", phoneString, passwordString);
-            case AUTOLOGIN:
+            case AUTO_LOGIN:
                 return action.login("86", phoneString, passwordString);
-            case GETTOKEN:
+            case GET_TOKEN:
                 return action.getToken();
-            case SYNCUSERINFO:
+            case SYNC_USERINFO:
                 return action.getUserInfoById(connectResultId);
-            case SYNCGROUP:
+            case SYNC_GROUP:
                 return action.getGroups();
-            case SYNCFRIEND:
+            case SYNC_FRIEND:
                 return action.getAllUserRelationship();
         }
         return null;
@@ -255,7 +253,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                                     editor.putString("loginid", s);
                                     editor.apply();
 
-                                    request(SYNCUSERINFO, true);
+                                    request(SYNC_USERINFO, true);
                                 }
                                 @Override
                                 public void onError(RongIMClient.ErrorCode errorCode) {
@@ -271,7 +269,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                         NToast.shortToast(mContext, R.string.phone_or_psw_error);
                     }
                     break;
-                case AUTOLOGIN:
+                case AUTO_LOGIN:
                     LoginResponse autolrres = (LoginResponse) result;
                     if (autolrres.getCode() == 200) {
                         loginToken = autolrres.getResult().getToken();
@@ -294,7 +292,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                                     editor.putString("loginid", s);
                                     editor.apply();
 
-                                    request(SYNCUSERINFO, true);
+                                    request(SYNC_USERINFO, true);
                                 }
 
                                 @Override
@@ -311,7 +309,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                         NToast.shortToast(mContext, R.string.phone_or_psw_error);
                     }
                     break;
-                case SYNCUSERINFO:
+                case SYNC_USERINFO:
                     GetUserInfoByIdResponse guRes = (GetUserInfoByIdResponse) result;
                     if (guRes.getCode() == 200) {
                         editor.putString("loginnickname", guRes.getResult().getNickname());
@@ -326,7 +324,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
                         List<Groups> groupList = DBManager.getInstance(mContext).getDaoSession().getGroupsDao().loadAll();
                         if (groupList.size() == 0 || groupList == null) {
-                            request(SYNCGROUP);
+                            request(SYNC_GROUP);
                         } else {
                             LoadDialog.dismiss(mContext);
                             startActivity(new Intent(LoginActivity.this, MainActivity.class));
@@ -335,7 +333,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                         }
                     }
                     break;
-                case SYNCGROUP:
+                case SYNC_GROUP:
                     GetGroupResponse ggRes = (GetGroupResponse) result;
                     if (ggRes.getCode() == 200) {
                         List<GetGroupResponse.ResultEntity> list = ggRes.getResult();
@@ -346,10 +344,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                                 );
                             }
                         }
-                        request(SYNCFRIEND);
+                        request(SYNC_FRIEND);
                     }
                     break;
-                case SYNCFRIEND:
+                case SYNC_FRIEND:
                     UserRelationshipResponse urRes = (UserRelationshipResponse) result;
                     if (urRes.getCode() == 200) {
                         List<UserRelationshipResponse.ResultEntity> list = urRes.getResult();
@@ -374,7 +372,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                         finish();
                     }
                     break;
-                case GETTOKEN:
+                case GET_TOKEN:
                     GetTokenResponse response = (GetTokenResponse) result;
                     if (response.getCode() == 200) {
                         String token = response.getResult().getToken();
@@ -392,7 +390,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                                     editor.putString("loginid", s);
                                     editor.apply();
 
-                                    request(SYNCUSERINFO, true);
+                                    request(SYNC_USERINFO, true);
                                 }
 
                                 @Override
@@ -420,21 +418,22 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 LoadDialog.dismiss(mContext);
                 NToast.shortToast(mContext, R.string.login_api_fail);
                 break;
-            case SYNCUSERINFO:
+            case SYNC_USERINFO:
                 LoadDialog.dismiss(mContext);
                 NToast.shortToast(mContext, R.string.sync_userinfo_api_fail);
                 break;
-            case GETTOKEN:
+            case GET_TOKEN:
                 LoadDialog.dismiss(mContext);
                 NToast.shortToast(mContext, R.string.get_token_api_fail);
                 break;
-            case SYNCGROUP:
+            case SYNC_GROUP:
                 NToast.shortToast(mContext, R.string.sync_group_api_fail);
                 break;
         }
     }
+
     private void reGetToken() {
-        request(GETTOKEN);
+        request(GET_TOKEN);
     }
 
 }

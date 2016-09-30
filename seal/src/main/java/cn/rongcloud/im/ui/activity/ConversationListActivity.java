@@ -18,7 +18,6 @@ public class ConversationListActivity extends BaseActivity {
 
     private static final String TAG = ConversationListActivity.class.getSimpleName();
     private LoadingDialog mDialog;
-    private SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

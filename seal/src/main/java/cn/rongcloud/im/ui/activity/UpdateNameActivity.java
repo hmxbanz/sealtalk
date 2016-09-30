@@ -31,10 +31,6 @@ public class UpdateNameActivity extends BaseActivity {
 
     private String newName;
 
-    private SharedPreferences sp;
-
-    private SharedPreferences.Editor editor;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

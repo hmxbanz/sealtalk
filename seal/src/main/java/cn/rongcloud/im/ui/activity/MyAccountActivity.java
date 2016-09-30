@@ -52,10 +52,6 @@ public class MyAccountActivity extends BaseActionBarActivity implements View.OnC
 
     private RelativeLayout portraitItem, nameItem, passwordItem;
 
-    private SharedPreferences sp;
-
-    private SharedPreferences.Editor editor;
-
     private SelectableRoundedImageView mImageView;
 
     private TextView mName , mPhone;

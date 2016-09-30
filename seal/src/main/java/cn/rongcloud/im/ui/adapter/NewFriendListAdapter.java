@@ -1,7 +1,6 @@
 package cn.rongcloud.im.ui.adapter;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +18,7 @@ import cn.rongcloud.im.server.widget.SelectableRoundedImageView;
  * Created by Bob on 2015/3/26.
  */
 
-public class NewFriendListAdapter extends BaseAdapters {
+public class NewFriendListAdapter extends BaseAdapter {
     private ViewHoler holer;
 
     public NewFriendListAdapter(Context context) {
@@ -39,7 +38,8 @@ public class NewFriendListAdapter extends BaseAdapters {
         } else {
             holer = (ViewHoler) convertView.getTag();
         }
-        final UserRelationshipResponse.ResultEntity bean = (UserRelationshipResponse.ResultEntity) dataSet.get(position);
+
+        final UserRelationshipResponse.ResultEntity bean = (UserRelationshipResponse.ResultEntity) mList.get(position);
         holer.mName.setText(bean.getUser().getNickname());
         if (TextUtils.isEmpty(bean.getUser().getPortraitUri())) {
             ImageLoader.getInstance().displayImage(RongGenerate.generateDefaultAvatar(bean.getUser().getNickname(), bean.getUser().getId()), holer.mHead, App.getOptions());
@@ -111,4 +111,5 @@ public class NewFriendListAdapter extends BaseAdapters {
         boolean onButtonClick(int position, View view, int status);
 
     }
+
 }

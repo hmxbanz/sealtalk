@@ -29,11 +29,6 @@ public class UpdatePasswordActivity extends BaseActivity implements View.OnClick
     private String mOldPassword, mNewPassword;
 
 
-    private SharedPreferences sp;
-
-    private SharedPreferences.Editor editor;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -78,7 +78,6 @@ public class DisturbActivity extends BaseActionBarActivity implements View.OnCli
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            SharedPreferences.Editor editor;
             switch (msg.what) {
                 case 1:
                     mNotificationCheckBox.setChecked(true);
@@ -230,7 +229,7 @@ public class DisturbActivity extends BaseActionBarActivity implements View.OnCli
                         mStartTime = getDaysTime(hourOfDay, minute);
 
                         mStartTimeNofication.setText(mStartTime);
-                        SharedPreferences.Editor editor = SharedPreferencesContext.getInstance().getSharedPreferences().edit();
+                        editor = SharedPreferencesContext.getInstance().getSharedPreferences().edit();
                         editor.putString("START_TIME", mStartTime);
                         editor.commit();
 
@@ -264,7 +263,7 @@ public class DisturbActivity extends BaseActionBarActivity implements View.OnCli
                         Log.e("", "------结束时间---＋＋＋＋＋＋＋＋＋＋＋＋＋＋＋" );
                         mEndTime = getDaysTime(hourOfDay, minute);
                         mEndTimeNofication.setText(mEndTime);
-                        SharedPreferences.Editor editor = SharedPreferencesContext.getInstance().getSharedPreferences().edit();
+                        editor = SharedPreferencesContext.getInstance().getSharedPreferences().edit();
                         editor.putString("END_TIME", mEndTime);
                         editor.commit();
 
@@ -362,7 +361,7 @@ public class DisturbActivity extends BaseActionBarActivity implements View.OnCli
                             @Override
                             public void onSuccess() {
                                 Log.e(TAG, "----yb----设置会话通知周期-onSuccess");
-                                SharedPreferences.Editor editor = SharedPreferencesContext.getInstance().getSharedPreferences().edit();
+                                editor = SharedPreferencesContext.getInstance().getSharedPreferences().edit();
                                 editor.putBoolean("IS_SETTING", true);
                                 editor.apply();
                                 mHandler.post(new Runnable() {

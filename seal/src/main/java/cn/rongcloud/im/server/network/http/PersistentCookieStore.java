@@ -143,7 +143,6 @@ public class PersistentCookieStore implements CookieStore {
         return new ArrayList<Cookie>(cookies.values());
     }
 
-
     //
     // Cookie serialization/deserialization
     //

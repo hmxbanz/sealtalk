@@ -6,44 +6,34 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="hmx" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="ERROR" />
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d10e90e-7f2d-4614-8be8-dc65f4d6cdcc" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/adapter/BaseAdapters.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IMKit_SDK_v2_6_9_stable_with_CallKit/IMKit_SDK_v2_6_9_stable_with_CallKit.iml" afterPath="$PROJECT_DIR$/IMKit_SDK_v2_6_9_stable_with_CallKit/IMKit_SDK_v2_6_9_stable_with_CallKit.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seal/seal.iml" afterPath="$PROJECT_DIR$/seal/seal.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seal/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/seal/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/App.java" afterPath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/App.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/GroupInfoEngine.java" afterPath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/GroupInfoEngine.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/GroupMemberEngine.java" afterPath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/GroupMemberEngine.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/GroupUserInfoEngine.java" afterPath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/GroupUserInfoEngine.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/SealAppContext.java" afterPath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/SealAppContext.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/SealConst.java" afterPath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/SealConst.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/UserInfoEngine.java" afterPath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/UserInfoEngine.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/BaseAction.java" afterPath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/BaseAction.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/SealAction.java" afterPath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/SealAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/network/async/AsyncRequest.java" afterPath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/network/async/AsyncRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/network/async/AsyncResult.java" afterPath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/network/async/AsyncResult.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/network/async/AsyncTaskManager.java" afterPath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/network/async/AsyncTaskManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/network/async/OnDataListener.java" afterPath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/network/async/OnDataListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/response/VersionResponse.java" afterPath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/response/VersionResponse.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/network/http/PersistentCookieStore.java" afterPath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/network/http/PersistentCookieStore.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/AboutRongCloudActivity.java" afterPath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/AboutRongCloudActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/BaseActivity.java" afterPath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/BaseActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/ConversationActivity.java" afterPath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/ConversationActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/DiscussionDetailActivity.java" afterPath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/DiscussionDetailActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/GroupListActivity.java" afterPath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/GroupListActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/ConversationListActivity.java" afterPath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/ConversationListActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/DisturbActivity.java" afterPath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/DisturbActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/LoginActivity.java" afterPath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/LoginActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/MainActivity.java" afterPath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/PersonalProfileActivity.java" afterPath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/PersonalProfileActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/SharedReceiverActivity.java" afterPath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/SharedReceiverActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/MyAccountActivity.java" afterPath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/MyAccountActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/NewFriendListActivity.java" afterPath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/NewFriendListActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/NewGroupDetailActivity.java" afterPath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/NewGroupDetailActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/UpdateNameActivity.java" afterPath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/UpdateNameActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/UpdatePasswordActivity.java" afterPath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/UpdatePasswordActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/fragment/DiscoverFragment.java" afterPath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/fragment/DiscoverFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/fragment/MineFragment.java" afterPath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/fragment/MineFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seal/src/main/res/layout/dialog_download.xml" afterPath="$PROJECT_DIR$/seal/src/main/res/layout/dialog_download.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/adapter/BaseAdapter.java" afterPath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/adapter/BaseAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/adapter/NewFriendListAdapter.java" afterPath="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/adapter/NewFriendListAdapter.java" />
     </list>
     <ignored path="sealtalk.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -63,27 +53,28 @@
     <favorites_list name="sealtalk" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="App.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/App.java">
+    <leaf>
+      <file leaf-file-name="BaseAdapter.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/adapter/BaseAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="30" column="39" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
+            <state vertical-scroll-proportion="0.4273743">
+              <caret line="20" column="50" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
               <folding>
-                <element signature="e#3376#3377#0" expanded="true" />
-                <element signature="e#3406#3407#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MineFragment.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/fragment/MineFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5392157">
-              <caret line="74" column="49" selection-start-line="74" selection-start-column="49" selection-end-line="74" selection-end-column="49" />
-              <folding>
-                <element signature="method#onFailure#0;class#3191:5058" expanded="false" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#543#544#0" expanded="true" />
+                <element signature="e#589#590#0" expanded="true" />
+                <element signature="method#addData#0;class#BaseAdapter#0" expanded="false" />
+                <element signature="method#addData#2;class#BaseAdapter#0" expanded="false" />
+                <element signature="method#addData#3;class#BaseAdapter#0" expanded="false" />
+                <element signature="method#addData#4;class#BaseAdapter#0" expanded="false" />
+                <element signature="method#removeData#0;class#BaseAdapter#0" expanded="false" />
+                <element signature="method#remove#0;class#BaseAdapter#0" expanded="false" />
+                <element signature="method#subData#0;class#BaseAdapter#0" expanded="false" />
+                <element signature="method#getCount#0;class#BaseAdapter#0" expanded="false" />
+                <element signature="method#getItem#0;class#BaseAdapter#0" expanded="false" />
+                <element signature="method#findViewById#0;class#BaseAdapter#0" expanded="false" />
+                <element signature="method#findPosition#0;class#BaseAdapter#0" expanded="false" />
+                <element signature="method#findPosition#1;class#BaseAdapter#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -2894,40 +2885,49 @@
         <option value="$PROJECT_DIR$/seal/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/seal/build.gradle" />
         <option value="$PROJECT_DIR$/seal/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/MainActivity.java" />
-        <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/SealConst.java" />
         <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/response/VersionResponse.java" />
         <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/GroupMemberEngine.java" />
         <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/GroupUserInfoEngine.java" />
         <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/UserInfoEngine.java" />
-        <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/ConversationActivity.java" />
         <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/DiscussionDetailActivity.java" />
         <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/GroupListActivity.java" />
         <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/PersonalProfileActivity.java" />
         <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/SharedReceiverActivity.java" />
-        <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/UpdateNameActivity.java" />
-        <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/UpdatePasswordActivity.java" />
         <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/fragment/DiscoverFragment.java" />
         <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/fragment/MineFragment.java" />
         <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/network/async/OnDataListener.java" />
         <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/GroupInfoEngine.java" />
-        <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/AboutRongCloudActivity.java" />
         <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/UpdateService.java" />
         <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/network/async/AsyncRequest.java" />
         <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/network/async/AsyncResult.java" />
-        <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/BaseActivity.java" />
         <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/network/async/AsyncTaskManager.java" />
-        <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/App.java" />
         <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/BaseAction.java" />
         <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/SealAction.java" />
-        <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/App.java" />
+        <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/SealConst.java" />
+        <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/SealAppContext.java" />
+        <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/ConversationActivity.java" />
+        <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/ConversationListActivity.java" />
+        <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/MyAccountActivity.java" />
+        <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/NewFriendListActivity.java" />
+        <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/UpdateNameActivity.java" />
+        <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/UpdatePasswordActivity.java" />
+        <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/MainActivity.java" />
+        <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/DisturbActivity.java" />
+        <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/AboutRongCloudActivity.java" />
+        <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/NewGroupDetailActivity.java" />
+        <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/network/http/PersistentCookieStore.java" />
+        <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/BaseActivity.java" />
+        <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/adapter/NewFriendListAdapter.java" />
+        <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/adapter/BaseAdapters.java" />
+        <option value="$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/adapter/BaseAdapter.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
+    <option name="width" value="1924" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -2957,7 +2957,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="AndroidView" proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -2971,82 +2971,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="AndroidView">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sealtalk" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sealtalk" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="seal" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sealtalk" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="seal" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sealtalk" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="seal" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="im" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sealtalk" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="seal" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="im" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -3118,20 +3046,135 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="im" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sealtalk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sealtalk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="seal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="im" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sealtalk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sealtalk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="seal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="im" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="adapter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sealtalk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sealtalk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="seal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sealtalk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sealtalk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="screenshots" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="SearchEverywhereHistoryKey" value="AsyncTask&#9;PSI&#9;JAVA://cn.rongcloud.im.server.network.async.AsyncTaskManager&#10;onEventAsync&#9;PSI&#9;JAVA://cn.rongcloud.im.server.network.async.AsyncTaskManager#onEventAsync&#10;onEvent&#9;PSI&#9;JAVA://cn.rongcloud.im.ui.activity.ConversationActivity#onEventMainThread&#10;new OnClickListener&#9;null&#9;null&#10;new OnDataListener&#9;null&#9;null&#10;tojso&#9;PSI&#9;JAVA://cn.rongcloud.im.server.utils.json.JsonMananger#beanToJson&#10;setAndroid&#9;PSI&#9;JAVA://cn.rongcloud.im.server.response.VersionResponse#setAndroid&#10;mine_about&#9;PSI&#9;JAVA://cn.rongcloud.im.R.id#mine_about&#10;clear su&#9;PSI&#9;JAVA://cn.rongcloud.im.R.string#clear_success&#10;AsyncTaskManager&#9;PSI&#9;JAVA://cn.rongcloud.im.ui.activity.BaseActivity#mAsyncTaskManager&#10;OnDataListener&#9;PSI&#9;JAVA://cn.rongcloud.im.server.network.async.OnDataListener&#10;doInBackground&#9;PSI&#9;JAVA://cn.rongcloud.im.ui.widget.linkpreview.TextCrawler.GetCode#doInBackground&#10;UpdateProgressListener&#9;PSI&#9;JAVA://cn.rongcloud.im.server.UpdateService#updateProgressListener&#10;VersionResponse&#9;FILE&#9;file://E:/me/Android/Exercise/RongCloud/sealtalk/seal/src/main/java/cn/rongcloud/im/server/response/VersionResponse.java&#10;AndroidEntity&#9;PSI&#9;JAVA://cn.rongcloud.im.server.response.VersionResponse.AndroidEntity&#10;GETVERSION&#9;PSI&#9;JAVA://cn.rongcloud.im.server.response.VersionResponse.AndroidEntity#getVersion&#10;Rong_Cloud_Android_&#9;FILE&#9;file://E:/me/Android/Exercise/RongCloud/sealtalk/IMKit_SDK_v2_6_9_stable_with_CallKit/build/outputs/aar/Rong_Cloud_Android_IMKit_SDK_v2_6_9_stable_with_CallKit-debug.aar&#10;Rong_Cloud_Android_IMKit_SDK_v2_6_8_dev_with_CallKit&#9;FILE&#9;file://E:/me/Android/Exercise/RongCloud/sealtalk/Rong_Cloud_Android_IMKit_SDK_v2_6_8_dev_with_CallKit/Rong_Cloud_Android_IMKit_SDK_v2_6_8_dev_with_CallKit.iml" />
-    <property name="android.project.structure.last.selected" value="SDK Location" />
+    <property name="SearchEverywhereHistoryKey" value="setOnReceiveMessageListener&#9;PSI&#9;JAVA://io.rong.imlib.IHandler.Stub#TRANSACTION_setOnReceiveMessageListener&#10;run&#9;PSI&#9;JAVA://null#run&#10;new th&#9;PSI&#9;JAVA://sun.rmi.runtime.NewThreadAction&#10;AsyncTask&#9;PSI&#9;JAVA://cn.rongcloud.im.server.network.async.AsyncTaskManager&#10;onEventAsync&#9;PSI&#9;JAVA://cn.rongcloud.im.server.network.async.AsyncTaskManager#onEventAsync&#10;onEvent&#9;PSI&#9;JAVA://cn.rongcloud.im.ui.activity.ConversationActivity#onEventMainThread&#10;new OnClickListener&#9;null&#9;null&#10;new OnDataListener&#9;null&#9;null&#10;tojso&#9;PSI&#9;JAVA://cn.rongcloud.im.server.utils.json.JsonMananger#beanToJson&#10;setAndroid&#9;PSI&#9;JAVA://cn.rongcloud.im.server.response.VersionResponse#setAndroid&#10;mine_about&#9;PSI&#9;JAVA://cn.rongcloud.im.R.id#mine_about&#10;clear su&#9;PSI&#9;JAVA://cn.rongcloud.im.R.string#clear_success&#10;AsyncTaskManager&#9;PSI&#9;JAVA://cn.rongcloud.im.ui.activity.BaseActivity#mAsyncTaskManager&#10;OnDataListener&#9;PSI&#9;JAVA://cn.rongcloud.im.server.network.async.OnDataListener&#10;doInBackground&#9;PSI&#9;JAVA://cn.rongcloud.im.ui.widget.linkpreview.TextCrawler.GetCode#doInBackground&#10;UpdateProgressListener&#9;PSI&#9;JAVA://cn.rongcloud.im.server.UpdateService#updateProgressListener&#10;VersionResponse&#9;FILE&#9;file://E:/me/Android/Exercise/RongCloud/sealtalk/seal/src/main/java/cn/rongcloud/im/server/response/VersionResponse.java&#10;AndroidEntity&#9;PSI&#9;JAVA://cn.rongcloud.im.server.response.VersionResponse.AndroidEntity&#10;GETVERSION&#9;PSI&#9;JAVA://cn.rongcloud.im.server.response.VersionResponse.AndroidEntity#getVersion&#10;Rong_Cloud_Android_&#9;FILE&#9;file://E:/me/Android/Exercise/RongCloud/sealtalk/IMKit_SDK_v2_6_9_stable_with_CallKit/build/outputs/aar/Rong_Cloud_Android_IMKit_SDK_v2_6_9_stable_with_CallKit-debug.aar&#10;Rong_Cloud_Android_IMKit_SDK_v2_6_8_dev_with_CallKit&#9;FILE&#9;file://E:/me/Android/Exercise/RongCloud/sealtalk/Rong_Cloud_Android_IMKit_SDK_v2_6_8_dev_with_CallKit/Rong_Cloud_Android_IMKit_SDK_v2_6_8_dev_with_CallKit.iml" />
+    <property name="android.project.structure.last.selected" value="IMKit_SDK_v2_6_8_dev_with_CallKit" />
     <property name="android.project.structure.proportion" value="0.15" />
-    <property name="device.picker.selection" value="aa" />
+    <property name="device.picker.selection" value="cfbcb90e" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../FashionOrder" />
   </component>
   <component name="RunManager" selected="Android Application.seal">
@@ -3410,25 +3453,35 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="0" width="1924" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15712683" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32996634" sideWeight="0.49784946" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16161616" sideWeight="0.49784946" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27833894" sideWeight="0.50213677" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36588103" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32996634" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16161616" sideWeight="0.50215054" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18181819" sideWeight="0.49784946" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32996634" sideWeight="0.49784946" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16498317" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32996634" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32996634" sideWeight="0.49784946" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19444445" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19354838" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42873177" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -3438,10 +3491,10 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19337606" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Dynamic Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13580246" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -3489,721 +3542,472 @@
           <option name="timeStamp" value="38" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/BaseActivity.java</url>
-          <line>65</line>
+          <url>file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/network/http/JsonHttpResponseHandler.java</url>
+          <line>170</line>
           <properties />
-          <option name="timeStamp" value="55" />
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/LoginActivity.java</url>
+          <line>214</line>
+          <properties />
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$PROJECT_DIR$/seal/libs/org.apache.http.legacy.jar!/org/apache/http/impl/client/AbstractHttpClient.class</url>
+          <line>246</line>
+          <properties />
+          <option name="timeStamp" value="60" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/SealAction.java</url>
+          <line>911</line>
+          <properties />
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/widget/ClearWriteEditText.java</url>
+          <line>134</line>
+          <properties />
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/LoginActivity.java</url>
+          <line>74</line>
+          <properties />
+          <option name="timeStamp" value="65" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="56" />
+      <option name="time" value="67" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-23/java/lang/String.java">
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-23/org/json/JSONObject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.024418605">
-          <caret line="1508" column="32" selection-start-line="1508" selection-start-column="32" selection-end-line="1508" selection-end-column="38" />
-          <folding />
+        <state vertical-scroll-proportion="0.17602997">
+          <caret line="384" column="7" selection-start-line="384" selection-start-column="7" selection-end-line="384" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/seal/src/main/res/layout/dialog_download.xml">
+    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/RegisterActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.02631579">
-          <caret line="63" column="50" selection-start-line="63" selection-start-column="33" selection-end-line="63" selection-end-column="50" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/seal/src/main/res/layout/activity_login.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/network/download/DownloadManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.894186">
-          <caret line="199" column="40" selection-start-line="199" selection-start-column="40" selection-end-line="199" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-23/android/content/Context.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33255813">
-          <caret line="1489" column="25" selection-start-line="1489" selection-start-column="25" selection-end-line="1489" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/broadcast/BroadcastManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.94302326">
-          <caret line="132" column="25" selection-start-line="132" selection-start-column="25" selection-end-line="132" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/seal/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22305764">
-          <caret line="46" column="77" selection-start-line="46" selection-start-column="77" selection-end-line="46" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/IMKit_SDK_v2_6_9_stable_with_CallKit/src/main/libs/Rong_IMKit_v2_6_9.jar!/io/rong/imkit/RongIM.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.413253">
-          <caret line="243" column="39" selection-start-line="243" selection-start-column="39" selection-end-line="243" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/support-v4/22.2.0/support-v4-22.2.0-sources.jar!/android/support/v4/app/FragmentActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.0511627">
-          <caret line="83" column="44" selection-start-line="83" selection-start-column="44" selection-end-line="83" selection-end-column="44" />
-          <folding>
-            <element signature="docComment;class#FragmentActivity#0" expanded="false" />
-            <element signature="class#4343:4716" expanded="false" />
-            <element signature="e#4373#4382#0" expanded="false" />
-            <element signature="method#hasView#0;class#4343:4716" expanded="false" />
-            <element signature="class#NonConfigurationInstances#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="e#5313#5388#0" expanded="false" />
-            <element signature="docComment;method#onActivityResult#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="method#onActivityResult#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="docComment;method#onBackPressed#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="method#onBackPressed#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="docComment;method#supportFinishAfterTransition#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="docComment;method#setEnterSharedElementCallback#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="method#setEnterSharedElementCallback#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="docComment;method#setExitSharedElementCallback#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="method#setExitSharedElementCallback#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="docComment;method#supportPostponeEnterTransition#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="docComment;method#supportStartPostponedEnterTransition#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="method#supportStartPostponedEnterTransition#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="docComment;method#onConfigurationChanged#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="method#onConfigurationChanged#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="docComment;method#onCreate#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="method#onCreate#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="docComment;method#onCreatePanelMenu#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="method#onCreatePanelMenu#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="e#10784#10849#0" expanded="false" />
-            <element signature="docComment;method#onCreateView#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="e#11164#11173#0" expanded="false" />
-            <element signature="method#onCreateView#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="docComment;method#onDestroy#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="method#onDestroy#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="docComment;method#onKeyDown#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="method#onKeyDown#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="e#12228#12286#0" expanded="false" />
-            <element signature="docComment;method#onLowMemory#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="method#onLowMemory#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="docComment;method#onMenuItemSelected#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="method#onMenuItemSelected#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="docComment;method#onPanelClosed#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="method#onPanelClosed#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="docComment;method#onPause#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="method#onPause#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="docComment;method#onNewIntent#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="method#onNewIntent#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="docComment;method#onResume#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="method#onResume#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="docComment;method#onPostResume#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="method#onPostResume#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="docComment;method#onResumeFragments#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="docComment;method#onPreparePanel#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="method#onPreparePanel#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="docComment;method#onPrepareOptionsPanel#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="method#onPrepareOptionsPanel#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="docComment;method#onRetainNonConfigurationInstance#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="method#onRetainNonConfigurationInstance#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="e#17454#17519#0" expanded="false" />
-            <element signature="docComment;method#onSaveInstanceState#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="method#onSaveInstanceState#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="docComment;method#onStart#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="method#onStart#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="docComment;method#onStop#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="method#onStop#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="e#20766#20841#0" expanded="false" />
-            <element signature="docComment;method#onRetainCustomNonConfigurationInstance#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="docComment;method#getLastCustomNonConfigurationInstance#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="method#getLastCustomNonConfigurationInstance#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="docComment;method#supportInvalidateOptionsMenu#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="method#supportInvalidateOptionsMenu#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="e#21999#22062#0" expanded="false" />
-            <element signature="e#22218#22285#0" expanded="false" />
-            <element signature="docComment;method#dump#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="method#dump#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="e#23062#23127#0" expanded="false" />
-            <element signature="method#viewToString#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="method#dumpViewHierarchy#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="method#doReallyStop#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="docComment;method#onReallyStop#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="method#onReallyStop#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="e#28615#28690#0" expanded="false" />
-            <element signature="docComment;method#onAttachFragment#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="method#onAttachFragment#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="docComment;method#getSupportFragmentManager#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="docComment;method#startActivityForResult#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="method#startActivityForResult#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="docComment;method#startActivityFromFragment#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="method#startActivityFromFragment#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="method#invalidateSupportFragment#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="e#30599#30674#0" expanded="false" />
-            <element signature="docComment;method#getSupportLoaderManager#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="method#getSupportLoaderManager#0;class#FragmentActivity#0" expanded="false" />
-            <element signature="method#getLoaderManager#0;class#FragmentActivity#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/seal/build/intermediates/exploded-aar/com.android.support/appcompat-v7/19.1.0/jars/classes.jar!/android/support/v7/app/ActionBar.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3325301">
-          <caret line="67" column="50" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/seal/build/intermediates/exploded-aar/com.android.support/appcompat-v7/19.1.0/jars/classes.jar!/android/support/v7/app/ActionBarActivity.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15789473">
-          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/seal/src/main/res/drawable-xhdpi/de_actionbar_back.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-23/java/lang/Class.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1127907">
-          <caret line="1075" column="18" selection-start-line="1075" selection-start-column="18" selection-end-line="1075" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/IMKit_SDK_v2_6_9_stable_with_CallKit/src/main/libs/Rong_IMKit_v2_6_9.jar!/io/rong/eventbus/EventBus.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34457833">
-          <caret line="207" column="16" selection-start-line="207" selection-start-column="16" selection-end-line="207" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-23/java/lang/Throwable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33255813">
-          <caret line="234" column="16" selection-start-line="234" selection-start-column="16" selection-end-line="234" selection-end-column="16" />
-          <folding>
-            <element signature="e#8969#8970#0" expanded="false" />
-            <element signature="e#9012#9013#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/network/async/AsyncResult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5604651">
-          <caret line="31" column="11" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
+        <state vertical-scroll-proportion="0.584">
+          <caret line="59" column="46" selection-start-line="59" selection-start-column="46" selection-end-line="59" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/network/async/AsyncRequest.java">
+    <entry file="jar://$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/support-v4/22.2.0/support-v4-22.2.0-sources.jar!/android/support/v4/app/Fragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19534884">
-          <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
-          <folding>
-            <element signature="method#AsyncRequest#1;class#AsyncRequest#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.0">
+          <caret line="167" column="13" selection-start-line="167" selection-start-column="13" selection-end-line="167" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/UserInfoEngine.java">
+    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/ConversationListActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="55" column="46" selection-start-line="55" selection-start-column="46" selection-end-line="55" selection-end-column="46" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/BaseActionBarActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="56" selection-start-line="10" selection-start-column="56" selection-end-line="10" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/MyAccountActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="52" column="64" selection-start-line="52" selection-start-column="64" selection-end-line="52" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/UpdateNameActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="27" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/UpdatePasswordActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="46" selection-start-line="28" selection-start-column="46" selection-end-line="28" selection-end-column="46" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="118" column="66" selection-start-line="118" selection-start-column="66" selection-end-line="118" selection-end-column="66" />
+          <caret line="367" column="48" selection-start-line="367" selection-start-column="48" selection-end-line="367" selection-end-column="48" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="docComment;field#mConversationListFragment#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onTokenIncorrect#0;class#3645:4098" expanded="false" />
-            <element signature="method#onError#0;class#3645:4098" expanded="false" />
-            <element signature="class#6158:6469" expanded="false" />
-            <element signature="e#6282#6283#0" expanded="false" />
-            <element signature="e#6344#6345#0" expanded="false" />
-            <element signature="e#6403#6404#0" expanded="false" />
-            <element signature="e#6458#6459#0" expanded="false" />
+            <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
+            <element signature="class#3627:4080" expanded="false" />
+            <element signature="method#onTokenIncorrect#0;class#3627:4080" expanded="false" />
+            <element signature="method#onSuccess#0;class#3627:4080" expanded="false" />
+            <element signature="method#onError#0;class#3627:4080" expanded="false" />
+            <element signature="method#initViews#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#initMianViewPager#0;class#MainActivity#0" expanded="false" />
             <element signature="method#initConversationList#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onPageScrolled#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onPageSelected#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onPageScrollStateChanged#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onDragOut#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onClick#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onDestroy#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onKeyDown#0;class#MainActivity#0" expanded="false" />
             <element signature="method#changeTextViewColor#0;class#MainActivity#0" expanded="false" />
             <element signature="method#changeSelectedTabState#0;class#MainActivity#0" expanded="false" />
             <element signature="method#getConversationPush#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onError#0;class#14516:15571" expanded="false" />
+            <element signature="class#14473:15528" expanded="false" />
+            <element signature="method#onSuccess#0;class#14473:15528" expanded="false" />
+            <element signature="method#onError#0;class#14473:15528" expanded="false" />
             <element signature="docComment;method#getPushMessage#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onTokenIncorrect#0;class#16514:17041" expanded="false" />
-            <element signature="e#16776#16777#0" expanded="false" />
-            <element signature="e#16868#16869#0" expanded="false" />
-            <element signature="method#onError#0;class#16514:17041" expanded="false" />
+            <element signature="class#16423:16950" expanded="false" />
+            <element signature="method#onTokenIncorrect#0;class#16423:16950" expanded="false" />
+            <element signature="method#onError#0;class#16423:16950" expanded="false" />
+            <element signature="method#hintKbTwo#0;class#MainActivity#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/DisturbActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="363" column="32" selection-start-line="363" selection-start-column="32" selection-end-line="363" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/fragment/MineFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.633218">
+          <caret line="52" column="23" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-23/android/content/MemoryFileProviderTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33217993">
+          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/seal/libs/org.apache.http.legacy.jar!/org/apache/http/client/CookieStore.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49817517">
+          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/network/http/SerializableCookie.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.10380623">
+          <caret line="33" column="57" selection-start-line="33" selection-start-column="57" selection-end-line="33" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/network/http/PersistentCookieStore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33217993">
+          <caret line="149" column="48" selection-start-line="149" selection-start-column="48" selection-end-line="149" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/seal/build/intermediates/exploded-aar/com.android.support/appcompat-v7/19.1.0/jars/classes.jar!/android/support/v7/app/ActionBarActivity.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.85465115">
+          <caret line="28" column="44" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/AboutRongCloudActivity.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.3442906">
+          <caret line="31" column="36" selection-start-line="31" selection-start-column="36" selection-end-line="31" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/adapter/CompositeAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="111" column="47" selection-start-line="111" selection-start-column="47" selection-end-line="111" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/adapter/FriendAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="66" selection-start-line="25" selection-start-column="66" selection-end-line="25" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-23/android/widget/SectionIndexer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="40" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-23/android/widget/AbsListView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="100" column="22" selection-start-line="100" selection-start-column="22" selection-end-line="100" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/CreateGroupActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="80" column="32" selection-start-line="80" selection-start-column="32" selection-end-line="80" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-23/android/content/Context.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.9375">
+          <caret line="73" column="22" selection-start-line="73" selection-start-column="22" selection-end-line="73" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/fragment/ContactsFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="148" column="26" selection-start-line="148" selection-start-column="26" selection-end-line="148" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/ConversationActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="367" column="24" selection-start-line="367" selection-start-column="24" selection-end-line="367" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/NewGroupDetailActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="343" column="42" selection-start-line="343" selection-start-column="42" selection-end-line="343" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-23/android/content/ContextWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.90625">
+          <caret line="156" column="0" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-23/android/content/SharedPreferences.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="29" selection-start-line="43" selection-start-column="29" selection-end-line="43" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/RealTimeLocationActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="34" column="56" selection-start-line="34" selection-start-column="56" selection-end-line="34" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/LocationMapActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="59" selection-start-line="29" selection-start-column="59" selection-end-line="29" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/BasicMapActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="50" selection-start-line="13" selection-start-column="50" selection-end-line="13" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/support-v4/22.2.0/support-v4-22.2.0-sources.jar!/android/support/v4/app/FragmentActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="75" column="40" selection-start-line="75" selection-start-column="40" selection-end-line="75" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-23/android/app/Activity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15186246">
+          <caret line="663" column="79" selection-start-line="663" selection-start-column="79" selection-end-line="663" selection-end-column="79" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/network/async/OnDataListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34186047">
-          <caret line="17" column="11" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
+        <state vertical-scroll-proportion="0.33094555">
+          <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMKit_SDK_v2_6_9_stable_with_CallKit/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/BaseActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="63" column="16" selection-start-line="63" selection-start-column="16" selection-end-line="63" selection-end-column="16" />
+        <state vertical-scroll-proportion="-0.0014326648">
+          <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
           <folding>
             <element signature="method#onResume#0;class#BaseActivity#0" expanded="false" />
             <element signature="method#onPause#0;class#BaseActivity#0" expanded="false" />
             <element signature="method#onOptionsItemSelected#0;class#BaseActivity#0" expanded="false" />
             <element signature="docComment;method#request#0;class#BaseActivity#0" expanded="false" />
+            <element signature="method#request#0;class#BaseActivity#0" expanded="false" />
             <element signature="docComment;method#request#1;class#BaseActivity#0" expanded="false" />
+            <element signature="method#request#1;class#BaseActivity#0" expanded="false" />
             <element signature="docComment;method#cancelRequest#0;class#BaseActivity#0" expanded="false" />
+            <element signature="method#cancelRequest#0;class#BaseActivity#0" expanded="false" />
             <element signature="method#doInBackground#0;class#BaseActivity#0" expanded="false" />
             <element signature="method#onSuccess#0;class#BaseActivity#0" expanded="false" />
             <element signature="method#onFailure#0;class#BaseActivity#0" expanded="false" />
-            <element signature="e#3312#3314#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/network/async/AsyncTaskManager.java">
+    <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="113" column="58" selection-start-line="113" selection-start-column="58" selection-end-line="113" selection-end-column="58" />
-          <folding>
-            <element signature="docComment;class#AsyncTaskManager#0" expanded="false" />
-            <element signature="docComment;field#REQUEST_SUCCESS_CODE#0;class#AsyncTaskManager#0" expanded="false" />
-            <element signature="docComment;field#REQUEST_ERROR_CODE#0;class#AsyncTaskManager#0" expanded="false" />
-            <element signature="docComment;field#HTTP_ERROR_CODE#0;class#AsyncTaskManager#0" expanded="false" />
-            <element signature="docComment;field#HTTP_NULL_CODE#0;class#AsyncTaskManager#0" expanded="false" />
-            <element signature="docComment;method#AsyncTaskManager#0;class#AsyncTaskManager#0" expanded="false" />
-            <element signature="docComment;method#getInstance#0;class#AsyncTaskManager#0" expanded="false" />
-            <element signature="docComment;method#cancelRequest#0;class#AsyncTaskManager#0" expanded="false" />
-            <element signature="docComment;method#isNetworkConnected#0;class#AsyncTaskManager#0" expanded="false" />
-            <element signature="method#isNetworkConnected#0;class#AsyncTaskManager#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/seal/libs/org.apache.http.legacy.jar!/org/apache/http/entity/StringEntity.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16838488">
-          <caret line="18" column="11" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/seal/libs/org.apache.http.legacy.jar!/org/apache/http/impl/client/DefaultHttpClient.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8659794">
-          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-23/android/util/Log.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30882353">
-          <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/utils/NLog.java">
+    <entry file="file://$PROJECT_DIR$/seal/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5539216">
-          <caret line="39" column="32" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
-          <folding>
-            <element signature="method#e#2;class#NLog#0" expanded="false" />
-            <element signature="method#log#0;class#NLog#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/BaseAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5147059">
-          <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
-          <folding>
-            <element signature="docComment;class#BaseAction#0" expanded="false" />
-            <element signature="e#1522#1523#0" expanded="true" />
-            <element signature="e#1573#1574#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/utils/json/JsonMananger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.622549">
-          <caret line="61" column="44" selection-start-line="61" selection-start-column="44" selection-end-line="61" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/SealAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4019608">
-          <caret line="221" column="39" selection-start-line="221" selection-start-column="39" selection-end-line="221" selection-end-column="39" />
-          <folding>
-            <element signature="docComment;class#SealAction#0" expanded="false" />
-            <element signature="docComment;method#SealAction#0;class#SealAction#0" expanded="false" />
-            <element signature="e#4337#4338#0" expanded="true" />
-            <element signature="e#4367#4368#0" expanded="true" />
-            <element signature="docComment;method#checkPhoneAvailable#0;class#SealAction#0" expanded="false" />
-            <element signature="method#checkPhoneAvailable#0;class#SealAction#0" expanded="false" />
-            <element signature="docComment;method#sendCode#0;class#SealAction#0" expanded="false" />
-            <element signature="method#sendCode#0;class#SealAction#0" expanded="false" />
-            <element signature="docComment;method#verifyCode#0;class#SealAction#0" expanded="false" />
-            <element signature="method#verifyCode#0;class#SealAction#0" expanded="false" />
-            <element signature="docComment;method#register#0;class#SealAction#0" expanded="false" />
-            <element signature="method#register#0;class#SealAction#0" expanded="false" />
-            <element signature="docComment;method#login#0;class#SealAction#0" expanded="false" />
-            <element signature="docComment;method#getToken#0;class#SealAction#0" expanded="false" />
-            <element signature="method#getToken#0;class#SealAction#0" expanded="false" />
-            <element signature="docComment;method#setName#0;class#SealAction#0" expanded="false" />
-            <element signature="method#setName#0;class#SealAction#0" expanded="false" />
-            <element signature="docComment;method#setPortrait#0;class#SealAction#0" expanded="false" />
-            <element signature="method#setPortrait#0;class#SealAction#0" expanded="false" />
-            <element signature="docComment;method#changePassword#0;class#SealAction#0" expanded="false" />
-            <element signature="method#changePassword#0;class#SealAction#0" expanded="false" />
-            <element signature="docComment;method#restPassword#0;class#SealAction#0" expanded="false" />
-            <element signature="method#restPassword#0;class#SealAction#0" expanded="false" />
-            <element signature="docComment;method#getUserInfoById#0;class#SealAction#0" expanded="false" />
-            <element signature="method#getUserInfoById#0;class#SealAction#0" expanded="false" />
-            <element signature="docComment;method#getUserInfoFromPhone#0;class#SealAction#0" expanded="false" />
-            <element signature="method#getUserInfoFromPhone#0;class#SealAction#0" expanded="false" />
-            <element signature="docComment;method#sendFriendInvitation#0;class#SealAction#0" expanded="false" />
-            <element signature="method#sendFriendInvitation#0;class#SealAction#0" expanded="false" />
-            <element signature="docComment;method#getAllUserRelationship#0;class#SealAction#0" expanded="false" />
-            <element signature="method#getAllUserRelationship#0;class#SealAction#0" expanded="false" />
-            <element signature="docComment;method#agreeFriends#0;class#SealAction#0" expanded="false" />
-            <element signature="method#agreeFriends#0;class#SealAction#0" expanded="false" />
-            <element signature="docComment;method#createGroup#0;class#SealAction#0" expanded="false" />
-            <element signature="method#createGroup#0;class#SealAction#0" expanded="false" />
-            <element signature="docComment;method#setGroupPortrait#0;class#SealAction#0" expanded="false" />
-            <element signature="method#setGroupPortrait#0;class#SealAction#0" expanded="false" />
-            <element signature="docComment;method#getGroups#0;class#SealAction#0" expanded="false" />
-            <element signature="method#getGroups#0;class#SealAction#0" expanded="false" />
-            <element signature="docComment;method#getGroupInfo#0;class#SealAction#0" expanded="false" />
-            <element signature="method#getGroupInfo#0;class#SealAction#0" expanded="false" />
-            <element signature="docComment;method#getGroupMember#0;class#SealAction#0" expanded="false" />
-            <element signature="method#getGroupMember#0;class#SealAction#0" expanded="false" />
-            <element signature="docComment;method#addGroupMember#0;class#SealAction#0" expanded="false" />
-            <element signature="method#addGroupMember#0;class#SealAction#0" expanded="false" />
-            <element signature="docComment;method#deleGroupMember#0;class#SealAction#0" expanded="false" />
-            <element signature="method#deleGroupMember#0;class#SealAction#0" expanded="false" />
-            <element signature="docComment;method#setGroupName#0;class#SealAction#0" expanded="false" />
-            <element signature="method#setGroupName#0;class#SealAction#0" expanded="false" />
-            <element signature="docComment;method#quitGroup#0;class#SealAction#0" expanded="false" />
-            <element signature="method#quitGroup#0;class#SealAction#0" expanded="false" />
-            <element signature="docComment;method#dissmissGroup#0;class#SealAction#0" expanded="false" />
-            <element signature="method#dissmissGroup#0;class#SealAction#0" expanded="false" />
-            <element signature="docComment;method#setGroupDisplayName#0;class#SealAction#0" expanded="false" />
-            <element signature="method#setGroupDisplayName#0;class#SealAction#0" expanded="false" />
-            <element signature="docComment;method#deleteFriend#0;class#SealAction#0" expanded="false" />
-            <element signature="method#deleteFriend#0;class#SealAction#0" expanded="false" />
-            <element signature="docComment;method#setFriendDisplayName#0;class#SealAction#0" expanded="false" />
-            <element signature="method#setFriendDisplayName#0;class#SealAction#0" expanded="false" />
-            <element signature="docComment;method#getBlackList#0;class#SealAction#0" expanded="false" />
-            <element signature="method#getBlackList#0;class#SealAction#0" expanded="false" />
-            <element signature="docComment;method#addToBlackList#0;class#SealAction#0" expanded="false" />
-            <element signature="method#addToBlackList#0;class#SealAction#0" expanded="false" />
-            <element signature="docComment;method#removeFromBlackList#0;class#SealAction#0" expanded="false" />
-            <element signature="method#removeFromBlackList#0;class#SealAction#0" expanded="false" />
-            <element signature="method#getQiNiuToken#0;class#SealAction#0" expanded="false" />
-            <element signature="docComment;method#JoinGroup#0;class#SealAction#0" expanded="false" />
-            <element signature="method#JoinGroup#0;class#SealAction#0" expanded="false" />
-            <element signature="docComment;method#getDefaultConversation#0;class#SealAction#0" expanded="false" />
-            <element signature="method#getDefaultConversation#0;class#SealAction#0" expanded="false" />
-            <element signature="docComment;method#getUserInfos#0;class#SealAction#0" expanded="false" />
-            <element signature="method#getUserInfos#0;class#SealAction#0" expanded="false" />
-            <element signature="method#getSealTalkVersion#0;class#SealAction#0" expanded="false" />
-          </folding>
-        </state>
+    <entry file="file://$PROJECT_DIR$/screenshots/image3.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/network/http/JsonHttpResponseHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44607842">
-          <caret line="36" column="26" selection-start-line="36" selection-start-column="26" selection-end-line="36" selection-end-column="26" />
-          <folding />
-        </state>
+    <entry file="file://$PROJECT_DIR$/screenshots/image2.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/screenshots/image1.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <caret line="159" column="54" selection-start-line="159" selection-start-column="54" selection-end-line="159" selection-end-column="54" />
           <folding>
-            <element signature="docComment;class#LoginActivity#0" expanded="false" />
-            <element signature="method#onCreate#0;class#LoginActivity#0" expanded="false" />
-            <element signature="method#initView#0;class#LoginActivity#0" expanded="false" />
-            <element signature="class#3564:4059" expanded="false" />
-            <element signature="method#beforeTextChanged#0;class#3564:4059" expanded="false" />
-            <element signature="method#onTextChanged#0;class#3564:4059" expanded="false" />
-            <element signature="method#afterTextChanged#0;class#3564:4059" expanded="false" />
-            <element signature="method#onClick#0;class#LoginActivity#0" expanded="false" />
-            <element signature="method#onActivityResult#0;class#LoginActivity#0" expanded="false" />
-            <element signature="method#doInBackground#0;class#LoginActivity#0" expanded="false" />
-            <element signature="method#onSuccess#0;class#LoginActivity#0" expanded="false" />
-            <element signature="class#9645:10702" expanded="false" />
-            <element signature="method#onTokenIncorrect#0;class#9645:10702" expanded="false" />
-            <element signature="method#onSuccess#0;class#9645:10702" expanded="false" />
-            <element signature="method#onError#0;class#9645:10702" expanded="false" />
-            <element signature="class#11783:12842" expanded="false" />
-            <element signature="method#onTokenIncorrect#0;class#11783:12842" expanded="false" />
-            <element signature="method#onSuccess#0;class#11783:12842" expanded="false" />
-            <element signature="method#onError#0;class#11783:12842" expanded="false" />
-            <element signature="class#17512:18340" expanded="false" />
-            <element signature="method#onTokenIncorrect#0;class#17512:18340" expanded="false" />
-            <element signature="method#onSuccess#0;class#17512:18340" expanded="false" />
-            <element signature="method#onError#0;class#17512:18340" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="class#3533:4028" expanded="false" />
             <element signature="method#onFailure#0;class#LoginActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/network/http/HttpException.java">
+    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/SealConst.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="68" selection-start-line="19" selection-start-column="68" selection-end-line="19" selection-end-column="68" />
-          <folding>
-            <element signature="method#HttpException#1;class#HttpException#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/network/http/MySSLSocketFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/network/http/AsyncHttpClient.java">
+    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/SealAppContext.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="93" column="13" selection-start-line="93" selection-start-column="13" selection-end-line="93" selection-end-column="13" />
+          <caret line="54" column="13" selection-start-line="54" selection-start-column="13" selection-end-line="54" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/pinyin/CharacterParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.867647">
-          <caret line="14" column="75" selection-start-line="14" selection-start-column="75" selection-end-line="14" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/network/http/SyncHttpClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="92" column="43" selection-start-line="92" selection-start-column="43" selection-end-line="92" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/pinyin/Friend.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/pinyin/Group.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/pinyin/GroupPinyinComparator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/pinyin/PinyinComparator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/pinyin/SideBar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/request/LoginRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/response/LoginResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-          <folding>
-            <element signature="docComment;class#LoginResponse#0" expanded="false" />
-            <element signature="docComment;field#code#0;class#LoginResponse#0" expanded="false" />
-            <element signature="docComment;field#result#0;class#LoginResponse#0" expanded="false" />
-            <element signature="class#ResultEntity#0;class#LoginResponse#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/widget/BottomMenuDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="29" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/UpdateService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="22" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
-          <folding>
-            <element signature="docComment;class#LocalBinder#0;class#UpdateService#0" expanded="false" />
-            <element signature="class#LocalBinder#0;class#UpdateService#0" expanded="false" />
-            <element signature="docComment;method#setUpdateProgressListener#0;class#LocalBinder#0;class#UpdateService#0" expanded="false" />
-            <element signature="method#setUpdateProgressListener#0;class#LocalBinder#0;class#UpdateService#0" expanded="false" />
-            <element signature="docComment;method#debug#0;class#UpdateService#0" expanded="false" />
-            <element signature="method#installIntent#0;class#UpdateService#0" expanded="false" />
-            <element signature="method#webLauncher#0;class#UpdateService#0" expanded="false" />
-            <element signature="method#getSaveFileName#0;class#UpdateService#0" expanded="false" />
-            <element signature="method#getDownloadDir#0;class#UpdateService#0" expanded="false" />
-            <element signature="method#onCreate#0;class#UpdateService#0" expanded="false" />
-            <element signature="method#onStartCommand#0;class#UpdateService#0" expanded="false" />
-            <element signature="e#7103#7112#0" expanded="false" />
-            <element signature="method#setUpdateProgressListener#0;class#UpdateService#0" expanded="false" />
-            <element signature="method#onDestroy#0;class#UpdateService#0" expanded="false" />
-            <element signature="method#getApplicationName#0;class#UpdateService#0" expanded="false" />
-            <element signature="method#buildBroadcast#0;class#UpdateService#0" expanded="false" />
-            <element signature="method#sendLocalBroadcast#0;class#UpdateService#0" expanded="false" />
-            <element signature="method#buildNotification#0;class#UpdateService#0" expanded="false" />
-            <element signature="method#start#0;class#UpdateService#0" expanded="false" />
-            <element signature="docComment;method#update#0;class#UpdateService#0" expanded="false" />
-            <element signature="method#update#0;class#UpdateService#0" expanded="false" />
-            <element signature="method#success#0;class#UpdateService#0" expanded="false" />
-            <element signature="method#error#0;class#UpdateService#0" expanded="false" />
-            <element signature="class#DownloadApk#0;class#UpdateService#0" expanded="false" />
-            <element signature="method#DownloadApk#0;class#DownloadApk#0;class#UpdateService#0" expanded="false" />
-            <element signature="method#onPreExecute#0;class#DownloadApk#0;class#UpdateService#0" expanded="false" />
-            <element signature="method#doInBackground#0;class#DownloadApk#0;class#UpdateService#0" expanded="false" />
-            <element signature="method#onProgressUpdate#0;class#DownloadApk#0;class#UpdateService#0" expanded="false" />
-            <element signature="method#onPostExecute#0;class#DownloadApk#0;class#UpdateService#0" expanded="false" />
-            <element signature="docComment;class#Builder#0;class#UpdateService#0" expanded="false" />
-            <element signature="method#create#0;class#Builder#0;class#UpdateService#0" expanded="false" />
-            <element signature="method#setIcoResId#0;class#Builder#0;class#UpdateService#0" expanded="false" />
-            <element signature="method#setIcoSmallResId#0;class#Builder#0;class#UpdateService#0" expanded="false" />
-            <element signature="method#setUpdateProgress#0;class#Builder#0;class#UpdateService#0" expanded="false" />
-            <element signature="method#setStoreDir#0;class#Builder#0;class#UpdateService#0" expanded="false" />
-            <element signature="method#setDownloadNotificationFlag#0;class#Builder#0;class#UpdateService#0" expanded="false" />
-            <element signature="method#setDownloadErrorNotificationFlag#0;class#Builder#0;class#UpdateService#0" expanded="false" />
-            <element signature="method#setIsSendBroadcast#0;class#Builder#0;class#UpdateService#0" expanded="false" />
-            <element signature="method#build#0;class#Builder#0;class#UpdateService#0" expanded="false" />
-            <element signature="method#getIcon#0;class#Builder#0;class#UpdateService#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/server/UpdateProgressListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/seal/src/main/res/drawable-hdpi/de_default_portrait.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/IMKit_SDK_v2_6_9_stable_with_CallKit/src/main/libs/Rong_IMKit_v2_6_9.jar!/io/rong/push/RongPushClient.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5343643">
-          <caret line="63" column="23" selection-start-line="63" selection-start-column="23" selection-end-line="63" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/App.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="39" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
-          <folding>
-            <element signature="e#3376#3377#0" expanded="true" />
-            <element signature="e#3406#3407#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/seal/libs/universal-image-loader-1.9.5.jar!/com/nostra13/universalimageloader/core/ImageLoader.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35051546">
-          <caret line="180" column="16" selection-start-line="180" selection-start-column="16" selection-end-line="180" selection-end-column="16" />
+          <caret line="56" column="21" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/fragment/MineFragment.java">
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-23/java/util/List.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5392157">
-          <caret line="74" column="49" selection-start-line="74" selection-start-column="49" selection-end-line="74" selection-end-column="49" />
+        <state vertical-scroll-proportion="0.60315186">
+          <caret line="333" column="19" selection-start-line="333" selection-start-column="19" selection-end-line="333" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/activity/NewFriendListActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37662336">
+          <caret line="116" column="55" selection-start-line="116" selection-start-column="55" selection-end-line="116" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/adapter/NewFriendListAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2780269">
+          <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
           <folding>
-            <element signature="method#onFailure#0;class#3191:5058" expanded="false" />
+            <element signature="e#661#662#0" expanded="true" />
+            <element signature="e#691#692#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/seal/src/main/java/cn/rongcloud/im/ui/adapter/BaseAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4273743">
+          <caret line="20" column="50" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#543#544#0" expanded="true" />
+            <element signature="e#589#590#0" expanded="true" />
+            <element signature="method#addData#0;class#BaseAdapter#0" expanded="false" />
+            <element signature="method#addData#2;class#BaseAdapter#0" expanded="false" />
+            <element signature="method#addData#3;class#BaseAdapter#0" expanded="false" />
+            <element signature="method#addData#4;class#BaseAdapter#0" expanded="false" />
+            <element signature="method#removeData#0;class#BaseAdapter#0" expanded="false" />
+            <element signature="method#remove#0;class#BaseAdapter#0" expanded="false" />
+            <element signature="method#subData#0;class#BaseAdapter#0" expanded="false" />
+            <element signature="method#getCount#0;class#BaseAdapter#0" expanded="false" />
+            <element signature="method#getItem#0;class#BaseAdapter#0" expanded="false" />
+            <element signature="method#findViewById#0;class#BaseAdapter#0" expanded="false" />
+            <element signature="method#findPosition#0;class#BaseAdapter#0" expanded="false" />
+            <element signature="method#findPosition#1;class#BaseAdapter#0" expanded="false" />
           </folding>
         </state>
       </provider>

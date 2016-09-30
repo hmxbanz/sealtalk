@@ -143,7 +143,7 @@ public class SealAppContext implements RongIM.ConversationListBehaviorListener, 
         RongIM.setLocationProvider(this);//设置地理位置提供者,不用位置的同学可以注掉此行代码
         setInputProvider();
         setUserInfoEngineListener();
-//        RongIM.setGroupUserInfoProvider(this, true);
+//      RongIM.setGroupUserInfoProvider(this, true);
     }
 
     private void setInputProvider() {

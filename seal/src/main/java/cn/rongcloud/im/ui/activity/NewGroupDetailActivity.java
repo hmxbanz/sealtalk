@@ -341,7 +341,7 @@ public class NewGroupDetailActivity extends BaseActivity implements View.OnClick
                             }
 
 
-                            SharedPreferences sp = getSharedPreferences("config", MODE_PRIVATE);
+                            sp = getSharedPreferences("config", MODE_PRIVATE);
                             if (sp.getString("loginid", "").equals(response4.getResult().getCreatorId())) {
                                 isCreated = true;
                             }

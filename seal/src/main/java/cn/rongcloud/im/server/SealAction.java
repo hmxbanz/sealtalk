@@ -91,7 +91,6 @@ public class SealAction extends BaseAction {
         super(context);
     }
 
-
     /**
      * 检查手机是否被注册
      *
@@ -113,11 +112,10 @@ public class SealAction extends BaseAction {
         CheckPhoneResponse response = null;
         String result = httpManager.post(mContext, url, entity, CONTENTTYPE);
         if (!TextUtils.isEmpty(result)) {
-            response = jsonToBean(result, CheckPhoneResponse.class);
+            response = JsonMananger.jsonToBean(result, CheckPhoneResponse.class);
         }
         return response;
     }
-
 
     /**
      * 发送验证码
@@ -177,7 +175,7 @@ public class SealAction extends BaseAction {
         String result = httpManager.post(mContext, url, entity, CONTENTTYPE);
         if (!TextUtils.isEmpty(result)) {
             Log.e("VerifyCodeResponse", result);
-            response = jsonToBean(result, VerifyCodeResponse.class);
+            response = JsonMananger.jsonToBean(result, VerifyCodeResponse.class);
         }
         return response;
     }
@@ -203,7 +201,7 @@ public class SealAction extends BaseAction {
         String result = httpManager.post(mContext, url, entity, CONTENTTYPE);
         if (!TextUtils.isEmpty(result)) {
             NLog.e("RegisterResponse", result);
-            response = jsonToBean(result, RegisterResponse.class);
+            response = JsonMananger.jsonToBean(result, RegisterResponse.class);
         }
         return response;
     }
@@ -249,7 +247,7 @@ public class SealAction extends BaseAction {
         GetTokenResponse response = null;
         if (!TextUtils.isEmpty(result)) {
             NLog.e("GetTokenResponse", result);
-            response = jsonToBean(result, GetTokenResponse.class);
+            response = JsonMananger.jsonToBean(result, GetTokenResponse.class);
         }
         return response;
     }
@@ -274,7 +272,7 @@ public class SealAction extends BaseAction {
         SetNameResponse response = null;
         String result = httpManager.post(mContext, url, entity, CONTENTTYPE);
         if (!TextUtils.isEmpty(result)) {
-            response = jsonToBean(result, SetNameResponse.class);
+            response = JsonMananger.jsonToBean(result, SetNameResponse.class);
         }
         return response;
     }
@@ -299,7 +297,7 @@ public class SealAction extends BaseAction {
         SetPortraitResponse response = null;
         String result = httpManager.post(mContext, url, entity, CONTENTTYPE);
         if (!TextUtils.isEmpty(result)) {
-            response = jsonToBean(result, SetPortraitResponse.class);
+            response = JsonMananger.jsonToBean(result, SetPortraitResponse.class);
         }
         return response;
     }
@@ -326,7 +324,7 @@ public class SealAction extends BaseAction {
         ChangePasswordResponse response = null;
         if (!TextUtils.isEmpty(result)) {
             NLog.e("ChangePasswordResponse", result);
-            response = jsonToBean(result, ChangePasswordResponse.class);
+            response = JsonMananger.jsonToBean(result, ChangePasswordResponse.class);
         }
         return response;
     }
@@ -353,7 +351,7 @@ public class SealAction extends BaseAction {
         RestPasswordResponse response = null;
         if (!TextUtils.isEmpty(result)) {
             NLog.e("RestPasswordResponse", result);
-            response = jsonToBean(result, RestPasswordResponse.class);
+            response = JsonMananger.jsonToBean(result, RestPasswordResponse.class);
         }
         return response;
     }
@@ -370,7 +368,7 @@ public class SealAction extends BaseAction {
         String result = httpManager.get(url);
         GetUserInfoByIdResponse response = null;
         if (!TextUtils.isEmpty(result)) {
-            response = jsonToBean(result, GetUserInfoByIdResponse.class);
+            response = JsonMananger.jsonToBean(result, GetUserInfoByIdResponse.class);
         }
         return response;
     }
@@ -388,7 +386,7 @@ public class SealAction extends BaseAction {
         String result = httpManager.get(url);
         GetUserInfoByPhoneResponse response = null;
         if (!TextUtils.isEmpty(result)) {
-            response = jsonToBean(result, GetUserInfoByPhoneResponse.class);
+            response = JsonMananger.jsonToBean(result, GetUserInfoByPhoneResponse.class);
         }
         return response;
     }
@@ -414,7 +412,7 @@ public class SealAction extends BaseAction {
         String result = httpManager.post(mContext, url, entity, CONTENTTYPE);
         FriendInvitationResponse response = null;
         if (!TextUtils.isEmpty(result)) {
-            response = jsonToBean(result, FriendInvitationResponse.class);
+            response = JsonMananger.jsonToBean(result, FriendInvitationResponse.class);
         }
         return response;
     }
@@ -430,7 +428,7 @@ public class SealAction extends BaseAction {
         String result = httpManager.get(url);
         UserRelationshipResponse response = null;
         if (!TextUtils.isEmpty(result)) {
-            response = jsonToBean(result, UserRelationshipResponse.class);
+            response = JsonMananger.jsonToBean(result, UserRelationshipResponse.class);
         }
         return response;
     }
@@ -455,7 +453,7 @@ public class SealAction extends BaseAction {
         String result = httpManager.post(mContext, url, entity, CONTENTTYPE);
         AgreeFriendsResponse response = null;
         if (!TextUtils.isEmpty(result)) {
-            response = jsonToBean(result, AgreeFriendsResponse.class);
+            response = JsonMananger.jsonToBean(result, AgreeFriendsResponse.class);
         }
         return response;
     }
@@ -481,7 +479,7 @@ public class SealAction extends BaseAction {
         String result = httpManager.post(mContext, url, entity, CONTENTTYPE);
         CreateGroupResponse response = null;
         if (!TextUtils.isEmpty(result)) {
-            response = jsonToBean(result, CreateGroupResponse.class);
+            response = JsonMananger.jsonToBean(result, CreateGroupResponse.class);
         }
         return response;
     }
@@ -507,7 +505,7 @@ public class SealAction extends BaseAction {
         String result = httpManager.post(mContext, url, entity, CONTENTTYPE);
         SetGroupPortraitResponse response = null;
         if (!TextUtils.isEmpty(result)) {
-            response = jsonToBean(result, SetGroupPortraitResponse.class);
+            response = JsonMananger.jsonToBean(result, SetGroupPortraitResponse.class);
         }
         return response;
     }
@@ -523,7 +521,7 @@ public class SealAction extends BaseAction {
         String result = httpManager.get(mContext, url);
         GetGroupResponse response = null;
         if (!TextUtils.isEmpty(result)) {
-            response = jsonToBean(result, GetGroupResponse.class);
+            response = JsonMananger.jsonToBean(result, GetGroupResponse.class);
         }
         return response;
     }
@@ -540,7 +538,7 @@ public class SealAction extends BaseAction {
         String result = httpManager.get(mContext, url);
         GetGroupInfoResponse response = null;
         if (!TextUtils.isEmpty(result)) {
-            response = jsonToBean(result, GetGroupInfoResponse.class);
+            response = JsonMananger.jsonToBean(result, GetGroupInfoResponse.class);
         }
         return response;
     }
@@ -557,7 +555,7 @@ public class SealAction extends BaseAction {
         String result = httpManager.get(mContext, url);
         GetGroupMemberResponse response = null;
         if (!TextUtils.isEmpty(result)) {
-            response = jsonToBean(result, GetGroupMemberResponse.class);
+            response = JsonMananger.jsonToBean(result, GetGroupMemberResponse.class);
         }
         return response;
     }
@@ -583,7 +581,7 @@ public class SealAction extends BaseAction {
         String result = httpManager.post(mContext, url, entity, CONTENTTYPE);
         AddGroupMemberResponse response = null;
         if (!TextUtils.isEmpty(result)) {
-            response = jsonToBean(result, AddGroupMemberResponse.class);
+            response = JsonMananger.jsonToBean(result, AddGroupMemberResponse.class);
         }
         return response;
     }
@@ -609,7 +607,7 @@ public class SealAction extends BaseAction {
         String result = httpManager.post(mContext, url, entity, CONTENTTYPE);
         DeleteGroupMemberResponse response = null;
         if (!TextUtils.isEmpty(result)) {
-            response = jsonToBean(result, DeleteGroupMemberResponse.class);
+            response = JsonMananger.jsonToBean(result, DeleteGroupMemberResponse.class);
         }
         return response;
     }
@@ -635,7 +633,7 @@ public class SealAction extends BaseAction {
         String result = httpManager.post(mContext, url, entity, CONTENTTYPE);
         SetGroupNameResponse response = null;
         if (!TextUtils.isEmpty(result)) {
-            response = jsonToBean(result, SetGroupNameResponse.class);
+            response = JsonMananger.jsonToBean(result, SetGroupNameResponse.class);
         }
         return response;
     }
@@ -660,7 +658,7 @@ public class SealAction extends BaseAction {
         String result = httpManager.post(mContext, url, entity, CONTENTTYPE);
         QuitGroupResponse response = null;
         if (!TextUtils.isEmpty(result)) {
-            response = jsonToBean(result, QuitGroupResponse.class);
+            response = JsonMananger.jsonToBean(result, QuitGroupResponse.class);
         }
         return response;
     }
@@ -685,7 +683,7 @@ public class SealAction extends BaseAction {
         String result = httpManager.post(mContext, url, entity, CONTENTTYPE);
         DismissGroupResponse response = null;
         if (!TextUtils.isEmpty(result)) {
-            response = jsonToBean(result, DismissGroupResponse.class);
+            response = JsonMananger.jsonToBean(result, DismissGroupResponse.class);
         }
         return response;
     }
@@ -712,7 +710,7 @@ public class SealAction extends BaseAction {
         String result = httpManager.post(mContext, url, entity, CONTENTTYPE);
         SetGroupDisplayNameResponse response = null;
         if (!TextUtils.isEmpty(result)) {
-            response = jsonToBean(result, SetGroupDisplayNameResponse.class);
+            response = JsonMananger.jsonToBean(result, SetGroupDisplayNameResponse.class);
         }
         return response;
     }
@@ -737,7 +735,7 @@ public class SealAction extends BaseAction {
         String result = httpManager.post(mContext, url, entity, CONTENTTYPE);
         DeleteFriendResponse response = null;
         if (!TextUtils.isEmpty(result)) {
-            response = jsonToBean(result, DeleteFriendResponse.class);
+            response = JsonMananger.jsonToBean(result, DeleteFriendResponse.class);
         }
         return response;
     }
@@ -763,7 +761,7 @@ public class SealAction extends BaseAction {
         String result = httpManager.post(mContext, url, entity, CONTENTTYPE);
         SetFriendDisplayNameResponse response = null;
         if (!TextUtils.isEmpty(result)) {
-            response = jsonToBean(result, SetFriendDisplayNameResponse.class);
+            response = JsonMananger.jsonToBean(result, SetFriendDisplayNameResponse.class);
         }
         return response;
     }
@@ -779,7 +777,7 @@ public class SealAction extends BaseAction {
         String result = httpManager.get(mContext, url);
         GetBlackListResponse response = null;
         if (!TextUtils.isEmpty(result)) {
-            response = jsonToBean(result, GetBlackListResponse.class);
+            response = JsonMananger.jsonToBean(result, GetBlackListResponse.class);
         }
         return response;
     }
@@ -804,7 +802,7 @@ public class SealAction extends BaseAction {
         String result = httpManager.post(mContext, url, entity, CONTENTTYPE);
         AddToBlackListResponse response = null;
         if (!TextUtils.isEmpty(result)) {
-            response = jsonToBean(result, AddToBlackListResponse.class);
+            response = JsonMananger.jsonToBean(result, AddToBlackListResponse.class);
         }
         return response;
     }
@@ -829,7 +827,7 @@ public class SealAction extends BaseAction {
         String result = httpManager.post(mContext, url, entity, CONTENTTYPE);
         RemoveFromBlackListResponse response = null;
         if (!TextUtils.isEmpty(result)) {
-            response = jsonToBean(result, RemoveFromBlackListResponse.class);
+            response = JsonMananger.jsonToBean(result, RemoveFromBlackListResponse.class);
         }
         return response;
     }
@@ -839,7 +837,7 @@ public class SealAction extends BaseAction {
         String result = httpManager.get(mContext, url);
         QiNiuTokenResponse q = null;
         if (!TextUtils.isEmpty(result)) {
-            q = jsonToBean(result, QiNiuTokenResponse.class);
+            q = JsonMananger.jsonToBean(result, QiNiuTokenResponse.class);
         }
         return q;
     }
@@ -864,7 +862,7 @@ public class SealAction extends BaseAction {
         String result = httpManager.post(mContext, url, entity, CONTENTTYPE);
         JoinGroupResponse response = null;
         if (!TextUtils.isEmpty(result)) {
-            response = jsonToBean(result, JoinGroupResponse.class);
+            response = JsonMananger.jsonToBean(result, JoinGroupResponse.class);
         }
         return response;
     }
@@ -880,7 +878,7 @@ public class SealAction extends BaseAction {
         String result = httpManager.get(mContext, url);
         DefaultConversationResponse response = null;
         if (!TextUtils.isEmpty(result)) {
-            response = jsonToBean(result, DefaultConversationResponse.class);
+            response = JsonMananger.jsonToBean(result, DefaultConversationResponse.class);
         }
         return response;
     }
@@ -905,7 +903,7 @@ public class SealAction extends BaseAction {
         String result = httpManager.get(mContext, newUrl);
         GetUserInfosResponse response = null;
         if (!TextUtils.isEmpty(result)) {
-            response = jsonToBean(result, GetUserInfosResponse.class);
+            response = JsonMananger.jsonToBean(result, GetUserInfosResponse.class);
         }
         return response;
     }
@@ -914,7 +912,7 @@ public class SealAction extends BaseAction {
         String result = httpManager.get(mContext, url.trim());
         VersionResponse response = null;
         if (!TextUtils.isEmpty(result)) {
-            response = jsonToBean(result, VersionResponse.class);
+            response = JsonMananger.jsonToBean(result, VersionResponse.class);
         }
         return response;
     }

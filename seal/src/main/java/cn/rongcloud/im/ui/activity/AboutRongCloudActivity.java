@@ -133,7 +133,7 @@ public class AboutRongCloudActivity extends BaseActionBarActivity {
                         DialogWithYesOrNoUtils.getInstance().showDialog(mContext, "是否开启 App Debug 模式(需要重新登录应用)?", new DialogWithYesOrNoUtils.DialogCallBack() {
                             @Override
                             public void exectEvent() {
-                                SharedPreferences.Editor editor = getSharedPreferences("config", MODE_PRIVATE).edit();
+                                editor = getSharedPreferences("config", MODE_PRIVATE).edit();
                                 editor.putBoolean("isDebug", true);
                                 editor.apply();
                                 BroadcastManager.getInstance(mContext).sendBroadcast(SealConst.EXIT);
@@ -160,7 +160,7 @@ public class AboutRongCloudActivity extends BaseActionBarActivity {
                     DialogWithYesOrNoUtils.getInstance().showDialog(mContext, "是否关闭 App Debug 模式(需要重新登录应用)?", new DialogWithYesOrNoUtils.DialogCallBack() {
                         @Override
                         public void exectEvent() {
-                            SharedPreferences.Editor editor = getSharedPreferences("config", MODE_PRIVATE).edit();
+                            editor = getSharedPreferences("config", MODE_PRIVATE).edit();
                             editor.putBoolean("isDebug", false);
                             editor.apply();
                             BroadcastManager.getInstance(mContext).sendBroadcast(SealConst.EXIT);

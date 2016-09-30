@@ -85,7 +85,7 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
     }
 
     private void reconnect() {
-        SharedPreferences sp = getSharedPreferences("config", MODE_PRIVATE);
+        sp = getSharedPreferences("config", MODE_PRIVATE);
         String token = sp.getString("loginToken", "");
         RongIM.connect(token, new RongIMClient.ConnectCallback() {
             @Override
@@ -312,7 +312,7 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
         BroadcastManager.getInstance(mContext).addAction(SealConst.EXIT, new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-                SharedPreferences.Editor editor = getSharedPreferences("config", MODE_PRIVATE).edit();
+                editor = getSharedPreferences("config", MODE_PRIVATE).edit();
                 editor.putBoolean("exit", true);
                 editor.apply();
 
@@ -366,8 +366,8 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
         if (intent != null && intent.getData() != null && intent.getData().getScheme().equals("rong")) {
             String path = intent.getData().getPath();
             if (path.contains("push_message")) {
-                SharedPreferences sharedPreferences = getSharedPreferences("config", MODE_PRIVATE);
-                String cacheToken = sharedPreferences.getString("loginToken", "");
+                sp = getSharedPreferences("config", MODE_PRIVATE);
+                String cacheToken = sp.getString("loginToken", "");
                 if (TextUtils.isEmpty(cacheToken)) {
                     startActivity(new Intent(MainActivity.this, LoginActivity.class));
                 } else {
