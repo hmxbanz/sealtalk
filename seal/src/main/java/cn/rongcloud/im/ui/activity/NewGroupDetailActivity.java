@@ -418,18 +418,18 @@ public class NewGroupDetailActivity extends BaseActivity implements View.OnClick
             case R.id.group_quit:
                 DialogWithYesOrNoUtils.getInstance().showDialog(mContext, getString(R.string.confirm_quit_group), new DialogWithYesOrNoUtils.DialogCallBack() {
                     @Override
-                    public void exectEvent() {
+                    public void execEvent() {
                         LoadDialog.show(mContext);
                         request(QUITGROUP);
                     }
 
                     @Override
-                    public void exectEditEvent(String editText) {
+                    public void execEdit(String editText) {
 
                     }
 
                     @Override
-                    public void updatePassword(String oldPassword, String newPassword) {
+                    public void execUpdatePassword(String oldPassword, String newPassword) {
 
                     }
                 });
@@ -437,18 +437,18 @@ public class NewGroupDetailActivity extends BaseActivity implements View.OnClick
             case R.id.group_dismiss:
                 DialogWithYesOrNoUtils.getInstance().showDialog(mContext, getString(R.string.confirm_dismiss_group), new DialogWithYesOrNoUtils.DialogCallBack() {
                     @Override
-                    public void exectEvent() {
+                    public void execEvent() {
                         LoadDialog.show(mContext);
                         request(DISMISSGROUP);
                     }
 
                     @Override
-                    public void exectEditEvent(String editText) {
+                    public void execEdit(String editText) {
 
                     }
 
                     @Override
-                    public void updatePassword(String oldPassword, String newPassword) {
+                    public void execUpdatePassword(String oldPassword, String newPassword) {
 
                     }
                 });
@@ -456,7 +456,7 @@ public class NewGroupDetailActivity extends BaseActivity implements View.OnClick
             case R.id.group_clean:
                 DialogWithYesOrNoUtils.getInstance().showDialog(mContext, getString(R.string.clean_history), new DialogWithYesOrNoUtils.DialogCallBack() {
                     @Override
-                    public void exectEvent() {
+                    public void execEvent() {
                         if (RongIM.getInstance() != null) {
                             if (mGroup != null) {
                                 RongIM.getInstance().clearMessages(Conversation.ConversationType.GROUP, mGroup.getId(), new RongIMClient.ResultCallback<Boolean>() {
@@ -475,12 +475,12 @@ public class NewGroupDetailActivity extends BaseActivity implements View.OnClick
                     }
 
                     @Override
-                    public void exectEditEvent(String editText) {
+                    public void execEdit(String editText) {
 
                     }
 
                     @Override
-                    public void updatePassword(String oldPassword, String newPassword) {
+                    public void execUpdatePassword(String oldPassword, String newPassword) {
 
                     }
                 });
@@ -499,12 +499,12 @@ public class NewGroupDetailActivity extends BaseActivity implements View.OnClick
                 if (isCreated) {
                     DialogWithYesOrNoUtils.getInstance().showEditDialog(mContext, getString(R.string.new_group_name), getString(R.string.confirm), new DialogWithYesOrNoUtils.DialogCallBack() {
                         @Override
-                        public void exectEvent() {
+                        public void execEvent() {
 
                         }
 
                         @Override
-                        public void exectEditEvent(String editText) {
+                        public void execEdit(String editText) {
                             if (TextUtils.isEmpty(editText)) {
                                 return;
                             }
@@ -518,7 +518,7 @@ public class NewGroupDetailActivity extends BaseActivity implements View.OnClick
                         }
 
                         @Override
-                        public void updatePassword(String oldPassword, String newPassword) {
+                        public void execUpdatePassword(String oldPassword, String newPassword) {
 
                         }
                     });

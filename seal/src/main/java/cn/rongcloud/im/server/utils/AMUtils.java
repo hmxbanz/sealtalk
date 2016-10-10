@@ -30,7 +30,6 @@ public class AMUtils {
         return m.matches();
     }
 
-
     public static void onInactive(Context context, EditText et) {
 
         if (et == null)

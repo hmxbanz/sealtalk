@@ -97,7 +97,7 @@ public class SinglePopWindow extends PopupWindow {
                     //todo 加入黑名单
                     DialogWithYesOrNoUtils.getInstance().showDialog(context, "加入黑名单,你将不再受到对方的消息。", new DialogWithYesOrNoUtils.DialogCallBack() {
                         @Override
-                        public void exectEvent() {
+                        public void execEvent() {
                             RongIM.getInstance().addToBlacklist(friend.getUserId(), new RongIMClient.OperationCallback() {
                                 @Override
                                 public void onSuccess() {
@@ -112,12 +112,12 @@ public class SinglePopWindow extends PopupWindow {
                         }
 
                         @Override
-                        public void exectEditEvent(String editText) {
+                        public void execEdit(String editText) {
 
                         }
 
                         @Override
-                        public void updatePassword(String oldPassword, String newPassword) {
+                        public void execUpdatePassword(String oldPassword, String newPassword) {
 
                         }
                     });

@@ -132,7 +132,7 @@ public class AboutRongCloudActivity extends BaseActionBarActivity {
                     } else {
                         DialogWithYesOrNoUtils.getInstance().showDialog(mContext, "是否开启 App Debug 模式(需要重新登录应用)?", new DialogWithYesOrNoUtils.DialogCallBack() {
                             @Override
-                            public void exectEvent() {
+                            public void execEvent() {
                                 editor = getSharedPreferences("config", MODE_PRIVATE).edit();
                                 editor.putBoolean("isDebug", true);
                                 editor.apply();
@@ -140,11 +140,11 @@ public class AboutRongCloudActivity extends BaseActionBarActivity {
                             }
 
                             @Override
-                            public void exectEditEvent(String editText) {
+                            public void execEdit(String editText) {
                             }
 
                             @Override
-                            public void updatePassword(String oldPassword, String newPassword) {
+                            public void execUpdatePassword(String oldPassword, String newPassword) {
                             }
                         });
                     }
@@ -159,7 +159,7 @@ public class AboutRongCloudActivity extends BaseActionBarActivity {
                 public void onClick(View v) {
                     DialogWithYesOrNoUtils.getInstance().showDialog(mContext, "是否关闭 App Debug 模式(需要重新登录应用)?", new DialogWithYesOrNoUtils.DialogCallBack() {
                         @Override
-                        public void exectEvent() {
+                        public void execEvent() {
                             editor = getSharedPreferences("config", MODE_PRIVATE).edit();
                             editor.putBoolean("isDebug", false);
                             editor.apply();
@@ -167,11 +167,11 @@ public class AboutRongCloudActivity extends BaseActionBarActivity {
                         }
 
                         @Override
-                        public void exectEditEvent(String editText) {
+                        public void execEdit(String editText) {
                         }
 
                         @Override
-                        public void updatePassword(String oldPassword, String newPassword) {
+                        public void execUpdatePassword(String oldPassword, String newPassword) {
 
                         }
                     });

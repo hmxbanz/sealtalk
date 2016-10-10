@@ -13,6 +13,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
 
+import cn.rongcloud.im.AsyncEngine.GroupInfoEngine;
+import cn.rongcloud.im.AsyncEngine.UserInfoEngine;
 import cn.rongcloud.im.db.DBManager;
 import cn.rongcloud.im.db.Friend;
 import cn.rongcloud.im.message.provider.RealTimeLocationInputProvider;

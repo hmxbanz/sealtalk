@@ -148,7 +148,7 @@ public class FriendDetailActivity extends BaseActivity implements View.OnClickLi
             case R.id.clean_friend:
                 DialogWithYesOrNoUtils.getInstance().showDialog(mContext, getString(R.string.clean_history), new DialogWithYesOrNoUtils.DialogCallBack() {
                     @Override
-                    public void exectEvent() {
+                    public void execEvent() {
                         if (RongIM.getInstance() != null) {
                             if (friend != null) {
                                 RongIM.getInstance().clearMessages(Conversation.ConversationType.PRIVATE, friend.getUserId(), new RongIMClient.ResultCallback<Boolean>() {
@@ -179,12 +179,12 @@ public class FriendDetailActivity extends BaseActivity implements View.OnClickLi
                     }
 
                     @Override
-                    public void exectEditEvent(String editText) {
+                    public void execEdit(String editText) {
 
                     }
 
                     @Override
-                    public void updatePassword(String oldPassword, String newPassword) {
+                    public void execUpdatePassword(String oldPassword, String newPassword) {
 
                     }
                 });

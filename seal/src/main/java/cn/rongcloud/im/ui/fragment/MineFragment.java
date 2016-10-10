@@ -142,7 +142,6 @@ public class MineFragment extends Fragment implements View.OnClickListener {
         mMineStting.setOnClickListener(this);
         mMineService.setOnClickListener(this);
         mMineAbout.setOnClickListener(this);
-
     }
 
     @Override

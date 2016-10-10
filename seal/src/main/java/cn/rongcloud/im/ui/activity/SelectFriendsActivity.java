@@ -702,18 +702,18 @@ public class SelectFriendsActivity extends BaseActivity implements View.OnClickL
                         DialogWithYesOrNoUtils.getInstance().showDialog(mContext, getString(R.string.remove_group_members), new DialogWithYesOrNoUtils.DialogCallBack() {
 
                             @Override
-                            public void exectEvent() {
+                            public void execEvent() {
                                 LoadDialog.show(mContext);
                                 request(DELEGROUPMEMBER);
                             }
 
                             @Override
-                            public void exectEditEvent(String editText) {
+                            public void execEdit(String editText) {
 
                             }
 
                             @Override
-                            public void updatePassword(String oldPassword, String newPassword) {
+                            public void execUpdatePassword(String oldPassword, String newPassword) {
 
                             }
                         });

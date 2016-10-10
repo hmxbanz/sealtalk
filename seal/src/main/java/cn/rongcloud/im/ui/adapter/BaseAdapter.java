@@ -101,7 +101,7 @@ public abstract class BaseAdapter<T> extends android.widget.BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        return 0L;
+        return position;
     }
 /*    @Override
     public View getView(int position, View convertView, ViewGroup parent) {

@@ -28,7 +28,6 @@ import io.rong.imlib.RongIMClient;
  */
 public class DisturbActivity extends BaseActionBarActivity implements View.OnClickListener {
 
-
     private static final String TAG = DisturbActivity.class.getSimpleName();
     /**
      * 关闭勿扰模式
@@ -74,10 +73,10 @@ public class DisturbActivity extends BaseActionBarActivity implements View.OnCli
     boolean mIsSetting = false;
     private Handler mThreadHandler;
     private Handler mHandler = new Handler() {
-
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
+
             switch (msg.what) {
                 case 1:
                     mNotificationCheckBox.setChecked(true);
@@ -92,7 +91,6 @@ public class DisturbActivity extends BaseActionBarActivity implements View.OnCli
                         mStartTimeNofication.setText(mStartTime);
                         mEndTimeNofication.setText(time);
 
-                        editor = SharedPreferencesContext.getInstance().getSharedPreferences().edit();
                         editor.putString("START_TIME", mStartTime);
                         editor.putString("END_TIME", DateUtils.dateToString(DateUtils.addMinutes(DateUtils.stringToDate(mStartTime, mTimeFormat), spanMins), mTimeFormat));
                         editor.commit();
@@ -100,7 +98,6 @@ public class DisturbActivity extends BaseActionBarActivity implements View.OnCli
                     break;
                 case 2:
                     mCloseNotifacation.setVisibility(View.GONE);
-                    editor = SharedPreferencesContext.getInstance().getSharedPreferences().edit();
                     editor.remove("IS_SETTING");
                     editor.commit();
                     break;
@@ -109,21 +106,20 @@ public class DisturbActivity extends BaseActionBarActivity implements View.OnCli
                     mNotificationCheckBox.setChecked(true);
                     mCloseNotifacation.setVisibility(View.VISIBLE);
 
-                    if (SharedPreferencesContext.getInstance().getSharedPreferences() != null) {
-                        String endtime = SharedPreferencesContext.getInstance().getSharedPreferences().getString("END_TIME", null);
-                        String starttimes = SharedPreferencesContext.getInstance().getSharedPreferences().getString("START_TIME", null);
+                    if (sp != null) {
+                        String endTime = sp.getString("END_TIME", null);
+                        String startTimes = sp.getString("START_TIME", null);
 
-                        if (endtime != null && starttimes != null && !"".equals(endtime) && !"".equals(starttimes)) {
-                            Date datastart = DateUtils.stringToDate(starttimes, mTimeFormat);
-                            Date dataend = DateUtils.stringToDate(endtime, mTimeFormat);
-                            long spansTime = DateUtils.compareMin(datastart, dataend);
-                            mStartTimeNofication.setText(starttimes);
-                            mEndTimeNofication.setText(endtime);
-                            setConversationTime(starttimes, (int) spansTime);
+                        if (endTime != null && startTimes != null && !"".equals(endTime) && !"".equals(startTimes)) {
+                            Date dataStart = DateUtils.stringToDate(startTimes, mTimeFormat);
+                            Date dataEnd = DateUtils.stringToDate(endTime, mTimeFormat);
+                            long spansTime = DateUtils.compareMin(dataStart, dataEnd);
+                            mStartTimeNofication.setText(startTimes);
+                            mEndTimeNofication.setText(endTime);
+                            setConversationTime(startTimes, (int) spansTime);
                         } else {
                             mStartTimeNofication.setText("23:59:59");
                             mEndTimeNofication.setText("00:00:00");
-                            editor = SharedPreferencesContext.getInstance().getSharedPreferences().edit();
                             editor.putString("START_TIME", "23:59:59");
                             editor.putString("END_TIME", "00:00:00");
                             editor.commit();
@@ -158,6 +154,8 @@ public class DisturbActivity extends BaseActionBarActivity implements View.OnCli
     }
 
     protected void initData() {
+        sp=SharedPreferencesContext.getInstance().getSharedPreferences();
+        editor = sp.edit();
 
         getSupportActionBar().setTitle(R.string.new_message_notice);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -167,10 +165,9 @@ public class DisturbActivity extends BaseActionBarActivity implements View.OnCli
         mEndNotifacation.setOnClickListener(this);
         mNotificationCheckBox.setOnClickListener(this);
 
-        if (SharedPreferencesContext.getInstance().getSharedPreferences() != null) {
-            mIsSetting = SharedPreferencesContext.getInstance().getSharedPreferences().getBoolean("IS_SETTING", false);
+        if (sp != null) {
+            mIsSetting = sp.getBoolean("IS_SETTING", false);
             if (mIsSetting) {
-
                 Message msg = Message.obtain();
                 msg.what = 3;
                 mHandler.sendMessage(msg);
@@ -190,12 +187,11 @@ public class DisturbActivity extends BaseActionBarActivity implements View.OnCli
                                     msg.arg1 = spanMins;
                                     mHandler.sendMessage(msg);
                                 } else {
-                                    Message mssg = Message.obtain();
-                                    mssg.what = 2;
-                                    mHandler.sendMessage(mssg);
+                                    Message msg = Message.obtain();
+                                    msg.what = 2;
+                                    mHandler.sendMessage(msg);
                                 }
                             }
-
                             @Override
                             public void onError(RongIMClient.ErrorCode errorCode) {
                                 Log.e(TAG, "----yb----获取会话通知周期-oonError:" + errorCode);
@@ -214,31 +210,28 @@ public class DisturbActivity extends BaseActionBarActivity implements View.OnCli
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.start_notification://开始时间
-
-                if (SharedPreferencesContext.getInstance().getSharedPreferences() != null) {
-                    String starttime = SharedPreferencesContext.getInstance().getSharedPreferences().getString("START_TIME", null);
-                    if (starttime != null && !"".equals(starttime)) {
-                        hourOfDays = Integer.parseInt(starttime.substring(0, 2));
-                        minutes = Integer.parseInt(starttime.substring(3, 5));
+                if (sp != null) {
+                    String startTime = sp.getString("START_TIME", null);
+                    if (startTime != null && !"".equals(startTime)) {
+                        hourOfDays = Integer.parseInt(startTime.substring(0, 2));
+                        minutes = Integer.parseInt(startTime.substring(3, 5));
                     }
                 }
                 TimePickerDialog timePickerDialog = new TimePickerDialog(DisturbActivity.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-
                         mStartTime = getDaysTime(hourOfDay, minute);
-
                         mStartTimeNofication.setText(mStartTime);
-                        editor = SharedPreferencesContext.getInstance().getSharedPreferences().edit();
+                        editor = sp.edit();
                         editor.putString("START_TIME", mStartTime);
                         editor.commit();
 
-                        if (SharedPreferencesContext.getInstance().getSharedPreferences() != null) {
-                            String endtime = SharedPreferencesContext.getInstance().getSharedPreferences().getString("END_TIME", null);
-                            if (endtime != null && !"".equals(endtime)) {
-                                Date datastart = DateUtils.stringToDate(mStartTime, mTimeFormat);
-                                Date dataend = DateUtils.stringToDate(endtime, mTimeFormat);
-                                long spansTime = DateUtils.compareMin(datastart, dataend);
+                        if (sp != null) {
+                            String endTime = sp.getString("END_TIME", null);
+                            if (endTime != null && !"".equals(endTime)) {
+                                Date dataStart = DateUtils.stringToDate(mStartTime, mTimeFormat);
+                                Date dataEnd = DateUtils.stringToDate(endTime, mTimeFormat);
+                                long spansTime = DateUtils.compareMin(dataStart, dataEnd);
                                 setConversationTime(mStartTime, (int) Math.abs(spansTime));
                             }
                         }
@@ -248,36 +241,33 @@ public class DisturbActivity extends BaseActionBarActivity implements View.OnCli
 
                 break;
             case R.id.end_notification://结束时间
-                if (SharedPreferencesContext.getInstance().getSharedPreferences() != null) {
-                    String endtime = SharedPreferencesContext.getInstance().getSharedPreferences().getString("END_TIME", null);
-                    if (endtime != null && !"".equals(endtime)) {
-                        hourOfDays = Integer.parseInt(endtime.substring(0, 2));
-                        minutes = Integer.parseInt(endtime.substring(3, 5));
+                if (sp != null) {
+                    String endTime = sp.getString("END_TIME", null);
+                    if (endTime != null && !"".equals(endTime)) {
+                        hourOfDays = Integer.parseInt(endTime.substring(0, 2));
+                        minutes = Integer.parseInt(endTime.substring(3, 5));
                     }
                 }
                 Log.e("", "------结束时间---－－－－－－－－－－－－－－－－－－－－－-" );
                 timePickerDialog = new TimePickerDialog(DisturbActivity.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-
                         Log.e("", "------结束时间---＋＋＋＋＋＋＋＋＋＋＋＋＋＋＋" );
                         mEndTime = getDaysTime(hourOfDay, minute);
                         mEndTimeNofication.setText(mEndTime);
-                        editor = SharedPreferencesContext.getInstance().getSharedPreferences().edit();
+                        editor = sp.edit();
                         editor.putString("END_TIME", mEndTime);
                         editor.commit();
-
-                        if (SharedPreferencesContext.getInstance().getSharedPreferences() != null) {
-                            String starttime = SharedPreferencesContext.getInstance().getSharedPreferences().getString("START_TIME", null);
-                            if (starttime != null && !"".equals(starttime)) {
-                                Date datastart = DateUtils.stringToDate(starttime, mTimeFormat);
-                                Date dataend = DateUtils.stringToDate(mEndTime, mTimeFormat);
-                                long spansTime = DateUtils.compareMin(datastart, dataend);
+                        if (sp != null) {
+                            String startTime = sp.getString("START_TIME", null);
+                            if (startTime != null && !"".equals(startTime)) {
+                                Date dataStart = DateUtils.stringToDate(startTime, mTimeFormat);
+                                Date dataEnd = DateUtils.stringToDate(mEndTime, mTimeFormat);
+                                long spansTime = DateUtils.compareMin(dataStart, dataEnd);
                                 Log.e("", "------结束时间----" + mEndTime);
-                                Log.e("", "------开始时间----" + starttime);
+                                Log.e("", "------开始时间----" + startTime);
                                 Log.e("", "------时间间隔----" + spansTime);
-
-                                setConversationTime(starttime, (int) Math.abs(spansTime));
+                                setConversationTime(startTime, (int) Math.abs(spansTime));
                             }
                         }
                     }
@@ -304,10 +294,9 @@ public class DisturbActivity extends BaseActionBarActivity implements View.OnCli
                                         msg.what = 2;
                                         mHandler.sendMessage(msg);
                                     }
-
                                     @Override
                                     public void onError(RongIMClient.ErrorCode errorCode) {
-                                        Log.e(TAG, "----yb-----移除会话通知周期-oonError:" + errorCode.getValue());
+                                        Log.e(TAG, "----yb-----移除会话通知周期-onError:" + errorCode.getValue());
                                     }
                                 });
                             }

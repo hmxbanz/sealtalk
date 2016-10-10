@@ -56,17 +56,17 @@ public class GroupNoticeActivity extends Activity implements View.OnClickListene
             case R.id.cancel:
                 DialogWithYesOrNoUtils.getInstance().showDialog(this, getString(R.string.group_notice_exist_confirm), new DialogWithYesOrNoUtils.DialogCallBack() {
                     @Override
-                    public void exectEvent() {
+                    public void execEvent() {
                         finish();
                     }
 
                     @Override
-                    public void exectEditEvent(String editText) {
+                    public void execEdit(String editText) {
 
                     }
 
                     @Override
-                    public void updatePassword(String oldPassword, String newPassword) {
+                    public void execUpdatePassword(String oldPassword, String newPassword) {
 
                     }
                 });
@@ -74,7 +74,7 @@ public class GroupNoticeActivity extends Activity implements View.OnClickListene
             case R.id.done:
                 DialogWithYesOrNoUtils.getInstance().showDialog(this, getString(R.string.group_notice_post_confirm), new DialogWithYesOrNoUtils.DialogCallBack() {
                     @Override
-                    public void exectEvent() {
+                    public void execEvent() {
                         TextMessage textMessage = TextMessage.obtain(RongContext.getInstance().getString(R.string.group_notice_prefix) + mEdit.getText().toString());
                         MentionedInfo mentionedInfo = new MentionedInfo(MentionedInfo.MentionedType.ALL, null, null);
                         textMessage.setMentionedInfo(mentionedInfo);
@@ -95,12 +95,12 @@ public class GroupNoticeActivity extends Activity implements View.OnClickListene
                     }
 
                     @Override
-                    public void exectEditEvent(String editText) {
+                    public void execEdit(String editText) {
 
                     }
 
                     @Override
-                    public void updatePassword(String oldPassword, String newPassword) {
+                    public void execUpdatePassword(String oldPassword, String newPassword) {
 
                     }
                 });

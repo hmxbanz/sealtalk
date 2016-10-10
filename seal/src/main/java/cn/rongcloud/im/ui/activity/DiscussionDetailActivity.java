@@ -191,7 +191,7 @@ public class DiscussionDetailActivity extends BaseActivity implements CompoundBu
             case R.id.discu_clean:
                 DialogWithYesOrNoUtils.getInstance().showDialog(mContext, "是否清除会话聊天记录？", new DialogWithYesOrNoUtils.DialogCallBack() {
                     @Override
-                    public void exectEvent() {
+                    public void execEvent() {
                         if (RongIM.getInstance() != null) {
                             RongIM.getInstance().clearMessages(Conversation.ConversationType.DISCUSSION, targetId, new RongIMClient.ResultCallback<Boolean>() {
                                 @Override
@@ -208,12 +208,12 @@ public class DiscussionDetailActivity extends BaseActivity implements CompoundBu
                     }
 
                     @Override
-                    public void exectEditEvent(String editText) {
+                    public void execEdit(String editText) {
 
                     }
 
                     @Override
-                    public void updatePassword(String oldPassword, String newPassword) {
+                    public void execUpdatePassword(String oldPassword, String newPassword) {
 
                     }
                 });
@@ -221,7 +221,7 @@ public class DiscussionDetailActivity extends BaseActivity implements CompoundBu
             case R.id.discu_quit:
                 DialogWithYesOrNoUtils.getInstance().showDialog(mContext, "是否退出并删除当前讨论组?", new DialogWithYesOrNoUtils.DialogCallBack() {
                     @Override
-                    public void exectEvent() {
+                    public void execEvent() {
                         RongIM.getInstance().quitDiscussion(targetId, new RongIMClient.OperationCallback() {
                             @Override
                             public void onSuccess() {
@@ -240,12 +240,12 @@ public class DiscussionDetailActivity extends BaseActivity implements CompoundBu
                     }
 
                     @Override
-                    public void exectEditEvent(String editText) {
+                    public void execEdit(String editText) {
 
                     }
 
                     @Override
-                    public void updatePassword(String oldPassword, String newPassword) {
+                    public void execUpdatePassword(String oldPassword, String newPassword) {
 
                     }
                 });

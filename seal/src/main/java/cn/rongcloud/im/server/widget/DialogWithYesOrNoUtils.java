@@ -38,7 +38,7 @@ public class DialogWithYesOrNoUtils {
         alterDialog.setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                callBack.exectEvent();
+                callBack.execEvent();
             }
         });
         alterDialog.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
@@ -49,15 +49,6 @@ public class DialogWithYesOrNoUtils {
         });
         alterDialog.show();
     }
-
-    public interface DialogCallBack {
-        void exectEvent();
-
-        void exectEditEvent(String editText);
-
-        void updatePassword(String oldPassword, String newPassword);
-    }
-
 
     public void showEditDialog(Context context, String hintText, String OKText, final DialogCallBack callBack) {
         final EditText et_search;
@@ -70,7 +61,7 @@ public class DialogWithYesOrNoUtils {
         dialog.setPositiveButton(OKText, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 String s = et_search.getText().toString().trim();
-                callBack.exectEditEvent(s);
+                callBack.execEdit(s);
             }
         });
 
@@ -82,7 +73,6 @@ public class DialogWithYesOrNoUtils {
         });
         dialog.show();
     }
-
 
     public void showUpdatePasswordDialog(final Context context, final DialogCallBack callBack) {
         final EditText oldPasswordEdit, newPasswrodEdit, newPassword2Edit;
@@ -119,17 +109,24 @@ public class DialogWithYesOrNoUtils {
                     NToast.shortToast(context, R.string.passwords_do_not_match);
                     return;
                 }
-                callBack.updatePassword(old, new1);
+                callBack.execUpdatePassword(old, new1);
             }
         });
 
         dialog.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-
             }
-
         });
         dialog.show();
+    }
+
+    /**
+     * 按钮回调接口
+     */
+    public interface DialogCallBack {
+        void execEvent();
+        void execEdit(String editText);
+        void execUpdatePassword(String oldPassword, String newPassword);
     }
 
 }

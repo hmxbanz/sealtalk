@@ -5,7 +5,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
@@ -33,7 +32,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 
-import cn.rongcloud.im.GroupMemberEngine;
+import cn.rongcloud.im.AsyncEngine.GroupMemberEngine;
 import cn.rongcloud.im.R;
 import cn.rongcloud.im.SealAppContext;
 import cn.rongcloud.im.model.RongEvent;

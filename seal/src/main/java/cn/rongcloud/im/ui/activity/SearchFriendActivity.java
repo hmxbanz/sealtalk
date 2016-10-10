@@ -119,17 +119,17 @@ public class SearchFriendActivity extends BaseActivity {
 
                                 DialogWithYesOrNoUtils.getInstance().showEditDialog(mContext, getString(R.string.add_text), getString(R.string.add_friend), new DialogWithYesOrNoUtils.DialogCallBack() {
                                     @Override
-                                    public void exectEvent() {
+                                    public void execEvent() {
 
                                     }
 
                                     @Override
-                                    public void updatePassword(String oldPassword, String newPassword) {
+                                    public void execUpdatePassword(String oldPassword, String newPassword) {
 
                                     }
 
                                     @Override
-                                    public void exectEditEvent(String editText) {
+                                    public void execEdit(String editText) {
                                         addFriendMessage = editText;
                                         if (TextUtils.isEmpty(editText)) {
                                             addFriendMessage = "我是" + getSharedPreferences("config", MODE_PRIVATE).getString("loginnickname", "");

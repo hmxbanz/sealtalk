@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="agora-rtc-sdk">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/IMKit_SDK_v2_6_9_stable_with_CallKit/src/main/libs/agora-rtc-sdk.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

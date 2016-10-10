@@ -14,25 +14,27 @@ public class SharedPreferencesContext {
     public Context mContext;
     private SharedPreferences mPreferences;
 
+    private SharedPreferencesContext() {
+
+    }
+
+    private SharedPreferencesContext(Context context) {
+        mContext = context;
+        mSharedPreferencesContext = this;
+
+        mPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+    }
+
     public static void init(Context context) {
         mSharedPreferencesContext = new SharedPreferencesContext(context);
     }
+
     public static SharedPreferencesContext getInstance() {
 
         if (mSharedPreferencesContext == null) {
             mSharedPreferencesContext = new SharedPreferencesContext();
         }
         return mSharedPreferencesContext;
-    }
-
-    private SharedPreferencesContext() {
-
-    }
-    private SharedPreferencesContext(Context context) {
-        mContext = context;
-        mSharedPreferencesContext = this;
-
-        mPreferences = PreferenceManager.getDefaultSharedPreferences(context);
     }
 
     public SharedPreferences getSharedPreferences() {

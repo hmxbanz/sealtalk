@@ -17,7 +17,7 @@ import com.amap.api.maps2d.model.LatLng;
 import java.util.List;
 
 import cn.rongcloud.im.R;
-import cn.rongcloud.im.UserInfoEngine;
+import cn.rongcloud.im.AsyncEngine.UserInfoEngine;
 import cn.rongcloud.im.db.DBManager;
 import cn.rongcloud.im.db.Friend;
 import cn.rongcloud.im.model.RongEvent;

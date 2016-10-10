@@ -179,12 +179,12 @@ public class PersonalProfileActivity extends BaseActivity implements View.OnClic
             case R.id.per_add_friend:
                 DialogWithYesOrNoUtils.getInstance().showEditDialog(mContext, getString(R.string.add_text), getString(R.string.confirm), new DialogWithYesOrNoUtils.DialogCallBack() {
                     @Override
-                    public void exectEvent() {
+                    public void execEvent() {
 
                     }
 
                     @Override
-                    public void exectEditEvent(String editText) {
+                    public void execEdit(String editText) {
                         if (TextUtils.isEmpty(editText)) {
                             if (mGroup != null && !TextUtils.isEmpty(mGroup.getName())) {
                                 addMessage = "我是" + mGroup.getName() + "群的" + getSharedPreferences("config", MODE_PRIVATE).getString("loginnickname", "");
@@ -199,7 +199,7 @@ public class PersonalProfileActivity extends BaseActivity implements View.OnClic
                     }
 
                     @Override
-                    public void updatePassword(String oldPassword, String newPassword) {
+                    public void execUpdatePassword(String oldPassword, String newPassword) {
 
                     }
                 });

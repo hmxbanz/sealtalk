@@ -60,7 +60,7 @@ public class AccountSettingActivity extends BaseActivity implements View.OnClick
             case R.id.ac_set_clean:
                 DialogWithYesOrNoUtils.getInstance().showDialog(mContext, "是否清除缓存?", new DialogWithYesOrNoUtils.DialogCallBack() {
                     @Override
-                    public void exectEvent() {
+                    public void execEvent() {
                         String path = "/sdcard/" + getPackageName();
                         File file = new File(path);
                         if (file != null)
@@ -69,12 +69,12 @@ public class AccountSettingActivity extends BaseActivity implements View.OnClick
                     }
 
                     @Override
-                    public void exectEditEvent(String editText) {
+                    public void execEdit(String editText) {
 
                     }
 
                     @Override
-                    public void updatePassword(String oldPassword, String newPassword) {
+                    public void execUpdatePassword(String oldPassword, String newPassword) {
 
                     }
                 });
@@ -82,17 +82,17 @@ public class AccountSettingActivity extends BaseActivity implements View.OnClick
             case R.id.ac_set_exit:
                 DialogWithYesOrNoUtils.getInstance().showDialog(mContext, "是否退出登录?", new DialogWithYesOrNoUtils.DialogCallBack() {
                     @Override
-                    public void exectEvent() {
+                    public void execEvent() {
                         BroadcastManager.getInstance(mContext).sendBroadcast(SealConst.EXIT);
                     }
 
                     @Override
-                    public void exectEditEvent(String editText) {
+                    public void execEdit(String editText) {
 
                     }
 
                     @Override
-                    public void updatePassword(String oldPassword, String newPassword) {
+                    public void execUpdatePassword(String oldPassword, String newPassword) {
 
                     }
                 });
