@@ -1,4 +1,4 @@
-package cn.rongcloud.im;
+package cn.rongcloud.im.AsyncEngine;
 
 import android.content.Context;
 import android.text.TextUtils;
@@ -10,7 +10,6 @@ import cn.rongcloud.im.server.network.async.AsyncTaskManager;
 import cn.rongcloud.im.server.network.async.OnDataListener;
 import cn.rongcloud.im.server.network.http.HttpException;
 import cn.rongcloud.im.server.response.GetGroupMemberResponse;
-import cn.rongcloud.im.server.utils.NLog;
 import io.rong.imkit.RongIM;
 import io.rong.imkit.model.GroupUserInfo;
 
