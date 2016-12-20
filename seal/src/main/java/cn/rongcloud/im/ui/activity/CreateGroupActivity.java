@@ -50,22 +50,16 @@ public class CreateGroupActivity extends BaseActivity implements View.OnClickLis
     private static final int SETGROUPPORTRAITURI = 17;
     public static final String REFRESHGROUPUI = "REFRESHGROUPUI";
     private List<Friend> memberList;
-
     private AsyncImageView asyncImageView;
-
     private PhotoUtils photoUtils;
-
     private BottomMenuDialog dialog;
-
     private String mGroupName, mGroupId;
-
     private Button mButton;
-
     private ClearWriteEditText mGroupNameEdit;
-
     private List<String> groupIds = new ArrayList<>();
-
     private Uri selectUri;
+    private UploadManager uploadManager;
+    private String imageUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,28 +106,7 @@ public class CreateGroupActivity extends BaseActivity implements View.OnClickLis
         mGroupNameEdit = (ClearWriteEditText) findViewById(R.id.create_groupname);
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.img_Group_portrait:
-                showPhotoDialog();
-                break;
-            case R.id.create_ok:
-                mGroupName = mGroupNameEdit.getText().toString().trim();
-                if (TextUtils.isEmpty(mGroupName)) {
-                    NToast.shortToast(mContext, getString(R.string.group_name_not_is_null));
-                    break;
-                }
-                if (groupIds.size() > 1) {
-                    LoadDialog.show(mContext);
-                    request(CREATEGROUP, true);
-                }
-
-                break;
-        }
-    }
-
-
+    /*－－－－－－－－－－－－－OnDataListener start－－－－－－－－－*/
     @Override
     public Object doInBackground(int requestCode, String id) throws HttpException {
         switch (requestCode) {
@@ -146,7 +119,6 @@ public class CreateGroupActivity extends BaseActivity implements View.OnClickLis
         }
         return null;
     }
-
     @Override
     public void onSuccess(int requestCode, Object result) {
         if (result != null) {
@@ -186,7 +158,6 @@ public class CreateGroupActivity extends BaseActivity implements View.OnClickLis
             }
         }
     }
-
     @Override
     public void onFailure(int requestCode, int state, Object result) {
         switch (requestCode) {
@@ -200,46 +171,33 @@ public class CreateGroupActivity extends BaseActivity implements View.OnClickLis
                 break;
         }
     }
+    /*－－－－－－－－－－－－－OnDataListener end－－－－－－－－－*/
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.img_Group_portrait:
+                showPhotoDialog();
+                break;
+            case R.id.create_ok:
+                mGroupName = mGroupNameEdit.getText().toString().trim();
+                if (TextUtils.isEmpty(mGroupName)) {
+                    NToast.shortToast(mContext, getString(R.string.group_name_not_is_null));
+                    break;
+                }
+                if (groupIds.size() > 1) {
+                    LoadDialog.show(mContext);
+                    request(CREATEGROUP, true);
+                }
 
-
+                break;
+        }
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         hintKbTwo();
         finish();
         return super.onOptionsItemSelected(item);
     }
-
-
-    /**
-     * 弹出底部框
-     */
-    private void showPhotoDialog() {
-        if (dialog != null && dialog.isShowing()) {
-            dialog.dismiss();
-        }
-
-        dialog = new BottomMenuDialog(mContext);
-        dialog.setConfirmListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                if (dialog != null && dialog.isShowing()) {
-                    dialog.dismiss();
-                }
-                photoUtils.takePicture(CreateGroupActivity.this);
-            }
-        });
-        dialog.setMiddleListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                if (dialog != null && dialog.isShowing()) {
-                    dialog.dismiss();
-                }
-                photoUtils.selectPicture(CreateGroupActivity.this);
-            }
-        });
-        dialog.show();
-    }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
@@ -250,10 +208,6 @@ public class CreateGroupActivity extends BaseActivity implements View.OnClickLis
                 break;
         }
     }
-
-    private UploadManager uploadManager;
-
-    private String imageUrl;
 
     public void uploadImage(final String domain, String imageToken, Uri imagePath) {
         if (TextUtils.isEmpty(domain) && TextUtils.isEmpty(imageToken) && TextUtils.isEmpty(imagePath.toString())) {
@@ -284,7 +238,35 @@ public class CreateGroupActivity extends BaseActivity implements View.OnClickLis
             }
         }, null);
     }
+    /**
+     * 弹出底部框
+     */
+    private void showPhotoDialog() {
+        if (dialog != null && dialog.isShowing()) {
+            dialog.dismiss();
+        }
 
+        dialog = new BottomMenuDialog(mContext);
+        dialog.setConfirmListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                if (dialog != null && dialog.isShowing()) {
+                    dialog.dismiss();
+                }
+                photoUtils.takePicture(CreateGroupActivity.this);
+            }
+        });
+        dialog.setMiddleListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                if (dialog != null && dialog.isShowing()) {
+                    dialog.dismiss();
+                }
+                photoUtils.selectPicture(CreateGroupActivity.this);
+            }
+        });
+        dialog.show();
+    }
     private void hintKbTwo() {
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         if (imm.isActive() && getCurrentFocus() != null) {

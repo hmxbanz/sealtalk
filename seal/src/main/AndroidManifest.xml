@@ -3,18 +3,16 @@
     package="cn.rongcloud.im">
 
     <uses-sdk
-        android:minSdkVersion="14"
-        android:targetSdkVersion="21" />
+        android:minSdkVersion="11"
+        android:targetSdkVersion="23" />
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <!-- 获取机型信息权限 -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
-
     <!-- 查看 Wi-Fi 状态 -->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <!-- 查看网络状态 -->
@@ -26,7 +24,6 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <!-- 防止设备休眠 -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
@@ -53,7 +50,6 @@
         android:icon="@drawable/seal_app_logo"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
-
         <!--登录页面-->
         <activity
             android:name=".ui.activity.LoginActivity"
@@ -70,7 +66,6 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan">
-
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -93,7 +88,6 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
         <!--发起聊天页面-->
-
 
         <!--我的账号-->
         <activity
@@ -137,7 +131,6 @@
             android:name=".ui.activity.BlackListActivity"
             android:screenOrientation="portrait"/>
 
-
         <!--点击会话页面图片展示页面-->
         <activity
             android:name=".ui.activity.PhotoActivity"
@@ -176,10 +169,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".ui.activity.NewGroupDetailActivity"
             android:screenOrientation="portrait"/>
-
         <activity android:name=".ui.activity.DiscussionDetailActivity"
             android:screenOrientation="portrait"/>
-
         <activity android:name=".ui.activity.ForgetPasswordActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".ui.activity.AMAPLocationActivity"

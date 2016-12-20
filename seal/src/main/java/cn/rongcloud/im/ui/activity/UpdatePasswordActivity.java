@@ -19,15 +19,10 @@ import cn.rongcloud.im.server.widget.LoadDialog;
  * Company RongCloud
  */
 public class UpdatePasswordActivity extends BaseActivity implements View.OnClickListener {
-
     private static final int UPDATEPASSWORD = 15;
-
     private EditText oldPasswordEdit, newPasswrodEdit, newPassword2Edit;
-
     private Button confirm;
-
-    private String mOldPassword, mNewPassword;
-
+    private String cachePassword,mOldPassword, mNewPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +31,7 @@ public class UpdatePasswordActivity extends BaseActivity implements View.OnClick
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.de_actionbar_back);
         getSupportActionBar().setTitle(R.string.change_password);
-        sp = getSharedPreferences("config", MODE_PRIVATE);
-        editor = sp.edit();
-
+        cachePassword  = sp.getString("loginpassword", "");
         initViews();
     }
 
@@ -55,7 +48,7 @@ public class UpdatePasswordActivity extends BaseActivity implements View.OnClick
         String old = oldPasswordEdit.getText().toString().trim();
         String new1 = newPasswrodEdit.getText().toString().trim();
         String new2 = newPassword2Edit.getText().toString().trim();
-        String cachePassword = getSharedPreferences("config", Context.MODE_PRIVATE).getString("loginpassword", "");
+
         if (TextUtils.isEmpty(old)) {
             NToast.shortToast(mContext, R.string.original_password);
             return;
@@ -82,7 +75,6 @@ public class UpdatePasswordActivity extends BaseActivity implements View.OnClick
         mNewPassword = new1;
         LoadDialog.show(mContext);
         request(UPDATEPASSWORD, true);
-
     }
 
 
@@ -101,14 +93,13 @@ public class UpdatePasswordActivity extends BaseActivity implements View.OnClick
             LoadDialog.dismiss(mContext);
             finish();
         } else if (cpRes.getCode() == 1000) {
-            NToast.shortToast(mContext, "初始密码有误:" + cpRes.getCode());
+            NToast.shortToast(mContext, "初始密码不正确:" + cpRes.getCode());
             LoadDialog.dismiss(mContext);
         } else {
             NToast.shortToast(mContext, "修改密码失败:" + cpRes.getCode());
             LoadDialog.dismiss(mContext);
         }
     }
-
     @Override
     public void onFailure(int requestCode, int state, Object result) {
         LoadDialog.dismiss(mContext);

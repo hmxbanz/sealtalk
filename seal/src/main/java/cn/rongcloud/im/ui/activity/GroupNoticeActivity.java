@@ -10,6 +10,8 @@ import android.view.Window;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import cn.rongcloud.im.R;
 import cn.rongcloud.im.server.widget.DialogWithYesOrNoUtils;
 import io.rong.imkit.RongContext;
@@ -22,7 +24,7 @@ import io.rong.imlib.model.Message;
 import io.rong.message.TextMessage;
 
 
-public class GroupNoticeActivity extends Activity implements View.OnClickListener, TextWatcher {
+public class GroupNoticeActivity extends Activity implements View.OnClickListener {
     TextView mCancleButton;
     TextView mDoneButton;
     EditText mEdit;
@@ -43,11 +45,9 @@ public class GroupNoticeActivity extends Activity implements View.OnClickListene
         mTargetId = getIntent().getStringExtra("targetId");
 
         mCancleButton.setOnClickListener(this);
-
         mDoneButton.setOnClickListener(this);
         mDoneButton.setClickable(false);
-
-        mEdit.addTextChangedListener(this);
+        mEdit.addTextChangedListener(new TextWatcherListener());
     }
 
     @Override
@@ -64,7 +64,6 @@ public class GroupNoticeActivity extends Activity implements View.OnClickListene
                     public void execEdit(String editText) {
 
                     }
-
                     @Override
                     public void execUpdatePassword(String oldPassword, String newPassword) {
 
@@ -108,31 +107,33 @@ public class GroupNoticeActivity extends Activity implements View.OnClickListene
         }
     }
 
-    @Override
-    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+    private class TextWatcherListener implements TextWatcher{
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-    }
-
-    @Override
-    public void onTextChanged(CharSequence s, int start, int before, int count) {
-        if (s.toString().length() > 0) {
-            mDoneButton.setClickable(true);
-            mDoneButton.setTextColor(getResources().getColor(android.R.color.white));
-        } else {
-            mDoneButton.setClickable(false);
-            mDoneButton.setTextColor(getResources().getColor(android.R.color.darker_gray));
         }
-    }
 
-    @Override
-    public void afterTextChanged(Editable s) {
-        if ( s != null) {
-            int start = mEdit.getSelectionStart();
-            int end = mEdit.getSelectionEnd();
-            mEdit.removeTextChangedListener(this);
-            mEdit.setText(AndroidEmoji.ensure(s.toString()));
-            mEdit.addTextChangedListener(this);
-            mEdit.setSelection(start, end);
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            if (s.toString().length() > 0) {
+                mDoneButton.setClickable(true);
+                mDoneButton.setTextColor(getResources().getColor(android.R.color.white));
+            } else {
+                mDoneButton.setClickable(false);
+                mDoneButton.setTextColor(getResources().getColor(android.R.color.darker_gray));
+            }
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+            if ( s != null) {
+                int start = mEdit.getSelectionStart();
+                int end = mEdit.getSelectionEnd();
+                mEdit.removeTextChangedListener(this);
+                mEdit.setText(AndroidEmoji.ensure(s.toString()));
+                mEdit.addTextChangedListener(this);
+                mEdit.setSelection(start, end);
+            }
         }
     }
 }

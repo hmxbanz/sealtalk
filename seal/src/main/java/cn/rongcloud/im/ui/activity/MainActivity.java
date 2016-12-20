@@ -3,7 +3,6 @@ package cn.rongcloud.im.ui.activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -40,7 +39,7 @@ import io.rong.imlib.RongIMClient;
 import io.rong.imlib.model.Conversation;
 import io.rong.message.ContactNotificationMessage;
 
-public class MainActivity extends BaseActivity implements ViewPager.OnPageChangeListener, View.OnClickListener, DragPointView.OnDragListencer {
+public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private FragmentPagerAdapter mFragmentPagerAdapter; //将 tab  页面持久在内存中
     private ViewPager mViewPager;
@@ -141,7 +140,7 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
 
         mUnreadNumView = (DragPointView) findViewById(R.id.seal_num);
         mUnreadNumView.setOnClickListener(this);
-        mUnreadNumView.setDragListencer(this);
+        mUnreadNumView.setDragListencer(new DragListencer());
 
         mFragment.add(mConversationList);
         mFragment.add(ContactsFragment.getInstance());
@@ -160,7 +159,7 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
         };
         mViewPager.setAdapter(mFragmentPagerAdapter);
         mViewPager.setOffscreenPageLimit(4);
-        mViewPager.setOnPageChangeListener(this);
+        mViewPager.setOnPageChangeListener(new PageChangerListener());
         initData();
     }
     private Fragment initConversationList() {
@@ -194,34 +193,6 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
             return mConversationListFragment;
         }
     }
-    //OnPageChangeListener实现
-    @Override
-    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-    }
-    @Override
-    public void onPageSelected(int position) {
-        changeTextViewColor();
-        changeSelectedTabState(position);
-    }
-    @Override
-    public void onPageScrollStateChanged(int state) {
-
-    }
-    //OnPageChangeListener实现
-    //DragListencer实现
-    @Override
-    public void onDragOut() {
-        mUnreadNumView.setVisibility(View.GONE);
-        NToast.shortToast(mContext, getString(R.string.clear_success));
-        List<Conversation> conversations = RongIM.getInstance().getConversationList();
-        if (conversations != null && conversations.size() > 0) {
-            for (Conversation c : conversations) {
-                RongIM.getInstance().clearMessagesUnreadStatus(c.getConversationType(), c.getTargetId(), null);
-            }
-        }
-    }
-    //DragListencer实现
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -415,6 +386,33 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
         if (imm.isActive() && getCurrentFocus() != null) {
             if (getCurrentFocus().getWindowToken() != null) {
                 imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+            }
+        }
+    }
+
+    private class PageChangerListener implements ViewPager.OnPageChangeListener{
+        @Override
+        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+        }
+        @Override
+        public void onPageSelected(int position) {
+            changeTextViewColor();
+            changeSelectedTabState(position);
+        }
+        @Override
+        public void onPageScrollStateChanged(int state) {
+        }
+    }
+    private class DragListencer implements DragPointView.OnDragListencer{
+        @Override
+        public void onDragOut() {
+            mUnreadNumView.setVisibility(View.GONE);
+            NToast.shortToast(mContext, getString(R.string.clear_success));
+            List<Conversation> conversations = RongIM.getInstance().getConversationList();
+            if (conversations != null && conversations.size() > 0) {
+                for (Conversation c : conversations) {
+                    RongIM.getInstance().clearMessagesUnreadStatus(c.getConversationType(), c.getTargetId(), null);
+                }
             }
         }
     }

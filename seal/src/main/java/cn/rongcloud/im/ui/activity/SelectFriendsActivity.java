@@ -83,25 +83,16 @@ public class SelectFriendsActivity extends BaseActivity implements View.OnClickL
      * 根据拼音来排列ListView里面的数据类
      */
     private PinyinComparator pinyinComparator;
-
     private TextView mNoFriends;
-
     private TextView mTitleTextView;
-
     private TextView mConfirmTextView;
-
     private List<Friend> dataLsit = new ArrayList<>();
-
     private List<Friend> sourceDataList = new ArrayList<>();
-
     private HorizontalListView mSelectedListView;
-
     private SelectedAdapter selectAdapter;
-
     private boolean isCrateGroup;
     private boolean isConversationActivityStartDiscussion;
     private boolean isConversationActivityStartPrivate;
-
     private List<GetGroupMemberResponse.ResultEntity> addGroupMemberList;
     private List<GetGroupMemberResponse.ResultEntity> deleteGroupMemberList;
     private String groupId;
@@ -111,9 +102,7 @@ public class SelectFriendsActivity extends BaseActivity implements View.OnClickL
     private ArrayList<String> discListMember;
     private String addDis, deleDis;
     private ArrayList<UserInfo> addDisList, deleDisList;
-
     private boolean isStartPrivateChat;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -282,14 +271,10 @@ public class SelectFriendsActivity extends BaseActivity implements View.OnClickL
         Collections.sort(sourceDataList, pinyinComparator);
     }
 
-
     //用于存储CheckBox选中状态
     public Map<Integer, Boolean> mCBFlag = null;
-
     public Map<String, Boolean> addGroupFlag = null;
-
     public List<Friend> adapterList;
-
 
     class StartDiscussionAdapter extends BaseAdapter implements SectionIndexer {
 
@@ -542,7 +527,6 @@ public class SelectFriendsActivity extends BaseActivity implements View.OnClickL
         }
     }
 
-
     @Override
     public Object doInBackground(int requestCode, String id) throws HttpException {
         switch (requestCode) {
@@ -604,7 +588,6 @@ public class SelectFriendsActivity extends BaseActivity implements View.OnClickL
     private List<String> startDisList;
     private List<Friend> createGroupList;
 
-
     /**
      * 为ListView填充数据
      *
@@ -634,14 +617,6 @@ public class SelectFriendsActivity extends BaseActivity implements View.OnClickL
 
     }
 
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mListView = null;
-        adapter = null;
-    }
-
     private cn.rongcloud.im.db.Friend getUserInfoById(String userId) {
         if (!TextUtils.isEmpty(userId)) {
             cn.rongcloud.im.db.Friend friend = DBManager.getInstance(mContext).getDaoSession().getFriendDao().queryBuilder().where(FriendDao.Properties.UserId.eq(userId)).unique();
@@ -649,7 +624,6 @@ public class SelectFriendsActivity extends BaseActivity implements View.OnClickL
         }
         return null;
     }
-
 
     @Override
     public void onClick(View v) {
@@ -784,7 +758,12 @@ public class SelectFriendsActivity extends BaseActivity implements View.OnClickL
         }
     }
 
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mListView = null;
+        adapter = null;
+    }
     public void selectFinish(View view) {
         finish();
     }

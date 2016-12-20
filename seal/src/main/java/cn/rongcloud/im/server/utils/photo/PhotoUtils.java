@@ -62,7 +62,7 @@ public class PhotoUtils {
      */
     public void takePicture(Activity activity) {
         try {
-            //每次选择图片吧之前的图片删除
+            //每次选择图片把之前的图片删除
             clearCropFile(buildUri(activity));
 
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);

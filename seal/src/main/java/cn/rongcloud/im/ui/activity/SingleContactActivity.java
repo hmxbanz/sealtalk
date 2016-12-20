@@ -35,11 +35,8 @@ import io.rong.imkit.RongIM;
 public class SingleContactActivity extends BaseActivity implements View.OnClickListener {
 
     private TextView mContactName;
-
     private ImageView mContactHeader;
-
     private ImageView mMore;
-
     private Friend friend;
 
     @Override

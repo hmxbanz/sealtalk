@@ -32,31 +32,37 @@ import io.rong.imlib.model.Conversation;
  */
 public class FriendDetailActivity extends BaseActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
 
-
     private static final int GETUSERINFO = 91;
     private Friend friend;
-
-    private SwitchButton messageTop, messageNotif;
-
+    private SwitchButton messageTop, messageNotify;
     private SelectableRoundedImageView mImageView;
-
     private TextView friendName;
-
     private boolean  isFromConversation;
-
     private String fromConversationId;
-
     private LinearLayout cleanMessage;
-
+    private GetUserInfoByIdResponse.ResultEntity userInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fr_friend_detail);
         getSupportActionBar().setTitle(R.string.user_details);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.de_actionbar_back);
         initView();
+        initData();
+    }
+
+    private void initView() {
+        cleanMessage = (LinearLayout) findViewById(R.id.clean_friend);
+        mImageView = (SelectableRoundedImageView) findViewById(R.id.friend_header);
+        messageTop = (SwitchButton) findViewById(R.id.sw_freind_top);
+        messageNotify = (SwitchButton) findViewById(R.id.sw_friend_notfaction);
+        friendName = (TextView) findViewById(R.id.friend_name);
+        cleanMessage.setOnClickListener(this);
+        messageNotify.setOnCheckedChangeListener(this);
+        messageTop.setOnCheckedChangeListener(this);
+    }
+
+    private void initData() {
         fromConversationId = getIntent().getStringExtra("TargetId");
         if (!TextUtils.isEmpty(fromConversationId)) {
             isFromConversation = true;
@@ -65,35 +71,17 @@ public class FriendDetailActivity extends BaseActivity implements View.OnClickLi
         } else {
             //好友界面进入详情界面
             friend = (Friend) getIntent().getSerializableExtra("FriendDetails");
-            initData();
-            getState(friend);
-        }
-
-    }
-
-
-    private void initData() {
-        if (friend != null) {
-            if (TextUtils.isEmpty(friend.getPortraitUri())) {
-                ImageLoader.getInstance().displayImage(RongGenerate.generateDefaultAvatar(friend.getName(), friend.getUserId()), mImageView, App.getOptions());
-            } else {
-                ImageLoader.getInstance().displayImage(friend.getPortraitUri(), mImageView, App.getOptions());
+            if (friend != null) {
+                if (TextUtils.isEmpty(friend.getPortraitUri())) {
+                    ImageLoader.getInstance().displayImage(RongGenerate.generateDefaultAvatar(friend.getName(), friend.getUserId()), mImageView, App.getOptions());
+                } else {
+                    ImageLoader.getInstance().displayImage(friend.getPortraitUri(), mImageView, App.getOptions());
+                }
+                friendName.setText(friend.getName());
             }
-            friendName.setText(friend.getName());
+            setFriendState(friend);
         }
     }
-
-    private void initView() {
-        cleanMessage = (LinearLayout) findViewById(R.id.clean_friend);
-        mImageView = (SelectableRoundedImageView) findViewById(R.id.friend_header);
-        messageTop = (SwitchButton) findViewById(R.id.sw_freind_top);
-        messageNotif = (SwitchButton) findViewById(R.id.sw_friend_notfaction);
-        friendName = (TextView) findViewById(R.id.friend_name);
-        cleanMessage.setOnClickListener(this);
-        messageNotif.setOnCheckedChangeListener(this);
-        messageTop.setOnCheckedChangeListener(this);
-    }
-
 
     @Override
     public Object doInBackground(int requestCode, String id) throws HttpException {
@@ -119,7 +107,7 @@ public class FriendDetailActivity extends BaseActivity implements View.OnClickLi
                             ImageLoader.getInstance().displayImage(userInfo.getPortraitUri(), mImageView, App.getOptions());
                         }
                         friendName.setText(userInfo.getNickname());
-                        getState2(userInfo);
+                        setFiendStateFromRequest(userInfo);
                         LoadDialog.dismiss(mContext);
                     }
 
@@ -127,9 +115,6 @@ public class FriendDetailActivity extends BaseActivity implements View.OnClickLi
             }
         }
     }
-
-    private GetUserInfoByIdResponse.ResultEntity userInfo;
-
 
     @Override
     protected void onDestroy() {
@@ -180,16 +165,12 @@ public class FriendDetailActivity extends BaseActivity implements View.OnClickLi
 
                     @Override
                     public void execEdit(String editText) {
-
                     }
-
                     @Override
                     public void execUpdatePassword(String oldPassword, String newPassword) {
-
                     }
                 });
                 break;
-
         }
     }
 
@@ -229,22 +210,19 @@ public class FriendDetailActivity extends BaseActivity implements View.OnClickLi
         }
     }
 
-    private void getState(Friend friend) {
-        if (friend != null) {//群组列表 page 进入
+    private void setFriendState(Friend friend) {
+        if (friend != null) {//好友界面进入详情界面
             if (RongIM.getInstance() != null) {
                 RongIM.getInstance().getConversation(Conversation.ConversationType.PRIVATE, friend.getUserId(), new RongIMClient.ResultCallback<Conversation>() {
                     @Override
                     public void onSuccess(Conversation conversation) {
-                        if (conversation == null) {
-                            return;
-                        }
+                        if (conversation == null) {return;}
 
                         if (conversation.isTop()) {
                             messageTop.setChecked(true);
                         } else {
                             messageTop.setChecked(false);
                         }
-
                     }
 
                     @Override
@@ -258,9 +236,9 @@ public class FriendDetailActivity extends BaseActivity implements View.OnClickLi
                     public void onSuccess(Conversation.ConversationNotificationStatus conversationNotificationStatus) {
 
                         if (conversationNotificationStatus == Conversation.ConversationNotificationStatus.DO_NOT_DISTURB ? true : false) {
-                            messageNotif.setChecked(true);
+                            messageNotify.setChecked(true);
                         } else {
-                            messageNotif.setChecked(false);
+                            messageNotify.setChecked(false);
                         }
                     }
 
@@ -273,8 +251,8 @@ public class FriendDetailActivity extends BaseActivity implements View.OnClickLi
         }
     }
 
-    private void getState2(GetUserInfoByIdResponse.ResultEntity friend) {
-        if (friend != null) {//群组列表 page 进入
+    private void setFiendStateFromRequest(GetUserInfoByIdResponse.ResultEntity friend) {
+        if (friend != null) {
             if (RongIM.getInstance() != null) {
                 RongIM.getInstance().getConversation(Conversation.ConversationType.PRIVATE, friend.getId(), new RongIMClient.ResultCallback<Conversation>() {
                     @Override
@@ -282,15 +260,12 @@ public class FriendDetailActivity extends BaseActivity implements View.OnClickLi
                         if (conversation == null) {
                             return;
                         }
-
                         if (conversation.isTop()) {
                             messageTop.setChecked(true);
                         } else {
                             messageTop.setChecked(false);
                         }
-
                     }
-
                     @Override
                     public void onError(RongIMClient.ErrorCode errorCode) {
 
@@ -302,9 +277,9 @@ public class FriendDetailActivity extends BaseActivity implements View.OnClickLi
                     public void onSuccess(Conversation.ConversationNotificationStatus conversationNotificationStatus) {
 
                         if (conversationNotificationStatus == Conversation.ConversationNotificationStatus.DO_NOT_DISTURB ? true : false) {
-                            messageNotif.setChecked(true);
+                            messageNotify.setChecked(true);
                         } else {
-                            messageNotif.setChecked(false);
+                            messageNotify.setChecked(false);
                         }
                     }
 

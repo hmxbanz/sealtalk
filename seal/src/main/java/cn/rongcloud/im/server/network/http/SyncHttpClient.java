@@ -482,7 +482,6 @@ public class SyncHttpClient {
         requestMap.remove(context);
     }
 
-
     //
     // HTTP GET Requests
     //
@@ -638,7 +637,6 @@ public class SyncHttpClient {
         return sendRequest(httpClient, httpContext, request, contentType, context);
     }
 
-
     /**
      * 支持post提交Restful风格的json字符串
      * post
@@ -726,7 +724,6 @@ public class SyncHttpClient {
 //				uriRequest.setHeader("rong_im_auth", cookie.getValue());
 //			}
 //		}
-
 
         List<Cookie> list = cookieStore.getCookies();
         StringBuilder s = new StringBuilder();

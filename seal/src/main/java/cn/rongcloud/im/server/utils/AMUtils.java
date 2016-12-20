@@ -31,10 +31,8 @@ public class AMUtils {
     }
 
     public static void onInactive(Context context, EditText et) {
-
         if (et == null)
             return;
-
         et.clearFocus();
         InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(et.getWindowToken(), 0);
@@ -43,7 +41,6 @@ public class AMUtils {
     public static void onActive(Context context, EditText et) {
         if (et == null)
             return;
-
         et.requestFocus();
         InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.showSoftInput(et, 0);

@@ -27,16 +27,16 @@ public abstract class BaseActivity extends ActionBarActivity implements OnDataLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        setVolumeControlStream(AudioManager.STREAM_MUSIC);// 使得音量键控制媒体声音
         mContext = this;
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.de_actionbar_back);
+        setVolumeControlStream(AudioManager.STREAM_MUSIC);// 使得音量键控制媒体声音
         getSupportActionBar().setDisplayShowHomeEnabled(false);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.de_actionbar_back);
 
         mAsyncTaskManager = AsyncTaskManager.getInstance(mContext);
         // Activity管理
         action = new SealAction(mContext);
+        sp = getSharedPreferences("config", MODE_PRIVATE);
+        editor = sp.edit();
 
     }
     @Override

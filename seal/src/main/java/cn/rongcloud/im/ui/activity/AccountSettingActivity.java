@@ -18,9 +18,7 @@ import cn.rongcloud.im.server.widget.DialogWithYesOrNoUtils;
  * Company RongCloud
  */
 public class AccountSettingActivity extends BaseActivity implements View.OnClickListener {
-
     private RelativeLayout mPassword, mPrivacy, mNewMessage, mClean, mExit;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +62,7 @@ public class AccountSettingActivity extends BaseActivity implements View.OnClick
                         String path = "/sdcard/" + getPackageName();
                         File file = new File(path);
                         if (file != null)
-                            deleteFile(file);
+                            deleteCacheFile(file);
                         NToast.shortToast(mContext, "清除成功");
                     }
 
@@ -100,9 +98,7 @@ public class AccountSettingActivity extends BaseActivity implements View.OnClick
         }
     }
 
-
-
-    public void deleteFile(File file) {
+    public void deleteCacheFile(File file) {
         if (file.isFile()) {
             file.delete();
             return;
@@ -114,7 +110,7 @@ public class AccountSettingActivity extends BaseActivity implements View.OnClick
                 return;
             }
             for (File f : childFile) {
-                deleteFile(f);
+                deleteCacheFile(f);
             }
             file.delete();
         }

@@ -262,12 +262,10 @@ public class ConversationActivity extends BaseActivity implements RongIMClient.R
         if (provider instanceof TextInputProvider) {
             TextInputProvider textInputProvider = (TextInputProvider) provider;
             textInputProvider.setEditTextChangedListener(new TextWatcher() {
-
                 @Override
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
                 }
-
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
 
@@ -363,7 +361,6 @@ public class ConversationActivity extends BaseActivity implements RongIMClient.R
      * MainActivity 页面，而不是直接退回到 桌面。
      */
     private void enterActivity() {
-
         String token = sp.getString("loginToken", "");//loginToken
 
         if (token.equals("default")) {
@@ -695,13 +692,11 @@ public class ConversationActivity extends BaseActivity implements RongIMClient.R
         }
     }
 
-
     @Override
     protected void onResume() {
         super.onResume();
         showRealTimeLocationBar(null);
     }
-
 
     /*－－－－－－－－－－－－－地理位置共享 start－－－－－－－－－*/
 
@@ -799,7 +794,6 @@ public class ConversationActivity extends BaseActivity implements RongIMClient.R
 
     }
 
-
     private boolean closeRealTimeLocation() {
 
         if (mConversationType == null || TextUtils.isEmpty(mTargetId))
@@ -835,7 +829,6 @@ public class ConversationActivity extends BaseActivity implements RongIMClient.R
 
         return true;
     }
-
 
     private String locationid;
 
@@ -922,7 +915,7 @@ public class ConversationActivity extends BaseActivity implements RongIMClient.R
         super.onDestroy();
     }
 
-
+    /*－－－－－－－－－－－－－实时位置共享监听－－－－－－－－－*/
     @Override
     public void onStatusChange(final RealTimeLocationConstant.RealTimeLocationStatus status) {
         currentLocationStatus = status;
@@ -947,7 +940,6 @@ public class ConversationActivity extends BaseActivity implements RongIMClient.R
         }
 
     }
-
 
     @Override
     public void onReceiveLocation(double latitude, double longitude, String userId) {
@@ -992,7 +984,6 @@ public class ConversationActivity extends BaseActivity implements RongIMClient.R
         }
         return false;
     }
-
 
     private void hintKbTwo() {
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);

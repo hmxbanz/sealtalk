@@ -6,14 +6,11 @@ package cn.rongcloud.im.server.response;
  * Company RongCloud
  */
 public class ChangePasswordResponse {
-
-
     private int code;
 
     public int getCode() {
         return code;
     }
-
     public void setCode(int code) {
         this.code = code;
     }

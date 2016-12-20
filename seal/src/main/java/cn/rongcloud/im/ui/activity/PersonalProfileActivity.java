@@ -40,23 +40,16 @@ import io.rong.imlib.model.UserInfo;
  * Created by AMing on 16/6/22.
  * Company RongCloud
  */
-public class PersonalProfileActivity extends BaseActivity implements View.OnClickListener {
+public class PersonalProfileActivity extends BaseActionBarActivity implements View.OnClickListener {
 
     private static final int ADDFRIEND = 10086;
     private ImageView mPersonalPortrait;
-
     private TextView mPersonalName;
-
     private Button mAddFriend;
-
     private UserInfo userInfo;
-
     private String mySelf, addMessage;
-
     private Conversation.ConversationType mConversationType;
-
     private GetGroupInfoResponse.ResultEntity mGroup;
-
     private LinearLayout mChatGroupBtn;
 
     @Override
@@ -64,23 +57,26 @@ public class PersonalProfileActivity extends BaseActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personal);
         getSupportActionBar().setTitle(R.string.user_details);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.de_actionbar_back);
+
         initViews();
+        initData();
+    }
+    private void initViews() {
+        mPersonalPortrait = (ImageView) findViewById(R.id.per_friend_header);
+        mPersonalName = (TextView) findViewById(R.id.per_friend_name);
+        mAddFriend = (Button) findViewById(R.id.per_add_friend);
+        mChatGroupBtn = (LinearLayout) findViewById(R.id.chat_groupbtn);
+    }
+
+    private void initData() {
         userInfo = getIntent().getParcelableExtra("userinfo");
         mGroup = (GetGroupInfoResponse.ResultEntity) getIntent().getSerializableExtra("groupinfo");
         int type = getIntent().getIntExtra("conversationType", 0);
         mConversationType = Conversation.ConversationType.setValue(type);
-        initData(userInfo);
-
-
-    }
-
-    private void initData(UserInfo userInfo) {
         mPersonalName.setText(userInfo.getName());
         ImageLoader.getInstance().displayImage(userInfo.getPortraitUri().toString(), mPersonalPortrait, App.getOptions());
         if (userInfo != null && !TextUtils.isEmpty(userInfo.getUserId())) {
-            mySelf = getSharedPreferences("config", MODE_PRIVATE).getString("loginid", "");
+            mySelf = sp.getString("loginid", "");
             if (mySelf.equals(userInfo.getUserId())) {
                 mChatGroupBtn.setVisibility(View.VISIBLE);
                 return;
@@ -93,7 +89,6 @@ public class PersonalProfileActivity extends BaseActivity implements View.OnClic
             mAddFriend.setOnClickListener(this);
         }
     }
-
 
     public void startChat(View view) {
         RongIM.getInstance().startPrivateChat(mContext, userInfo.getUserId(), userInfo.getName());
@@ -145,13 +140,6 @@ public class PersonalProfileActivity extends BaseActivity implements View.OnClic
     }
     //VoIP end 2
 
-    private void initViews() {
-        mPersonalPortrait = (ImageView) findViewById(R.id.per_friend_header);
-        mPersonalName = (TextView) findViewById(R.id.per_friend_name);
-        mAddFriend = (Button) findViewById(R.id.per_add_friend);
-        mChatGroupBtn = (LinearLayout) findViewById(R.id.chat_groupbtn);
-    }
-
     /**
      * 从本地缓存的数据库中查询是否存在好友关系
      *
@@ -180,16 +168,16 @@ public class PersonalProfileActivity extends BaseActivity implements View.OnClic
                 DialogWithYesOrNoUtils.getInstance().showEditDialog(mContext, getString(R.string.add_text), getString(R.string.confirm), new DialogWithYesOrNoUtils.DialogCallBack() {
                     @Override
                     public void execEvent() {
-
                     }
 
                     @Override
                     public void execEdit(String editText) {
+                        String loginNickName=sp.getString("loginnickname", "");
                         if (TextUtils.isEmpty(editText)) {
                             if (mGroup != null && !TextUtils.isEmpty(mGroup.getName())) {
-                                addMessage = "我是" + mGroup.getName() + "群的" + getSharedPreferences("config", MODE_PRIVATE).getString("loginnickname", "");
+                                addMessage = "我是" + mGroup.getName() + "群的" + loginNickName;
                             } else {
-                                addMessage = "我是" + getSharedPreferences("config", MODE_PRIVATE).getString("loginnickname", "");
+                                addMessage = "我是" + loginNickName;
                             }
                         } else {
                             addMessage = editText;

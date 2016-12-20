@@ -178,7 +178,7 @@
     <string name="remove_successful">移除成功</string>
     <string name="least_one_friend">至少选择一位好友</string>
     <string name="not_send_code">未向服务端获取验证码</string>
-    <string name="get_code">获取验证码</string>
+    <string name="get_code">重取验证码</string>
     <string name="clear_success">清除成功</string>
     <string name="clear_failure">清除失败</string>
     <string name="change_group_info">更改群组信息</string>

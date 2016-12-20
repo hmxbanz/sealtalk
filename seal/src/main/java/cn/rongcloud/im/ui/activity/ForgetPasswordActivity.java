@@ -28,7 +28,7 @@ import cn.rongcloud.im.server.widget.LoadDialog;
  * Created by AMing on 16/2/2.
  * Company RongCloud
  */
-public class ForgetPasswordActivity extends BaseActivity implements View.OnClickListener, DownTimerListener {
+public class ForgetPasswordActivity extends BaseActionBarActivity implements View.OnClickListener, DownTimerListener {
 
     private static final int CHECKPHONE = 31;
     private static final int SENDCODE = 32;
@@ -36,23 +36,19 @@ public class ForgetPasswordActivity extends BaseActivity implements View.OnClick
     private static final int VERIFYCODE = 34;
     private static final int CHANGEPASSWORD_BACK = 1002;
     private ClearWriteEditText mPhone, mCode, mPassword1, mPassword2;
-
     private Button mGetCode, mOK;
-
     private String phone, mCodeToken;
-
     private boolean available;
+    private DownTimer downTimer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forget);
         ActionBar actionBar = getSupportActionBar();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.de_actionbar_back);
         actionBar.setTitle(R.string.forget_password);
         initView();
-
+        initData();
     }
 
     private void initView() {
@@ -62,6 +58,8 @@ public class ForgetPasswordActivity extends BaseActivity implements View.OnClick
         mPassword2 = (ClearWriteEditText) findViewById(R.id.forget_password1);
         mGetCode = (Button) findViewById(R.id.forget_getcode);
         mOK = (Button) findViewById(R.id.forget_button);
+    }
+    private void initData() {
         mGetCode.setOnClickListener(this);
         mOK.setOnClickListener(this);
         mPhone.addTextChangedListener(new TextWatcher() {
@@ -91,7 +89,6 @@ public class ForgetPasswordActivity extends BaseActivity implements View.OnClick
 
             }
         });
-
         mCode.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -213,8 +210,6 @@ public class ForgetPasswordActivity extends BaseActivity implements View.OnClick
         }
     }
 
-    private DownTimer downTimer;
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -270,18 +265,17 @@ public class ForgetPasswordActivity extends BaseActivity implements View.OnClick
         return super.onOptionsItemSelected(item);
     }
 
-
     @Override
     public void onTick(long millisUntilFinished) {
-        mGetCode.setText("seconds:" + String.valueOf(millisUntilFinished / 1000));
+        mGetCode.setText("重发:" + String.valueOf(millisUntilFinished / 1000));
         mGetCode.setClickable(false);
         mGetCode.setBackgroundDrawable(getResources().getDrawable(R.drawable.rs_select_btn_gray));
     }
-
     @Override
     public void onFinish() {
         mGetCode.setText(R.string.get_code);
         mGetCode.setClickable(true);
         mGetCode.setBackgroundDrawable(getResources().getDrawable(R.drawable.rs_select_btn_blue));
     }
+
 }

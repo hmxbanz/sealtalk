@@ -17,7 +17,6 @@ public class PrivacyActivity extends BaseActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_privacy);
-
         getSupportActionBar().setTitle(R.string.set_privacy);
 
         RelativeLayout mTheBlackList = (RelativeLayout) findViewById(R.id.rl_the_blacklist);
