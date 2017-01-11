@@ -227,7 +227,7 @@ public class SelectFriendsActivity extends BaseActivity implements View.OnClickL
 
         if (deleDisList != null && deleDisList.size() > 0) {
             for (int i = 0; i < deleDisList.size(); i++) {
-                if (deleDisList.get(i).getUserId().contains(getSharedPreferences("config", MODE_PRIVATE).getString("loginid", ""))) {
+                if (deleDisList.get(i).getUserId().contains(sp.getString("loginid", ""))) {
                     continue;
                 }
                 dataLsit.add(new Friend(deleDisList.get(i).getUserId(),
@@ -237,7 +237,7 @@ public class SelectFriendsActivity extends BaseActivity implements View.OnClickL
             }
         } else if (deleteGroupMemberList != null && deleteGroupMemberList.size() > 0) {
             for (int i = 0; i < deleteGroupMemberList.size(); i++) {
-                if (deleteGroupMemberList.get(i).getUser().getId().contains(getSharedPreferences("config", MODE_PRIVATE).getString("loginid", ""))) {
+                if (deleteGroupMemberList.get(i).getUser().getId().contains(sp.getString("loginid", ""))) {
                     continue;
                 }
                 dataLsit.add(new Friend(deleteGroupMemberList.get(i).getUser().getId(),

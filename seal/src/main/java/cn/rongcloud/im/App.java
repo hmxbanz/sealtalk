@@ -33,7 +33,6 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
         RongPushClient.registerHWPush(this);
         RongPushClient.registerMiPush(this, "2882303761517473625", "5451747338625");
         try {

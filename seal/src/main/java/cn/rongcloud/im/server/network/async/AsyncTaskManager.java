@@ -97,7 +97,6 @@ public class AsyncTaskManager {
         if (requestCode > 0) {
             EventBus.getDefault().post(new AsyncRequest(requestCode, isCheckNetwork, listener));
         }
-        else { }
     }
 
     /**
@@ -132,7 +131,7 @@ public class AsyncTaskManager {
      * @param bean
      */
     public void onEventMainThread(AsyncResult bean) {
-        NLog.e("hmx:","第四步");
+        NLog.e("hmx:","第五步");
         switch (bean.getState()) {
             case REQUEST_SUCCESS_CODE:
                 bean.getListener().onSuccess(bean.getRequestCode(), bean.getResult());

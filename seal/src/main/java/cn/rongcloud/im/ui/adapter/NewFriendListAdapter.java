@@ -20,6 +20,20 @@ import cn.rongcloud.im.server.widget.SelectableRoundedImageView;
 
 public class NewFriendListAdapter extends BaseAdapter {
     private ViewHoler holer;
+    private OnItemButtonClick mOnItemButtonClick;
+
+    public OnItemButtonClick getOnItemButtonClick() {
+        return mOnItemButtonClick;
+    }
+
+    public void setOnItemButtonClick(OnItemButtonClick onItemButtonClick) {
+        this.mOnItemButtonClick = onItemButtonClick;
+    }
+
+    public interface OnItemButtonClick {
+        boolean onButtonClick(int position, View view, int status);
+
+    }
 
     public NewFriendListAdapter(Context context) {
         super(context);
@@ -97,19 +111,6 @@ public class NewFriendListAdapter extends BaseAdapter {
         TextView mMessage;
     }
 
-    OnItemButtonClick mOnItemButtonClick;
 
-    public OnItemButtonClick getOnItemButtonClick() {
-        return mOnItemButtonClick;
-    }
-
-    public void setOnItemButtonClick(OnItemButtonClick onItemButtonClick) {
-        this.mOnItemButtonClick = onItemButtonClick;
-    }
-
-    public interface OnItemButtonClick {
-        boolean onButtonClick(int position, View view, int status);
-
-    }
 
 }

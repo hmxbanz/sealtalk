@@ -51,15 +51,11 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     private static final int SYNC_FRIEND = 14;
     private static final int SYNC_GROUP = 17;
     private static final int AUTO_LOGIN = 19;
-
     private static final int REGISTER_REQUEST_CODE=1;
     private static final int FORGET_PASS_REQUEST_CODE =2;
-
     private ImageView mImgBackgroud;
     private ClearWriteEditText mPhoneEdit, mPasswordEdit;
-    private Button mConfirm;
-    private TextView mRegist, forgetPassword;
-    private String phoneString, passwordString, loginToken, connectResultId;
+    private String phoneString, passwordString, connectResultId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,73 +63,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         setContentView(R.layout.activity_login);
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
-        sp = getSharedPreferences("config", MODE_PRIVATE);
-        editor = sp.edit();
         initView();
     }
-
-    private void initView() {
-        mPhoneEdit = (ClearWriteEditText) findViewById(R.id.de_login_phone);
-        mPasswordEdit = (ClearWriteEditText) findViewById(R.id.de_login_password);
-        mConfirm = (Button) findViewById(R.id.de_login_sign);
-        mRegist = (TextView) findViewById(R.id.de_login_register);
-        forgetPassword = (TextView) findViewById(R.id.de_login_forgot);
-        forgetPassword.setOnClickListener(this);
-        mConfirm.setOnClickListener(this);
-        mRegist.setOnClickListener(this);
-        mImgBackgroud = (ImageView) findViewById(R.id.de_img_backgroud);
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Animation animation = AnimationUtils.loadAnimation(LoginActivity.this, R.anim.translate_anim);
-                mImgBackgroud.startAnimation(animation);
-            }
-        }, 200);
-
-        mPhoneEdit.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (s.length() == 11) {
-                    AMUtils.onInactive(mContext, mPhoneEdit);
-                }
-            }
-            @Override
-            public void afterTextChanged(Editable s) {
-            }
-        });
-
-        String oldPhone = sp.getString("loginphone", "");
-        String oldPassword = sp.getString("loginpassword", "");
-        if (oldPhone.equals(mPhoneEdit.getText().toString().trim())) {//和上次登录账户一致
-
-        } else {
-            //和上次登录账户不一致 或者 换设备登录  重新网络拉取好友 和 群组数据
-            DBManager.getInstance(mContext).getDaoSession().getFriendDao().deleteAll();//清空上个用户的数据库
-            DBManager.getInstance(mContext).getDaoSession().getGroupsDao().deleteAll();
-        }
-        if (!TextUtils.isEmpty(oldPhone) && !TextUtils.isEmpty(oldPassword)) {
-            mPhoneEdit.setText(oldPhone);
-            mPasswordEdit.setText(oldPassword);
-        }
-
-        if (!sp.getBoolean("exit", false) && !TextUtils.isEmpty(oldPhone) && !TextUtils.isEmpty(oldPassword)) {
-            editor.putBoolean("exit", false);
-            editor.apply();
-            phoneString = oldPhone;
-            passwordString = oldPassword;
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    LoadDialog.show(mContext);
-                    request(AUTO_LOGIN);
-                }
-            }, 100);
-        }
-    }
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -176,15 +107,14 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 break;
         }
     }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 2 && data != null) {
+        if (requestCode == FORGET_PASS_REQUEST_CODE && data != null) {
             String phone = data.getStringExtra("phone");
             String password = data.getStringExtra("password");
             mPhoneEdit.setText(phone);
             mPasswordEdit.setText(password);
-        } else if (requestCode == 1 && data != null) {
+        } else if (requestCode == REGISTER_REQUEST_CODE && data != null) {
             String phone = data.getStringExtra("phone");
             String password = data.getStringExtra("password");
             String id = data.getStringExtra("id");
@@ -202,10 +132,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
-
     @Override
     public Object doInBackground(int requestCode, String id) throws HttpException {
-        NLog.e("hmx:","第五步");
+        NLog.e("hmx:","第四步");
         switch (requestCode) {
             case LOGIN:
                 return action.login("86", phoneString, passwordString);
@@ -222,10 +151,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         }
         return null;
     }
-
     @Override
     public void onSuccess(int requestCode, Object result) {
         NLog.e("hmx:","第六步");
+        String loginToken;
         if (result != null) {
             switch (requestCode) {
                 case LOGIN:
@@ -403,7 +332,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             }
         }
     }
-
     @Override
     public void onFailure(int requestCode, int state, Object result) {
         if (state == AsyncTaskManager.HTTP_NULL_CODE || state == AsyncTaskManager.HTTP_ERROR_CODE) {
@@ -429,9 +357,68 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 break;
         }
     }
-
     private void reGetToken() {
         request(GET_TOKEN);
     }
+    private void initView() {
+        mPhoneEdit = (ClearWriteEditText) findViewById(R.id.de_login_phone);
+        mPasswordEdit = (ClearWriteEditText) findViewById(R.id.de_login_password);
+        Button mConfirm = (Button) findViewById(R.id.de_login_sign);
+        TextView mRegist = (TextView) findViewById(R.id.de_login_register);
+        TextView forgetPassword = (TextView) findViewById(R.id.de_login_forgot);
+        forgetPassword.setOnClickListener(this);
+        mConfirm.setOnClickListener(this);
+        mRegist.setOnClickListener(this);
+        mImgBackgroud = (ImageView) findViewById(R.id.de_img_backgroud);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Animation animation = AnimationUtils.loadAnimation(LoginActivity.this, R.anim.translate_anim);
+                mImgBackgroud.startAnimation(animation);
+            }
+        }, 200);
 
+        mPhoneEdit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (s.length() == 11) {
+                    AMUtils.onInactive(mContext, mPhoneEdit);
+                }
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        });
+        String oldPhone = sp.getString("loginphone", "");
+        String oldPassword = sp.getString("loginpassword", "");
+        if (oldPhone.equals(mPhoneEdit.getText().toString().trim())) {//和上次登录账户一致
+
+        } else {
+            //和上次登录账户不一致 或者 换设备登录  重新网络拉取好友 和 群组数据
+            DBManager.getInstance(mContext).getDaoSession().getFriendDao().deleteAll();//清空上个用户的数据库
+            DBManager.getInstance(mContext).getDaoSession().getGroupsDao().deleteAll();
+        }
+
+        if (!TextUtils.isEmpty(oldPhone) && !TextUtils.isEmpty(oldPassword)) {
+            mPhoneEdit.setText(oldPhone);
+            mPasswordEdit.setText(oldPassword);
+        }
+
+        if (!sp.getBoolean("exit", false) && !TextUtils.isEmpty(oldPhone) && !TextUtils.isEmpty(oldPassword)) {
+            editor.putBoolean("exit", false);
+            editor.apply();
+            phoneString = oldPhone;
+            passwordString = oldPassword;
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    LoadDialog.show(mContext);
+                    request(AUTO_LOGIN);
+                }
+            }, 100);
+        }
+    }
 }

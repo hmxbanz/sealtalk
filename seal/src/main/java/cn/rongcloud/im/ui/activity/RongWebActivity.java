@@ -23,7 +23,6 @@ public class RongWebActivity extends BaseActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rong_web);
-
         getSupportActionBar().setTitle(R.string.rongcloud_web);
 
         mWebView = (WebView) findViewById(R.id.rongweb_webview);

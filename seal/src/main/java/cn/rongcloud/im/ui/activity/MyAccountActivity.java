@@ -47,42 +47,108 @@ import io.rong.imlib.model.UserInfo;
  * Created by Administrator on 2015/3/2.
  */
 public class MyAccountActivity extends BaseActionBarActivity implements View.OnClickListener {
-
     private static final int UPLOADPORTRAIT = 8;
-
-    private RelativeLayout portraitItem, nameItem, passwordItem;
-
+    private static final int GETQINIUTOKEN = 128;
     private SelectableRoundedImageView mImageView;
-
-    private TextView mName , mPhone;
-
     private PhotoUtils photoUtils;
     private BottomMenuDialog dialog;
-
     private UploadManager uploadManager;
-
     private String imageUrl;
-
     private Uri selectUri;
-
-
+    private TextView mName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_myaccount);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.de_actionbar_back);
         getSupportActionBar().setTitle(R.string.de_actionbar_myacc);
-        sp = getSharedPreferences("config", MODE_PRIVATE);
-        editor = sp.edit();
 
         initView();
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        finish();
+        return super.onOptionsItemSelected(item);
+    }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.rl_my_portrait:
+                showPhotoDialog();
+                break;
+            case R.id.rl_my_username:
+                startActivity(new Intent(this, UpdateNameActivity.class));
+                break;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            case PhotoUtils.INTENT_CROP:
+            case PhotoUtils.INTENT_TAKE:
+            case PhotoUtils.INTENT_SELECT:
+                photoUtils.onActivityResult(MyAccountActivity.this, requestCode, resultCode, data);
+                break;
+        }
+    }
+
+    @Override
+    public Object doInBackground(int requestCode, String id) throws HttpException {
+        switch (requestCode) {
+            case UPLOADPORTRAIT:
+                return action.setPortrait(imageUrl);
+            case GETQINIUTOKEN:
+                return action.getQiNiuToken();
+        }
+        return super.doInBackground(requestCode, id);
+    }
+
+    @Override
+    public void onSuccess(int requestCode, Object result) {
+        if (result != null) {
+            switch (requestCode) {
+                case UPLOADPORTRAIT:
+                    SetPortraitResponse spRes = (SetPortraitResponse) result;
+                    if (spRes.getCode() == 200) {
+                        editor.putString("loginPortrait", imageUrl);
+                        editor.commit();
+                        ImageLoader.getInstance().displayImage(imageUrl, mImageView, App.getOptions());
+                        if (RongIM.getInstance() != null) {
+                            RongIM.getInstance().refreshUserInfoCache(new UserInfo(sp.getString("loginid", ""), sp.getString("loginnickname", ""), Uri.parse(imageUrl)));
+                            RongIM.getInstance().setCurrentUserInfo(new UserInfo(sp.getString("loginid", ""), sp.getString("loginnickname", ""), Uri.parse(imageUrl)));
+                        }
+                        BroadcastManager.getInstance(mContext).sendBroadcast(SealConst.CHANGEINFO);
+                        NToast.shortToast(mContext, getString(R.string.portrait_update_success));
+                        LoadDialog.dismiss(mContext);
+                    }
+                    break;
+                case GETQINIUTOKEN:
+                    QiNiuTokenResponse response = (QiNiuTokenResponse) result;
+                    if (response.getCode() == 200) {
+                        uploadImage(response.getResult().getDomain(), response.getResult().getToken(), selectUri);
+                    }
+                    break;
+            }
+        }
+    }
+
+    @Override
+    public void onFailure(int requestCode, int state, Object result) {
+        switch (requestCode) {
+            case UPLOADPORTRAIT:
+                NToast.shortToast(mContext, "设置头像请求失败");
+                LoadDialog.dismiss(mContext);
+                break;
+        }
     }
 
     private void initView() {
+        RelativeLayout portraitItem, nameItem;
+        TextView mPhone;
         mPhone = (TextView) findViewById(R.id.tv_my_phone);
         portraitItem = (RelativeLayout) findViewById(R.id.rl_my_portrait);
         nameItem = (RelativeLayout) findViewById(R.id.rl_my_username);
@@ -90,7 +156,7 @@ public class MyAccountActivity extends BaseActionBarActivity implements View.OnC
         mName = (TextView) findViewById(R.id.tv_my_username);
         portraitItem.setOnClickListener(this);
         nameItem.setOnClickListener(this);
-//        passwordItem.setOnClickListener(this);
+
         String cacheName = sp.getString("loginnickname", "");
         String cachePortrait = sp.getString("loginPortrait", "");
         String cachePhone = sp.getString("loginphone", "");
@@ -121,88 +187,15 @@ public class MyAccountActivity extends BaseActionBarActivity implements View.OnC
                 if (uri != null && !TextUtils.isEmpty(uri.getPath())) {
                     selectUri = uri;
                     LoadDialog.show(mContext);
-                    request(128);
+                    request(GETQINIUTOKEN);
                 }
             }
-
             @Override
             public void onPhotoCancel() {
 
             }
         });
     }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        finish();
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.rl_my_portrait:
-                showPhotoDialog();
-                break;
-            case R.id.rl_my_username:
-                startActivity(new Intent(this, UpdateNameActivity.class));
-                break;
-        }
-    }
-
-
-    @Override
-    public Object doInBackground(int requestCode, String id) throws HttpException {
-        switch (requestCode) {
-            case UPLOADPORTRAIT:
-                return action.setPortrait(imageUrl);
-            case 128:
-                return action.getQiNiuToken();
-        }
-        return super.doInBackground(requestCode, id);
-    }
-
-    @Override
-    public void onSuccess(int requestCode, Object result) {
-        if (result != null) {
-            switch (requestCode) {
-                case UPLOADPORTRAIT:
-                    SetPortraitResponse spRes = (SetPortraitResponse) result;
-                    if (spRes.getCode() == 200) {
-                        editor.putString("loginPortrait", imageUrl);
-                        editor.commit();
-                        ImageLoader.getInstance().displayImage(imageUrl, mImageView, App.getOptions());
-                        if (RongIM.getInstance() != null) {
-                            RongIM.getInstance().refreshUserInfoCache(new UserInfo(sp.getString("loginid", ""), sp.getString("loginnickname", ""), Uri.parse(imageUrl)));
-                            RongIM.getInstance().setCurrentUserInfo(new UserInfo(sp.getString("loginid", ""), sp.getString("loginnickname", ""), Uri.parse(imageUrl)));
-                        }
-                        BroadcastManager.getInstance(mContext).sendBroadcast(SealConst.CHANGEINFO);
-                        NToast.shortToast(mContext, getString(R.string.portrait_update_success));
-                        LoadDialog.dismiss(mContext);
-                    }
-                    break;
-                case 128:
-                    QiNiuTokenResponse response = (QiNiuTokenResponse) result;
-                    if (response.getCode() == 200) {
-                        uploadImage(response.getResult().getDomain(), response.getResult().getToken(), selectUri);
-                    }
-                    break;
-            }
-        }
-    }
-
-
-    @Override
-    public void onFailure(int requestCode, int state, Object result) {
-        switch (requestCode) {
-            case UPLOADPORTRAIT:
-                NToast.shortToast(mContext, "设置头像请求失败");
-                LoadDialog.dismiss(mContext);
-                break;
-        }
-    }
-
-
     /**
      * 弹出底部框
      */
@@ -232,19 +225,6 @@ public class MyAccountActivity extends BaseActionBarActivity implements View.OnC
         });
         dialog.show();
     }
-
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        switch (requestCode) {
-            case PhotoUtils.INTENT_CROP:
-            case PhotoUtils.INTENT_TAKE:
-            case PhotoUtils.INTENT_SELECT:
-                photoUtils.onActivityResult(MyAccountActivity.this, requestCode, resultCode, data);
-                break;
-        }
-    }
-
 
     public void uploadImage(final String domain, String imageToken, Uri imagePath) {
         if (TextUtils.isEmpty(domain) && TextUtils.isEmpty(imageToken) && TextUtils.isEmpty(imagePath.toString())) {

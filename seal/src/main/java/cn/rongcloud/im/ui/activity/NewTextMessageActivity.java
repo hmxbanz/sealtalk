@@ -22,7 +22,7 @@ import io.rong.imlib.model.UserInfo;
 /**
  * Created by Bob on 15/11/16.
  */
-public class NewTextMessageActivity extends BaseActivity implements AdapterView.OnItemClickListener {
+public class NewTextMessageActivity extends BaseActionBarActivity implements AdapterView.OnItemClickListener {
     private ListView mReplyListView;
     private String mTargetId;
     private Conversation.ConversationType mConversationType;
@@ -33,15 +33,10 @@ public class NewTextMessageActivity extends BaseActivity implements AdapterView.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_reply);
-
         getSupportActionBar().setTitle("选择回复的人");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.de_actionbar_back);
 
         mReplyListView = (ListView) findViewById(R.id.de_reply);
-
         mNumberlist = new ArrayList();
         mUserInfoList = new ArrayList<UserInfo>();
         initDate();

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Rong_IMKit_v2_6_9">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/IMKit_SDK_v2_6_9_stable_with_CallKit/src/main/libs/Rong_IMKit_v2_6_9.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

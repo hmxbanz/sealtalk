@@ -18,7 +18,7 @@ import cn.rongcloud.im.server.widget.LoadDialog;
  * Created by AMing on 16/6/23.
  * Company RongCloud
  */
-public class UpdatePasswordActivity extends BaseActivity implements View.OnClickListener {
+public class UpdatePasswordActivity extends BaseActionBarActivity implements View.OnClickListener {
     private static final int UPDATEPASSWORD = 15;
     private EditText oldPasswordEdit, newPasswrodEdit, newPassword2Edit;
     private Button confirm;
@@ -28,8 +28,7 @@ public class UpdatePasswordActivity extends BaseActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_pswd);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.de_actionbar_back);
+
         getSupportActionBar().setTitle(R.string.change_password);
         cachePassword  = sp.getString("loginpassword", "");
         initViews();
@@ -58,8 +57,7 @@ public class UpdatePasswordActivity extends BaseActivity implements View.OnClick
             return;
         }
         if (TextUtils.isEmpty(new2)) {
-            NToast.shortToast(
-                mContext, R.string.confirm_password_not_null);
+            NToast.shortToast(mContext, R.string.confirm_password_not_null);
             return;
         }
         if (!cachePassword.equals(old)) {

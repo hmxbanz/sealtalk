@@ -16,6 +16,7 @@ import java.util.Map;
 
 import cn.rongcloud.im.server.network.async.AsyncTaskManager;
 import cn.rongcloud.im.server.network.http.HttpException;
+import cn.rongcloud.im.server.utils.NLog;
 import cn.rongcloud.im.server.utils.json.JsonMananger;
 
 /**
@@ -46,11 +47,9 @@ import cn.rongcloud.im.server.utils.json.JsonMananger;
  * @date 2015-9-17
  **/
 public class BroadcastManager {
-
     private Context mContext;
     private static BroadcastManager instance;
     private Map<String, BroadcastReceiver> receiverMap;
-
     /**
      * 构造方法
      *
@@ -60,7 +59,6 @@ public class BroadcastManager {
         this.mContext = context;
         receiverMap = new HashMap<String, BroadcastReceiver>();
     }
-
     /**
      * [获取BroadcastManager实例，单例模式实现]
      *
@@ -84,6 +82,7 @@ public class BroadcastManager {
      * @param
      */
     public void addAction(String action, BroadcastReceiver receiver) {
+        NLog.d("hmx-receiver",action);
         try {
             IntentFilter filter = new IntentFilter();
             filter.addAction(action);
@@ -93,7 +92,6 @@ public class BroadcastManager {
             e.printStackTrace();
         }
     }
-
     /**
      * 发送广播
      *
@@ -131,6 +129,7 @@ public class BroadcastManager {
         intent.setAction(action);
         intent.putExtra("String", s);
         mContext.sendBroadcast(intent);
+        NLog.d("hmx-action",action);
     }
 
 

@@ -9,7 +9,6 @@ import cn.rongcloud.im.R;
  * 作用：点击 actionbar 返回键 返回
  */
 public abstract class BaseActionBarActivity extends BaseActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -34,45 +34,50 @@ import cn.rongcloud.im.utils.Constants;
 /**
  * Created by Bob on 2015/3/26.
  */
-public class NewFriendListActivity extends BaseActivity implements NewFriendListAdapter.OnItemButtonClick {
+public class NewFriendListActivity extends BaseActionBarActivity  {
 
     private static final String TAG = NewFriendListActivity.class.getSimpleName();
     private static final int GETALL = 11;
     private static final int AGREEFRIENDS = 12;
-
-    private ListView shipListView;
     private NewFriendListAdapter adapter;
     private String friendId;
     private TextView isData;
+    private UserRelationshipResponse urres;
+    private int index;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_friendlist);
-        initView();
-
-        if (!CommonUtils.isNetworkConnected(mContext)) {
-            NToast.shortToast(mContext, R.string.check_network);
-            return;
-        }
-        LoadDialog.show(mContext);
-        request(GETALL);
-        adapter = new NewFriendListAdapter(mContext);
-        shipListView.setAdapter(adapter);
-
-    }
-
-    protected void initView() {
         getSupportActionBar().setTitle(R.string.new_friends);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.de_actionbar_back);
-        shipListView = (ListView) findViewById(R.id.shiplistview);
-        isData = (TextView) findViewById(R.id.isData);
-        sp = getSharedPreferences("config", MODE_PRIVATE);
-        editor = sp.edit();
-
+        initView();
     }
-
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.de_add_friend_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.icon:
+                Intent intent = new Intent(NewFriendListActivity.this, SearchFriendActivity.class);
+                startActivityForResult(intent, Constants.FRIENDLIST_REQUESTCODE);
+                break;
+            case android.R.id.home:
+                finish();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    @Override
+    protected void onDestroy() {
+        if (adapter != null) {
+            adapter = null;
+        }
+        super.onDestroy();
+    }
 
     @Override
     public Object doInBackground(int requestCode, String id) throws HttpException {
@@ -84,9 +89,6 @@ public class NewFriendListActivity extends BaseActivity implements NewFriendList
         }
         return super.doInBackground(requestCode, id);
     }
-
-    UserRelationshipResponse urres;
-
     @Override
     public void onSuccess(int requestCode, Object result) {
         if (result != null) {
@@ -99,7 +101,6 @@ public class NewFriendListActivity extends BaseActivity implements NewFriendList
                         LoadDialog.dismiss(mContext);
                         return;
                     }
-
                     Collections.sort(urres.getResult(), new Comparator<UserRelationshipResponse.ResultEntity>() {
 
                         @Override
@@ -117,7 +118,7 @@ public class NewFriendListActivity extends BaseActivity implements NewFriendList
                     adapter.addData(urres.getResult());
 
                     adapter.notifyDataSetChanged();
-                    adapter.setOnItemButtonClick(this);
+                    adapter.setOnItemButtonClick(new ItemButtonClickListener());
                     LoadDialog.dismiss(mContext);
                     break;
                 case AGREEFRIENDS:
@@ -130,7 +131,7 @@ public class NewFriendListActivity extends BaseActivity implements NewFriendList
                                 , bean.getDisplayName()
                                 , String.valueOf(bean.getStatus())
                                 , null  //TODO 不是时间戳 格式错误 2016-01-07T06:22:55.000Z
-                                                                                                                 ));
+                        ));
                         // 通知好友列表刷新数据
                         NToast.shortToast(mContext, R.string.agreed_friend);
                         LoadDialog.dismiss(mContext);
@@ -141,75 +142,27 @@ public class NewFriendListActivity extends BaseActivity implements NewFriendList
             }
         }
     }
-
-
     @Override
     public void onFailure(int requestCode, int state, Object result) {
         switch (requestCode) {
             case GETALL:
                 break;
-
         }
     }
 
+    protected void initView() {
+        ListView shipListView;
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.de_add_friend_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.icon:
-                Intent intent = new Intent(NewFriendListActivity.this, SearchFriendActivity.class);
-                startActivityForResult(intent, Constants.FRIENDLIST_REQUESTCODE);
-                break;
-            case android.R.id.home:
-                finish();
-                break;
+        shipListView = (ListView) findViewById(R.id.shiplistview);
+        isData = (TextView) findViewById(R.id.isData);
+        if (!CommonUtils.isNetworkConnected(mContext)) {
+            NToast.shortToast(mContext, R.string.check_network);
+            return;
         }
-        return super.onOptionsItemSelected(item);
-    }
-
-
-    @Override
-    protected void onDestroy() {
-        if (adapter != null) {
-            adapter = null;
-        }
-        super.onDestroy();
-    }
-
-    private int index;
-
-    @Override
-    public boolean onButtonClick(int position, View view, int status) {
-        index = position;
-        switch (status) {
-            case 11: //收到了好友邀请
-                if (!CommonUtils.isNetworkConnected(mContext)) {
-                    NToast.shortToast(mContext, R.string.check_network);
-                    break;
-                }
-                LoadDialog.show(mContext);
-//                friendId = null;
-                friendId = urres.getResult().get(position).getUser().getId();
-                request(AGREEFRIENDS);
-                break;
-            case 10: // 发出了好友邀请
-                break;
-            case 21: // 忽略好友邀请
-                break;
-            case 20: // 已是好友
-                break;
-            case 30: // 删除了好友关系
-                break;
-        }
-        return false;
+        LoadDialog.show(mContext);
+        request(GETALL);
+        adapter = new NewFriendListAdapter(mContext);
+        shipListView.setAdapter(adapter);
     }
 
     private Date stringToDate(UserRelationshipResponse.ResultEntity resultEntity) {
@@ -223,6 +176,33 @@ public class NewFriendListActivity extends BaseActivity implements NewFriendList
             e.printStackTrace();
         }
         return updateAtDate;
+    }
+    private class ItemButtonClickListener implements NewFriendListAdapter.OnItemButtonClick {
+        @Override
+        public boolean onButtonClick(int position, View view, int status) {
+            index = position;
+            switch (status) {
+                case 11: //收到了好友邀请
+                    if (!CommonUtils.isNetworkConnected(mContext)) {
+                        NToast.shortToast(mContext, R.string.check_network);
+                        break;
+                    }
+                    LoadDialog.show(mContext);
+//                friendId = null;
+                    friendId = urres.getResult().get(position).getUser().getId();
+                    request(AGREEFRIENDS);
+                    break;
+                case 10: // 发出了好友邀请
+                    break;
+                case 21: // 忽略好友邀请
+                    break;
+                case 20: // 已是好友
+                    break;
+                case 30: // 删除了好友关系
+                    break;
+            }
+            return false;
+        }
     }
 
 }

@@ -80,52 +80,31 @@ public class NewGroupDetailActivity extends BaseActivity implements View.OnClick
     private static final int GETGROUPINFO2 = 31;
     private static final int UPDATEGROUPNAME = 32;
     private static final int GETQINIUTOKEN = 133;
-
-
+    private static final int UPDATEGROUPHEADER = 25;
     private boolean isCreated;
-
     private DemoGridView gridview;
-
     private List<GetGroupMemberResponse.ResultEntity> mGroupMember;
-
     private GridAdapter adapter;
-
     private TextView mTextViewMemberSize, mGroupDisplayNameText;
-
     private SelectableRoundedImageView mGroupHeader;
-
     private LinearLayout mGroupDisplayName, groupClean;
-
     private Button mQuitBtn, mDismissBtn;
     private String groupDisplayNmae;
-
     private RelativeLayout totalGroupMember;
-
     private SwitchButton messageTop, messageNotif;
     private GetGroupInfoResponse.ResultEntity mGroup;
     private String fromConversationId;
     private boolean isFromConversation;
-
     private TextView mGroupName;
-
     private LinearLayout mGroupPortL;
-
     private LinearLayout mGroupNameL;
-
     private PhotoUtils photoUtils;
-
     private BottomMenuDialog dialog;
-
     private UploadManager uploadManager;
-
     private String imageUrl;
-
     private Uri selectUri;
-
     private String newGroupName;
     private LinearLayout mGroupNotice;
-
-    private static final int UPDATEGROUPHEADER = 25;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -148,7 +127,6 @@ public class NewGroupDetailActivity extends BaseActivity implements View.OnClick
         }
         setPortraitChangeListener();
     }
-
 
     @Override
     public Object doInBackground(int requestCode, String id) throws HttpException {
@@ -387,7 +365,6 @@ public class NewGroupDetailActivity extends BaseActivity implements View.OnClick
         }
     }
 
-
     @Override
     public void onFailure(int requestCode, int state, Object result) {
         switch (requestCode) {
@@ -562,7 +539,6 @@ public class NewGroupDetailActivity extends BaseActivity implements View.OnClick
         }
     }
 
-
     private class GridAdapter extends BaseAdapter {
 
         private List<GetGroupMemberResponse.ResultEntity> list;
@@ -684,7 +660,6 @@ public class NewGroupDetailActivity extends BaseActivity implements View.OnClick
 
     }
 
-
     // 拿到新增的成员刷新adapter
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -709,13 +684,11 @@ public class NewGroupDetailActivity extends BaseActivity implements View.OnClick
 
     }
 
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         finish();
         return super.onOptionsItemSelected(item);
     }
-
 
     @Override
     protected void onDestroy() {
@@ -739,7 +712,6 @@ public class NewGroupDetailActivity extends BaseActivity implements View.OnClick
         return newList;
     }
 
-
     private void setPortraitChangeListener() {
         photoUtils = new PhotoUtils(new PhotoUtils.OnPhotoResultListener() {
             @Override
@@ -757,7 +729,6 @@ public class NewGroupDetailActivity extends BaseActivity implements View.OnClick
             }
         });
     }
-
 
     /**
      * 弹出底部框
@@ -788,7 +759,6 @@ public class NewGroupDetailActivity extends BaseActivity implements View.OnClick
         });
         dialog.show();
     }
-
 
     public void uploadImage(final String domain, String imageToken, Uri imagePath) {
         if (TextUtils.isEmpty(domain) && TextUtils.isEmpty(imageToken) && TextUtils.isEmpty(imagePath.toString())) {

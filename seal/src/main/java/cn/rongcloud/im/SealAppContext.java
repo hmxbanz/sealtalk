@@ -56,15 +56,12 @@ import io.rong.message.LocationMessage;
  */
 public class SealAppContext implements RongIM.ConversationListBehaviorListener, RongIMClient.OnReceiveMessageListener, RongIM.UserInfoProvider, RongIM.GroupInfoProvider, RongIM.GroupUserInfoProvider, RongIMClient.ConnectionStatusListener, RongIM.LocationProvider, RongIM.ConversationBehaviorListener {
 
-
     public static final String UPDATEFRIEND = "updatefriend";
     public static final String UPDATEREDDOT = "updatereddot";
     private Context mContext;
 
     private static SealAppContext mRongCloudInstance;
-
     private RongIM.LocationProvider.LocationCallback mLastLocationCallback;
-
     private Stack<Map<String, Activity>> mActivityStack;
 
     public SealAppContext(Context mContext) {
@@ -79,17 +76,13 @@ public class SealAppContext implements RongIM.ConversationListBehaviorListener, 
      * @param context 上下文。
      */
     public static void init(Context context) {
-
         if (mRongCloudInstance == null) {
-
             synchronized (SealAppContext.class) {
-
                 if (mRongCloudInstance == null) {
                     mRongCloudInstance = new SealAppContext(context);
                 }
             }
         }
-
     }
 
     public boolean pushActivity(Conversation.ConversationType conversationType, String targetId, Activity activity) {
@@ -149,7 +142,6 @@ public class SealAppContext implements RongIM.ConversationListBehaviorListener, 
     }
 
     private void setInputProvider() {
-
         RongIM.setOnReceiveMessageListener(this);
         RongIM.setConnectionStatusListener(this);
 
@@ -157,7 +149,6 @@ public class SealAppContext implements RongIM.ConversationListBehaviorListener, 
             new ImageInputProvider(RongContext.getInstance()),
             new RealTimeLocationInputProvider(RongContext.getInstance()) //带位置共享的地理位置
         };
-
         InputProvider.ExtendProvider[] muiltiProvider = {
             new ImageInputProvider(RongContext.getInstance()),
             new LocationInputProvider(RongContext.getInstance()),//地理位置
@@ -248,7 +239,7 @@ public class SealAppContext implements RongIM.ConversationListBehaviorListener, 
             ContactNotificationMessage contactNotificationMessage = (ContactNotificationMessage) messageContent;
             if (contactNotificationMessage.getOperation().equals("Request")) {
                 //对方发来好友邀请
-                BroadcastManager.getInstance(mContext).sendBroadcast(SealAppContext.UPDATEREDDOT);
+                //BroadcastManager.getInstance(mContext).sendBroadcast(SealAppContext.UPDATEREDDOT);
             } else if (contactNotificationMessage.getOperation().equals("AcceptResponse")) {
                 //对方同意我的好友请求
                 ContactNotificationMessageData c = null;
@@ -265,7 +256,7 @@ public class SealAppContext implements RongIM.ConversationListBehaviorListener, 
             }
 //                // 发广播通知更新好友列表
 //            BroadcastManager.getInstance(mContext).sendBroadcast(UPDATEREDDOT);
-//            }
+
         } else if (messageContent instanceof GroupNotificationMessage) {
             GroupNotificationMessage groupNotificationMessage = (GroupNotificationMessage) messageContent;
             NLog.e("" + groupNotificationMessage.getMessage());
@@ -401,7 +392,6 @@ public class SealAppContext implements RongIM.ConversationListBehaviorListener, 
         return false;
     }
 
-
     private void startRealTimeLocation(Context context, Conversation.ConversationType conversationType, String targetId) {
         RongIMClient.getInstance().startRealTimeLocation(conversationType, targetId);
 
@@ -429,7 +419,6 @@ public class SealAppContext implements RongIM.ConversationListBehaviorListener, 
     public boolean onMessageLongClick(Context context, View view, Message message) {
         return false;
     }
-
 
     public RongIM.LocationProvider.LocationCallback getLastLocationCallback() {
         return mLastLocationCallback;

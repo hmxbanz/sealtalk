@@ -75,7 +75,6 @@ import io.rong.message.VoiceMessage;
  * 3，push 和 通知 判断
  */
 public class ConversationActivity extends BaseActivity implements RongIMClient.RealTimeLocationListener {
-
     private static final int GETUSERINFO = 111;
     private static final int GETGROUPMEMBER = 100;
     private String TAG = ConversationActivity.class.getSimpleName();
@@ -95,19 +94,14 @@ public class ConversationActivity extends BaseActivity implements RongIMClient.R
      * 是否在讨论组内，如果不在讨论组内，则进入不到讨论组设置页面
      */
     private boolean isDiscussion = false;
-
     private boolean isFromPush = false;
-
     private RelativeLayout mRealTimeBar;//real-time bar
     private RealTimeLocationConstant.RealTimeLocationStatus currentLocationStatus;
     private LoadingDialog mDialog;
-
     private final String TextTypingTitle = "对方正在输入...";
     private final String VoiceTypingTitle = "对方正在讲话...";
-
     private Handler mHandler;
     private RongIM.IGroupMemberCallback mMentionMemberCallback;
-
     public static final int SET_TEXT_TYPING_TITLE = 1;
     public static final int SET_VOICE_TYPING_TITLE = 2;
     public static final int SET_TARGETID_TITLE = 0;
@@ -275,7 +269,6 @@ public class ConversationActivity extends BaseActivity implements RongIMClient.R
                             String str = s.toString().substring(s.toString().length() - 1, s.toString().length());
 
                             if (str.equals("@")) {
-
                                 Intent intent = new Intent(ConversationActivity.this, NewTextMessageActivity.class);
                                 intent.putExtra("DEMO_REPLY_CONVERSATIONTYPE", mConversationType.toString());
 
@@ -544,16 +537,12 @@ public class ConversationActivity extends BaseActivity implements RongIMClient.R
      * 设置讨论组界面 ActionBar
      */
     private void setDiscussionActionBar(String targetId) {
-
         if (targetId != null) {
-
-            RongIM.getInstance().getDiscussion(targetId
-            , new RongIMClient.ResultCallback<Discussion>() {
+            RongIM.getInstance().getDiscussion(targetId,new RongIMClient.ResultCallback<Discussion>() {
                 @Override
                 public void onSuccess(Discussion discussion) {
                     getSupportActionBar().setTitle(discussion.getName());
                 }
-
                 @Override
                 public void onError(RongIMClient.ErrorCode e) {
                     if (e.equals(RongIMClient.ErrorCode.NOT_IN_DISCUSSION)) {
@@ -607,10 +596,8 @@ public class ConversationActivity extends BaseActivity implements RongIMClient.R
 
         switch (item.getItemId()) {
             case R.id.icon:
-
                 if (mConversationType == null)
                     return true;
-
                 enterSettingActivity();
                 break;
             case android.R.id.home:

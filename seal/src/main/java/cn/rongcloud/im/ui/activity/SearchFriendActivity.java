@@ -28,37 +28,27 @@ import cn.rongcloud.im.server.widget.SelectableRoundedImageView;
 /**
  * Created by Bob on 2015/3/26.
  */
-public class SearchFriendActivity extends BaseActivity {
-
+public class SearchFriendActivity extends BaseActionBarActivity {
     private static final int SEARCHPHONE = 10;
     private static final int ADDFRIEND = 11;
     private EditText mEtSearch;
-
     private Button mBtSearch;
-
     private LinearLayout searchItem;
-
     private TextView searchName;
-
     private SelectableRoundedImageView searchImage;
-
     private String mPhone, addFriendMessage, mFriendId;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
         getSupportActionBar().setTitle(R.string.Search);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.de_actionbar_back);
 
         mEtSearch = (EditText) findViewById(R.id.de_ui_search);
         mBtSearch = (Button) findViewById(R.id.de_search);
         searchItem = (LinearLayout) findViewById(R.id.search_result);
         searchName = (TextView) findViewById(R.id.search_name);
         searchImage = (SelectableRoundedImageView) findViewById(R.id.search_header);
-
 
         mBtSearch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,12 +58,10 @@ public class SearchFriendActivity extends BaseActivity {
                     NToast.shortToast(mContext, R.string.phone_number_is_null);
                     return;
                 }
-
                 if (!AMUtils.isMobile(mPhone)) {
                     NToast.shortToast(mContext, "手机号正则验证失败");
                     return;
                 }
-
                 LoadDialog.show(mContext);
                 request(SEARCHPHONE, true);
             }

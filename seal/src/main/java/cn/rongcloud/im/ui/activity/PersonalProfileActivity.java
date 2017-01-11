@@ -23,6 +23,7 @@ import cn.rongcloud.im.db.FriendDao;
 import cn.rongcloud.im.server.network.http.HttpException;
 import cn.rongcloud.im.server.response.FriendInvitationResponse;
 import cn.rongcloud.im.server.response.GetGroupInfoResponse;
+import cn.rongcloud.im.server.utils.NLog;
 import cn.rongcloud.im.server.utils.NToast;
 import cn.rongcloud.im.server.widget.DialogWithYesOrNoUtils;
 import cn.rongcloud.im.server.widget.LoadDialog;
@@ -61,6 +62,7 @@ public class PersonalProfileActivity extends BaseActionBarActivity implements Vi
         initViews();
         initData();
     }
+
     private void initViews() {
         mPersonalPortrait = (ImageView) findViewById(R.id.per_friend_header);
         mPersonalName = (TextView) findViewById(R.id.per_friend_name);
@@ -77,6 +79,8 @@ public class PersonalProfileActivity extends BaseActionBarActivity implements Vi
         ImageLoader.getInstance().displayImage(userInfo.getPortraitUri().toString(), mPersonalPortrait, App.getOptions());
         if (userInfo != null && !TextUtils.isEmpty(userInfo.getUserId())) {
             mySelf = sp.getString("loginid", "");
+            NLog.d("hmx-mySelf",mySelf);
+            NLog.d("hmx-getUserId",userInfo.getUserId());
             if (mySelf.equals(userInfo.getUserId())) {
                 mChatGroupBtn.setVisibility(View.VISIBLE);
                 return;

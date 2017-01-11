@@ -33,24 +33,18 @@ import io.rong.imlib.model.UserInfo;
  * Created by zhjchen on 8/12/15.
  */
 public class RealTimeLocationActivity extends LocationMapActivity implements View.OnClickListener {
-
     private RealTimeLocationHorizontalScrollView horizontalScrollView;
     private ImageView mExitImageView;
     private ImageView mCloseImageView;
     private TextView mParticipantTextView;
-
     private RelativeLayout mLayout;
-
     private List<Friend> list;
-
     private SharedPreferences sp;
-
 
     @Override
     protected int getContentView() {
         return R.layout.activity_share_location;
     }
-
     @Override
     protected MapView initView(Bundle savedInstanceState) {
 
@@ -99,7 +93,6 @@ public class RealTimeLocationActivity extends LocationMapActivity implements Vie
         return mapView;
     }
 
-
     @Override
     protected void initData() {
         super.initData();
@@ -146,7 +139,6 @@ public class RealTimeLocationActivity extends LocationMapActivity implements Vie
 
     }
 
-
     public void onEventMainThread(final RongEvent.RealTimeLocationReceiveEvent event) {
         String userId = event.getUserId();
         UserInfo userInfo = getCacheUserInfoById(userId);
@@ -155,13 +147,9 @@ public class RealTimeLocationActivity extends LocationMapActivity implements Vie
         }
     }
 
-
     public void onEventMainThread(RongEvent.RealTimeLocationQuitEvent event) {
-
         String userId = event.getUserId();
-
         removeMarker(userId);
-
         horizontalScrollView.removeUserFromView(userId);
         setParticipantTextView(-1);
     }
@@ -173,7 +161,6 @@ public class RealTimeLocationActivity extends LocationMapActivity implements Vie
 
     @Override
     public boolean handleMessage(Message msg) {
-
         return false;
     }
 

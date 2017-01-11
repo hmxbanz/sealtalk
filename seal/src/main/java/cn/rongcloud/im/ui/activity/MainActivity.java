@@ -24,6 +24,7 @@ import java.util.List;
 import cn.rongcloud.im.R;
 import cn.rongcloud.im.SealConst;
 import cn.rongcloud.im.server.broadcast.BroadcastManager;
+import cn.rongcloud.im.server.utils.NLog;
 import cn.rongcloud.im.server.utils.NToast;
 import cn.rongcloud.im.server.widget.LoadDialog;
 import cn.rongcloud.im.ui.adapter.ConversationListAdapterEx;
@@ -41,156 +42,34 @@ import io.rong.message.ContactNotificationMessage;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
-    private FragmentPagerAdapter mFragmentPagerAdapter; //将 tab  页面持久在内存中
     private ViewPager mViewPager;
-    private Fragment mConversationList;
     private List<Fragment> mFragment = new ArrayList<>();
-    private RelativeLayout chatRLayout, contactRLayout, foundRLayout, mineRLayout;
     private ImageView moreImage, mImageChats, mImageContact, mImageFind, mImageMe, mMineRed;
     private TextView mTextChats, mTextContact, mTextFind, mTextMe;
     private DragPointView mUnreadNumView;
     /**
      * 会话列表的fragment
      */
-    private Fragment mConversationListFragment = null;
+    //private Fragment mConversationListFragment = null;
     private boolean isDebug;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
-        isDebug = getSharedPreferences("config", MODE_PRIVATE).getBoolean("isDebug", false);
+        isDebug = sp.getBoolean("isDebug", false);
+        initViews();
+        initMianViewPager();
+        changeTextViewColor();
+        changeSelectedTabState(0);
         if (RongIM.getInstance() != null && RongIM.getInstance().getCurrentConnectionStatus().equals(RongIMClient.ConnectionStatusListener.ConnectionStatus.DISCONNECTED)) {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    initViews();
-                    initMianViewPager();
-                    changeTextViewColor();
-                    changeSelectedTabState(0);
-                    if (RongIM.getInstance() != null && RongIM.getInstance().getCurrentConnectionStatus().equals(RongIMClient.ConnectionStatusListener.ConnectionStatus.DISCONNECTED)) {
-                        reconnect();
-                    }
+                    connect();
                 }
             }, 300);
-        } else {
-            initViews();
-            initMianViewPager();
-            changeTextViewColor();
-            changeSelectedTabState(0);
-        }
-    }
-
-    private void reconnect() {
-        sp = getSharedPreferences("config", MODE_PRIVATE);
-        String token = sp.getString("loginToken", "");
-        RongIM.connect(token, new RongIMClient.ConnectCallback() {
-            @Override
-            public void onTokenIncorrect() {
-
-            }
-
-            @Override
-            public void onSuccess(String s) {
-                initViews();
-                initMianViewPager();
-                changeTextViewColor();
-                changeSelectedTabState(0);
-            }
-
-            @Override
-            public void onError(RongIMClient.ErrorCode e) {
-
-            }
-        });
-    }
-    private void initViews() {
-        chatRLayout = (RelativeLayout) findViewById(R.id.seal_chat);
-        contactRLayout = (RelativeLayout) findViewById(R.id.seal_contact_list);
-        foundRLayout = (RelativeLayout) findViewById(R.id.seal_find);
-        mineRLayout = (RelativeLayout) findViewById(R.id.seal_me);
-        mImageChats = (ImageView) findViewById(R.id.tab_img_chats);
-        mImageContact = (ImageView) findViewById(R.id.tab_img_contact);
-        mImageFind = (ImageView) findViewById(R.id.tab_img_find);
-        mImageMe = (ImageView) findViewById(R.id.tab_img_me);
-        mTextChats = (TextView) findViewById(R.id.tab_text_chats);
-        mTextContact = (TextView) findViewById(R.id.tab_text_contact);
-        mTextFind = (TextView) findViewById(R.id.tab_text_find);
-        mTextMe = (TextView) findViewById(R.id.tab_text_me);
-        mMineRed = (ImageView) findViewById(R.id.mine_red);
-        moreImage = (ImageView) findViewById(R.id.seal_more);
-
-        chatRLayout.setOnClickListener(this);
-        contactRLayout.setOnClickListener(this);
-        foundRLayout.setOnClickListener(this);
-        mineRLayout.setOnClickListener(this);
-        moreImage.setOnClickListener(this);
-        BroadcastManager.getInstance(mContext).addAction(MineFragment.SHOWRED, new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                mMineRed.setVisibility(View.VISIBLE);
-            }
-        });
-    }
-    private void initMianViewPager() {
-        mViewPager = (ViewPager) findViewById(R.id.main_viewpager);
-        mConversationList = initConversationList();
-
-        mUnreadNumView = (DragPointView) findViewById(R.id.seal_num);
-        mUnreadNumView.setOnClickListener(this);
-        mUnreadNumView.setDragListencer(new DragListencer());
-
-        mFragment.add(mConversationList);
-        mFragment.add(ContactsFragment.getInstance());
-        mFragment.add(DiscoverFragment.getInstance());
-        mFragment.add(MineFragment.getInstance());
-        mFragmentPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
-            @Override
-            public Fragment getItem(int position) {
-                return mFragment.get(position);
-            }
-
-            @Override
-            public int getCount() {
-                return mFragment.size();
-            }
-        };
-        mViewPager.setAdapter(mFragmentPagerAdapter);
-        mViewPager.setOffscreenPageLimit(4);
-        mViewPager.setOnPageChangeListener(new PageChangerListener());
-        initData();
-    }
-    private Fragment initConversationList() {
-        if (mConversationListFragment == null) {
-            ConversationListFragment listFragment = ConversationListFragment.getInstance();
-            listFragment.setAdapter(new ConversationListAdapterEx(RongContext.getInstance()));
-            Uri uri;
-            if (isDebug) {
-                uri = Uri.parse("rong://" + getApplicationInfo().packageName).buildUpon()
-                      .appendPath("conversationlist")
-                      .appendQueryParameter(Conversation.ConversationType.PRIVATE.getName(), "false") //设置私聊会话是否聚合显示
-                      .appendQueryParameter(Conversation.ConversationType.GROUP.getName(), "false")//群组
-                      .appendQueryParameter(Conversation.ConversationType.PUBLIC_SERVICE.getName(), "false")//公共服务号
-                      .appendQueryParameter(Conversation.ConversationType.APP_PUBLIC_SERVICE.getName(), "false")//订阅号
-                      .appendQueryParameter(Conversation.ConversationType.SYSTEM.getName(), "true")//系统
-                      .appendQueryParameter(Conversation.ConversationType.DISCUSSION.getName(), "false")
-                      .build();
-            } else {
-                uri = Uri.parse("rong://" + getApplicationInfo().packageName).buildUpon()
-                      .appendPath("conversationlist")
-                      .appendQueryParameter(Conversation.ConversationType.PRIVATE.getName(), "false") //设置私聊会话是否聚合显示
-                      .appendQueryParameter(Conversation.ConversationType.GROUP.getName(), "false")//群组
-                      .appendQueryParameter(Conversation.ConversationType.PUBLIC_SERVICE.getName(), "false")//公共服务号
-                      .appendQueryParameter(Conversation.ConversationType.APP_PUBLIC_SERVICE.getName(), "false")//订阅号
-                      .appendQueryParameter(Conversation.ConversationType.SYSTEM.getName(), "true")//系统
-                      .build();
-            }
-            listFragment.setUri(uri);
-            return listFragment;
-        } else {
-            return mConversationListFragment;
         }
     }
     @Override
@@ -229,7 +108,137 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         }
         return super.onKeyDown(keyCode, event);
     }
+    private void connect() {
+        String token = sp.getString("loginToken", "");
+        RongIM.connect(token, new RongIMClient.ConnectCallback() {
+            @Override
+            public void onTokenIncorrect() {
+            }
+            @Override
+            public void onSuccess(String s) {
+            }
+            @Override
+            public void onError(RongIMClient.ErrorCode e) {
 
+            }
+        });
+    }
+    private void initViews() {
+        RelativeLayout chatRLayout, contactRLayout, foundRLayout, mineRLayout;
+        chatRLayout = (RelativeLayout) findViewById(R.id.seal_chat);
+        contactRLayout = (RelativeLayout) findViewById(R.id.seal_contact_list);
+        foundRLayout = (RelativeLayout) findViewById(R.id.seal_find);
+        mineRLayout = (RelativeLayout) findViewById(R.id.seal_me);
+        mImageChats = (ImageView) findViewById(R.id.tab_img_chats);
+        mImageContact = (ImageView) findViewById(R.id.tab_img_contact);
+        mImageFind = (ImageView) findViewById(R.id.tab_img_find);
+        mImageMe = (ImageView) findViewById(R.id.tab_img_me);
+        mTextChats = (TextView) findViewById(R.id.tab_text_chats);
+        mTextContact = (TextView) findViewById(R.id.tab_text_contact);
+        mTextFind = (TextView) findViewById(R.id.tab_text_find);
+        mTextMe = (TextView) findViewById(R.id.tab_text_me);
+        mMineRed = (ImageView) findViewById(R.id.mine_red);
+        moreImage = (ImageView) findViewById(R.id.seal_more);
+        chatRLayout.setOnClickListener(this);
+        contactRLayout.setOnClickListener(this);
+        foundRLayout.setOnClickListener(this);
+        mineRLayout.setOnClickListener(this);
+        moreImage.setOnClickListener(this);
+    }
+    private void initMianViewPager() {
+        Fragment mConversationList;
+        FragmentPagerAdapter mFragmentPagerAdapter; //将 tab  页面持久在内存中
+
+        mViewPager = (ViewPager) findViewById(R.id.main_viewpager);
+        mUnreadNumView = (DragPointView) findViewById(R.id.seal_num);
+        mUnreadNumView.setOnClickListener(this);
+        mUnreadNumView.setDragListencer(new DragListencer());
+        mConversationList = initConversationList();
+        mFragment.add(mConversationList);
+        mFragment.add(ContactsFragment.getInstance());
+        mFragment.add(DiscoverFragment.getInstance());
+        mFragment.add(MineFragment.getInstance());
+        mFragmentPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
+            @Override
+            public Fragment getItem(int position) {
+                return mFragment.get(position);
+            }
+            @Override
+            public int getCount() {
+                return mFragment.size();
+            }
+        };
+        mViewPager.setAdapter(mFragmentPagerAdapter);
+        mViewPager.setOffscreenPageLimit(4);
+        mViewPager.setOnPageChangeListener(new PageChangerListener());
+        initData();
+    }
+    private void initData() {
+        BroadcastManager.getInstance(mContext).addAction(MineFragment.SHOWRED, new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                mMineRed.setVisibility(View.VISIBLE);
+            }
+        });
+        BroadcastManager.getInstance(mContext).addAction(SealConst.EXIT, new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                editor.putBoolean("exit", true);
+                editor.apply();
+                RongIM.getInstance().logout();
+                MainActivity.this.finish();
+                try {
+                    Thread.sleep(500);
+                    android.os.Process.killProcess(android.os.Process.myPid());
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        final Conversation.ConversationType[] conversationTypes = {Conversation.ConversationType.PRIVATE,
+                Conversation.ConversationType.GROUP,Conversation.ConversationType.SYSTEM,
+                Conversation.ConversationType.PUBLIC_SERVICE, Conversation.ConversationType.APP_PUBLIC_SERVICE};
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                RongIM.getInstance().setOnReceiveUnreadCountChangedListener(mCountListener, conversationTypes);
+            }
+        }, 500);
+        getConversationPush();// 获取 push 的 id 和 target
+        getPushMessage();
+    }
+    private Fragment initConversationList() {
+        //if (mConversationListFragment == null) {
+            ConversationListFragment listFragment = ConversationListFragment.getInstance();
+            listFragment.setAdapter(new ConversationListAdapterEx(RongContext.getInstance()));
+            Uri uri;
+            if (isDebug) {
+                uri = Uri.parse("rong://" + getApplicationInfo().packageName).buildUpon()
+                      .appendPath("conversationlist")
+                      .appendQueryParameter(Conversation.ConversationType.PRIVATE.getName(), "false") //设置私聊会话是否聚合显示
+                      .appendQueryParameter(Conversation.ConversationType.GROUP.getName(), "false")//群组
+                      .appendQueryParameter(Conversation.ConversationType.PUBLIC_SERVICE.getName(), "false")//公共服务号
+                      .appendQueryParameter(Conversation.ConversationType.APP_PUBLIC_SERVICE.getName(), "false")//订阅号
+                      .appendQueryParameter(Conversation.ConversationType.SYSTEM.getName(), "true")//系统
+                      .appendQueryParameter(Conversation.ConversationType.DISCUSSION.getName(), "false")
+                      .build();
+            } else {
+                uri = Uri.parse("rong://" + getApplicationInfo().packageName).buildUpon()
+                      .appendPath("conversationlist")
+                      .appendQueryParameter(Conversation.ConversationType.PRIVATE.getName(), "false") //设置私聊会话是否聚合显示
+                      .appendQueryParameter(Conversation.ConversationType.GROUP.getName(), "false")//群组
+                      .appendQueryParameter(Conversation.ConversationType.PUBLIC_SERVICE.getName(), "false")//公共服务号
+                      .appendQueryParameter(Conversation.ConversationType.APP_PUBLIC_SERVICE.getName(), "false")//订阅号
+                      .appendQueryParameter(Conversation.ConversationType.SYSTEM.getName(), "true")//系统
+                      .build();
+            }
+            listFragment.setUri(uri);
+            return listFragment;
+        //} else {
+        //    return mConversationListFragment;
+        //}
+    }
     private void changeTextViewColor() {
         mImageChats.setBackgroundDrawable(getResources().getDrawable(R.drawable.tab_chat));
         mImageContact.setBackgroundDrawable(getResources().getDrawable(R.drawable.tab_contacts));
@@ -259,44 +268,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 mImageMe.setBackgroundDrawable(getResources().getDrawable(R.drawable.tab_me_hover));
                 break;
         }
-    }
-    protected void initData() {
-
-        final Conversation.ConversationType[] conversationTypes = {
-            Conversation.ConversationType.PRIVATE,
-            Conversation.ConversationType.GROUP, Conversation.ConversationType.SYSTEM,
-            Conversation.ConversationType.PUBLIC_SERVICE, Conversation.ConversationType.APP_PUBLIC_SERVICE
-        };
-
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                RongIM.getInstance().setOnReceiveUnreadCountChangedListener(mCountListener, conversationTypes);
-            }
-        }, 500);
-
-        getConversationPush();// 获取 push 的 id 和 target
-
-        getPushMessage();
-
-        BroadcastManager.getInstance(mContext).addAction(SealConst.EXIT, new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                editor = getSharedPreferences("config", MODE_PRIVATE).edit();
-                editor.putBoolean("exit", true);
-                editor.apply();
-
-                RongIM.getInstance().logout();
-                MainActivity.this.finish();
-                try {
-                    Thread.sleep(500);
-                    android.os.Process.killProcess(android.os.Process.myPid());
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
     }
     private void getConversationPush() {
         if (getIntent() != null && getIntent().hasExtra("PUSH_CONVERSATIONTYPE") && getIntent().hasExtra("PUSH_TARGETID")) {
@@ -328,7 +299,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             });
         }
     }
-
     /**
      * 得到不落地 push 消息
      */
@@ -337,7 +307,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         if (intent != null && intent.getData() != null && intent.getData().getScheme().equals("rong")) {
             String path = intent.getData().getPath();
             if (path.contains("push_message")) {
-                sp = getSharedPreferences("config", MODE_PRIVATE);
                 String cacheToken = sp.getString("loginToken", "");
                 if (TextUtils.isEmpty(cacheToken)) {
                     startActivity(new Intent(MainActivity.this, LoginActivity.class));
@@ -365,7 +334,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             }
         }
     }
-
     public RongIM.OnReceiveUnreadCountChangedListener mCountListener = new RongIM.OnReceiveUnreadCountChangedListener() {
         @Override
         public void onMessageIncreased(int count) {
@@ -380,7 +348,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             }
         }
     };
-
     private void hintKbTwo() {
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         if (imm.isActive() && getCurrentFocus() != null) {

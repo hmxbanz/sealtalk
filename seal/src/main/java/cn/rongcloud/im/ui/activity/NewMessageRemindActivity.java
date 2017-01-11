@@ -19,8 +19,6 @@ public class NewMessageRemindActivity extends BaseActionBarActivity  {
         setContentView(R.layout.activity_new_message_remind);
 
         getSupportActionBar().setTitle(R.string.new_message_notice);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.de_actionbar_back);
 
         RelativeLayout  mNotice = (RelativeLayout) findViewById(R.id.seal_notice);
 

@@ -41,23 +41,18 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     private static final int REGISTER = 4;
     private static final int REGIST_BACK = 1001;
     private ImageView mImgBackgroud;
-
     private TextView goLogin , goForget;
-
     private ClearWriteEditText mPhoneEdit, mCodeEdit, mNickEdit, mPasswordEdit;
-
     private Button mGetCode, mConfirm;
-
     private String mPhone, mCode, mNickName, mPassword, mCodeToken;
-
     private boolean isRequestCode = false;
+    private boolean isBright = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
+        getSupportActionBar().hide();
         initView();
     }
 
@@ -68,16 +63,13 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
         mPasswordEdit = (ClearWriteEditText) findViewById(R.id.reg_password);
         mGetCode = (Button) findViewById(R.id.reg_getcode);
         mConfirm = (Button) findViewById(R.id.reg_button);
-
         mGetCode.setOnClickListener(this);
         mGetCode.setClickable(false);
         mConfirm.setOnClickListener(this);
-
         goLogin = (TextView) findViewById(R.id.reg_login);
         goForget = (TextView) findViewById(R.id.reg_forget);
         goLogin.setOnClickListener(this);
         goForget.setOnClickListener(this);
-
         mImgBackgroud = (ImageView) findViewById(R.id.rg_img_backgroud);
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -88,16 +80,13 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
         }, 200);
 
         addEditTextListener();
-
     }
 
     private void addEditTextListener() {
         mPhoneEdit.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (s.length() == 11 && isBright) {
@@ -160,7 +149,6 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
             }
         });
     }
-
 
     @Override
     public Object doInBackground(int requestCode, String id) throws HttpException {
@@ -355,8 +343,6 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                 break;
         }
     }
-
-    boolean isBright = true;
 
     @Override
     public void onTick(long millisUntilFinished) {

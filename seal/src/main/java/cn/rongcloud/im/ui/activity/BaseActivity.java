@@ -11,6 +11,7 @@ import java.util.concurrent.Callable;
 
 import cn.rongcloud.im.R;
 import cn.rongcloud.im.server.SealAction;
+import cn.rongcloud.im.server.broadcast.BroadcastManager;
 import cn.rongcloud.im.server.network.async.AsyncTaskManager;
 import cn.rongcloud.im.server.network.async.OnDataListener;
 import cn.rongcloud.im.server.network.http.HttpException;
